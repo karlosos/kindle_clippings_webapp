@@ -6,16 +6,13 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "eslint": "^7.31.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.24.0",
+    "electron": "^13.1.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-dropzone": "^11.3.4",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2",
-    "electron": "^13.1.7"
+    "styled-components": "^5.3.0",
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "nf start -p 3000",
@@ -28,12 +25,6 @@
     "pack": "build --dir",
     "dist": "npm run build && build",
     "postinstall": "install-app-deps"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
