@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import styled from 'styled-components'
 import { parseFile } from './services/parseClippings'
@@ -34,7 +34,7 @@ const Container = styled.div`
   transition: border .24s ease-in-out;
 `
 
-function App() {
+function App () {
   const {
     acceptedFiles,
     getRootProps,
@@ -44,13 +44,25 @@ function App() {
     isDragReject
   } = useDropzone({ maxFiles: 1 })
 
+  const [quotes, setQuotes] = useState([])
+
+
   useEffect(() => {
     if (acceptedFiles.length > 0) {
       const file = acceptedFiles[0]
-      quotes = parseFile(file)
-      console.log(quotes)
+      parseFile(file, setQuotes)
     }
   }, [acceptedFiles])
+
+  useEffect(() => {
+    console.log(quotes)
+  }, [quotes])
+
+  const quotesItems = quotes.slice(0, 10).map((quote, index) =>
+    <li key={index}>
+      <b>{quote.book}</b> ({quote.time}) | {quote.quote}
+    </li>
+  );
 
   return (
     <div className='container'>
@@ -58,6 +70,7 @@ function App() {
         <input {...getInputProps()} />
         <p>Drag n drop some files here, or click to select files</p>
       </Container>
+      {quotesItems}
     </div>
   )
 }
