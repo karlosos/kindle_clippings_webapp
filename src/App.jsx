@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import styled from 'styled-components'
 import { parseFile } from './services/parseClippings'
-import SideMenu from './components/sideMenu'
-import Layout from './components/appStructure'
 
+import Layout from './components/Layout'
 
 import './App.css'
-import 'antd/dist/antd.css'
 
 const getColor = (props) => {
   if (props.isDragAccept) {
@@ -38,7 +36,7 @@ const Container = styled.div`
   transition: border .24s ease-in-out;
 `
 
-function App() {
+function App () {
   const {
     acceptedFiles,
     getRootProps,
@@ -49,7 +47,6 @@ function App() {
   } = useDropzone({ maxFiles: 1 })
 
   const [quotes, setQuotes] = useState([])
-
 
   useEffect(() => {
     if (acceptedFiles.length > 0) {
@@ -64,24 +61,20 @@ function App() {
 
   const quotesItems = quotes.slice(0, 10).map((quote, index) =>
     <li key={index}>
-      <b>{quote.book}</b> ({quote.time}) | {quote.quote}
+      <b>{quote.book}</b> ({quote.time}) <br /> {quote.quote}
     </li>
-  );
+  )
 
   return (
-    <Layout
-      content={
-        <>
-          <div className='container'>
-            <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
-              <input {...getInputProps()} />
-              <p>Drag n drop some files here, or click to select files</p>
-            </Container>
-            {quotesItems}
-          </div>
-        </>
-      }
-    />
+    <Layout>
+      <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
+        <input {...getInputProps()} />
+        <p>Drag n drop some files here, or click to select files</p>
+      </Container>
+      <div style={{ maxWidth: '650px' }}>
+        {quotesItems}
+      </div>
+    </Layout>
   )
 }
 

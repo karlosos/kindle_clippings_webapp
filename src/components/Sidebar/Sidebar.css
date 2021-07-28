@@ -1,0 +1,20 @@
+.ui.vertical.menu .menu .item {
+    font-size: 18px;
+    color: rgba(0,0,0,.7);
+}
+
+.ui.vertical.menu .active.item {
+    border-right: black 3px solid;
+}
+
+.ui.vertical.menu .item .menu .active.item { 
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.ui.icon.input>i.circular.icon {
+    top: .25em;
+}
+
+.menu .item .ui.input {
+    font-size: 16px;
+}

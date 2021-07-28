@@ -31,7 +31,7 @@ const parseFile = (file, setQuotes) => {
           const locationsArray = locationsRaw.split(' ')
           location = locationsArray[5].replace(/\r?\n|\r/g, '')
           time = locationsArray
-            .slice(8, 18)  // TODO: czasami to nie łapie (ludzie bezdomni vs my twisted world)
+            .slice(8, 18) // TODO: czasami to nie łapie (ludzie bezdomni vs my twisted world)
             .join(' ')
             .replace(/\r?\n|\r/g, '')
 
