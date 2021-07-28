@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import styled from 'styled-components'
 import { parseFile } from './services/parseClippings'
+import SideMenu from './components/sideMenu'
+import Layout from './components/appStructure'
+
 
 import './App.css'
+import 'antd/dist/antd.css'
 
 const getColor = (props) => {
   if (props.isDragAccept) {
@@ -34,7 +38,7 @@ const Container = styled.div`
   transition: border .24s ease-in-out;
 `
 
-function App () {
+function App() {
   const {
     acceptedFiles,
     getRootProps,
@@ -65,13 +69,19 @@ function App () {
   );
 
   return (
-    <div className='container'>
-      <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
-        <input {...getInputProps()} />
-        <p>Drag n drop some files here, or click to select files</p>
-      </Container>
-      {quotesItems}
-    </div>
+    <Layout
+      content={
+        <>
+          <div className='container'>
+            <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
+              <input {...getInputProps()} />
+              <p>Drag n drop some files here, or click to select files</p>
+            </Container>
+            {quotesItems}
+          </div>
+        </>
+      }
+    />
   )
 }
 
