@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Header from './Header/Header'
 
 import Sidebar from './Sidebar/Sidebar'
 
@@ -14,7 +15,6 @@ const Container = styled.div`
     }
 
     header {
-        border: 1px solid gray;
     }
 
     aside {
@@ -25,7 +25,6 @@ const Container = styled.div`
 
     article {
         flex-grow: 1;
-        border: 1px solid gray;
         padding: 20px;
     }
 `
@@ -34,7 +33,7 @@ const Layout = (props) => {
   return (
     <Container>
       <header>
-        This is header
+        <Header />
       </header>
       <main>
         <aside>
