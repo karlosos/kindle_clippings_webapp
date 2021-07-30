@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 
 import './App.css'
 import ImportPage from './pages/ImportPage'
+import DashboardPage from './pages/DashboardPage'
 
 
 function App () {
@@ -10,7 +11,8 @@ function App () {
 
   return (
     <Layout>
-      <ImportPage />
+      {/* <ImportPage /> */}
+      <DashboardPage />
     </Layout>
   )
 }
