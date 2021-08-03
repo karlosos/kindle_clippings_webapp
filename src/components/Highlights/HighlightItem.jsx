@@ -97,7 +97,7 @@ const HighlightItem = ({highlightInfo}) => {
                 </Favourite>
                 <Date>
                     <Icon name="clock outline" />
-                    {highlightInfo.date}
+                    {highlightInfo.time}
                 </Date>
                 <Location>
                     <Icon name="location arrow" />

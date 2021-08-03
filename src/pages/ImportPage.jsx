@@ -10,9 +10,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { concat, clear } from '../clippings/clippingsSlice'
 
 const quoteStatistics = (quotes) => {
-    const books = [...new Set(quotes.map(quote => quote.book))]
+    const quotesEntries = Object.entries(quotes)
+    const books = [...new Set(quotesEntries.map(quote => quote[1].book))]
+    console.log(books.length)
     return {
-        numHighlights: quotes.length,
+        numHighlights: quotesEntries.length,
         numBooks: books.length,
     }
 }
@@ -34,8 +36,6 @@ const ImportPage = () => {
         dispatch(concat(quotes))
     }
 
-    // const [quotes, setQuotes] = useState([])
-
     useEffect(() => {
         if (acceptedFiles.length > 0) {
             const file = acceptedFiles[0]
@@ -43,10 +43,15 @@ const ImportPage = () => {
         }
     }, [acceptedFiles])
 
-    const quotesItems = quotes.slice(0, 10).map((quote) =>
-        <li key={quote.id}>
-            <b>{quote.book}</b> ({quote.time}) <br /> {quote.quote}
-        </li>
+    const quotesItems = Object.entries(quotes).slice(0, 10).map((q) => {
+        const quoteId = q[0]
+        const {book, time, quote} = q[1]
+        return (
+            <li key={quoteId}>
+                <b>{book}</b> ({time}) <br /> {quote}
+            </li>
+        )
+    }
     )
 
     const onClearButtonClick = () => {
@@ -64,7 +69,7 @@ const ImportPage = () => {
                 isDragAccept={isDragAccept}
                 isDragReject={isDragReject}
             />
-            {quotes.length > 0 &&  <ImportedCount highlightsStatistics={quoteStatistics(quotes)} />}
+            {quotes !== {} &&  <ImportedCount highlightsStatistics={quoteStatistics(quotes)} />}
             <div style={{ maxWidth: '650px', marginTop: '32px'}}>
                 {quotesItems}
             </div>

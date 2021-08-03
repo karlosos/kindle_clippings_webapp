@@ -11,13 +11,11 @@ export const clippingsSlice = createSlice({
             // doesn't actually mutate the state because it uses the Immer library,
             // which detects changes to a "draft state" and produces a brand new
             // immutable state based off those changes
-            state.quotes = [...new Set([...state.quotes, ...action.payload])]
-            // state.quotes = {...state.quotes, ...action.payload}
-            console.log(state.quotes)
+            state.quotes = {...state.quotes, ...action.payload}
         },
         clear: (state) => {
             console.log('Clear quotes')
-            state.quotes = [] 
+            state.quotes = {}
         },
     },
 })

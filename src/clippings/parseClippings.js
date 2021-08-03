@@ -47,11 +47,13 @@ const parseFile = (file, setQuotes) => {
             .replace(/\r?\n|\r/g, '')
             .replace(/\s+/g, '')
             .toLowerCase()
+          const author = 'Author'
 
           return {
             id,
             raw,
             book,
+            author,
             quote,
             location,
             time
@@ -59,16 +61,18 @@ const parseFile = (file, setQuotes) => {
         }
       })
       .filter((q) => q)
-      // .reduce((res, { id, raw, book, quote, location, time }) => {
-      //   res[id] = {
-      //     raw: raw,
-      //     book: book,
-      //     quote: quote,
-      //     location: location,
-      //     time: time,
-      //   }
-      //   return res
-      // }, {})
+      .reduce((res, { id, raw, book, quote, location, time }) => {
+        res[id] = {
+          raw: raw,
+          book: book,
+          quote: quote,
+          location: location,
+          time: time,
+          favourite: false,
+        }
+        return res
+      }, {})
+      console.log(quotes)
     setQuotes(quotes)
   }
   fileReader.readAsText(file)
