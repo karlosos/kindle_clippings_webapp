@@ -12,9 +12,9 @@ function App () {
 
   return (
     <Layout>
-      {/* <ImportPage /> */}
+      <ImportPage />
       {/* <DashboardPage /> */}
-      <HighlightsPage />
+      {/* <HighlightsPage /> */}
     </Layout>
   )
 }

@@ -1,3 +1,8 @@
+import { v5 as uuidv5 } from 'uuid'
+
+const UUID_QUOTES_NAMESPACE = '870af37e-87ab-42e0-91df-709115d62d5f';
+
+
 const parseFile = (file, setQuotes) => {
   const fileReader = new FileReader()
   fileReader.onload = () => {
@@ -8,16 +13,16 @@ const parseFile = (file, setQuotes) => {
     if (quotesRaw.length < 2) return
 
     const quotes = quotesRaw
-    // eslint-disable-next-line
-            .map((quoteRaw) => {
+      // eslint-disable-next-line
+      .map((quoteRaw) => {
         const quoteDirty = quoteRaw.split('\n')
         // Remove empty quotes from array
         quoteRaw = quoteDirty.filter((q) => {
           return q.length > 1
         })
 
-        const book = quoteRaw[0]
-        const quote = quoteRaw[2]
+        let book = quoteRaw[0]
+        let quote = quoteRaw[2]
         let location = ''
         let time = ''
 
@@ -25,8 +30,8 @@ const parseFile = (file, setQuotes) => {
 
         if (
           (book !== undefined) &
-                    (quote !== undefined) &
-                    (locationsRaw !== undefined)
+          (quote !== undefined) &
+          (locationsRaw !== undefined)
         ) {
           const locationsArray = locationsRaw.split(' ')
           location = locationsArray[5].replace(/\r?\n|\r/g, '')
@@ -35,19 +40,35 @@ const parseFile = (file, setQuotes) => {
             .join(' ')
             .replace(/\r?\n|\r/g, '')
 
+          const id = uuidv5(location + quote + time, UUID_QUOTES_NAMESPACE)
+          quote = quote.replace(/\r?\n|\r/g, '')
+          book = book.replace(/\r?\n|\r/g, '')
+          const raw = book
+            .replace(/\r?\n|\r/g, '')
+            .replace(/\s+/g, '')
+            .toLowerCase()
+
           return {
-            raw: book
-              .replace(/\r?\n|\r/g, '')
-              .replace(/\s+/g, '')
-              .toLowerCase(),
-            book: book.replace(/\r?\n|\r/g, ''),
-            quote: quote.replace(/\r?\n|\r/g, ''),
+            id,
+            raw,
+            book,
+            quote,
             location,
             time
           }
         }
       })
       .filter((q) => q)
+      // .reduce((res, { id, raw, book, quote, location, time }) => {
+      //   res[id] = {
+      //     raw: raw,
+      //     book: book,
+      //     quote: quote,
+      //     location: location,
+      //     time: time,
+      //   }
+      //   return res
+      // }, {})
     setQuotes(quotes)
   }
   fileReader.readAsText(file)

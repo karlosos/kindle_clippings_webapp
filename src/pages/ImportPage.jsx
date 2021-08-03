@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
 import { useDropzone } from 'react-dropzone'
-import { parseFile } from '../services/parseClippings'
+import { parseFile } from '../clippings/parseClippings'
 import DragDropContainer from '../components/Import/DragDropContainer'
 import { Header } from 'semantic-ui-react'
 import ImportedCount from '../components/Import/ImportedCount'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { concat, clear } from '../clippings/clippingsSlice'
 
 const quoteStatistics = (quotes) => {
     const books = [...new Set(quotes.map(quote => quote.book))]
@@ -25,7 +28,13 @@ const ImportPage = () => {
         isDragReject
     } = useDropzone({ maxFiles: 1 })
 
-    const [quotes, setQuotes] = useState([])
+    const quotes = useSelector((state) => state.clippings.quotes)
+    const dispatch = useDispatch()
+    const setQuotes = (quotes) => {
+        dispatch(concat(quotes))
+    }
+
+    // const [quotes, setQuotes] = useState([])
 
     useEffect(() => {
         if (acceptedFiles.length > 0) {
@@ -34,12 +43,16 @@ const ImportPage = () => {
         }
     }, [acceptedFiles])
 
-    const quotesItems = quotes.slice(0, 10).map((quote, index) =>
-        <li key={index}>
+    const quotesItems = quotes.slice(0, 10).map((quote) =>
+        <li key={quote.id}>
             <b>{quote.book}</b> ({quote.time}) <br /> {quote.quote}
         </li>
     )
 
+    const onClearButtonClick = () => {
+        console.log('Try to clear')
+        dispatch(clear())
+    }
 
     return (
         <>
@@ -55,6 +68,7 @@ const ImportPage = () => {
             <div style={{ maxWidth: '650px', marginTop: '32px'}}>
                 {quotesItems}
             </div>
+            <button onClick={onClearButtonClick}>Clear</button>
         </>
     )
 }
