@@ -2,16 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 
 const getColor = (props) => {
-    if (props.isDragAccept) {
-        return '#00e676'
-    }
-    if (props.isDragReject) {
-        return '#ff1744'
-    }
-    if (props.isDragActive) {
-        return '#2196f3'
-    }
-    return '#eeeeee'
+  if (props.isDragAccept) {
+    return '#00e676'
+  }
+  if (props.isDragReject) {
+    return '#ff1744'
+  }
+  if (props.isDragActive) {
+    return '#2196f3'
+  }
+  return '#eeeeee'
 }
 
 const DropZone = styled.div`
@@ -30,13 +30,13 @@ const DropZone = styled.div`
   transition: border .24s ease-in-out;
 `
 
-const DragDropContainer = ({getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject}) => {
-    return (
-        <DropZone {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
-            <input {...getInputProps()} />
-            <p>Upload MyClippings.txt file</p>
-        </DropZone>
-    )
+const DragDropContainer = ({ getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject }) => {
+  return (
+    <DropZone {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
+      <input {...getInputProps()} />
+      <p>Upload MyClippings.txt file</p>
+    </DropZone>
+  )
 }
 
 export default DragDropContainer

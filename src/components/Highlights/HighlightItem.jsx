@@ -59,58 +59,56 @@ const Copy = styled.div`
     }
 `
 
-const HighlightItem = ({highlightInfo}) => {
-    const onCopyClick = () => {
-        console.log(highlightInfo)
-    }
+const HighlightItem = ({ highlightInfo }) => {
+  const onCopyClick = () => {
+    console.log(highlightInfo)
+  }
 
-    const onLikeClick = () => {
-        console.log("Toggle like", highlightInfo.book)
-    }
+  const onLikeClick = () => {
+    console.log('Toggle like', highlightInfo.book)
+  }
 
-    return (
-        <Item>
-            <BookInfo>
-                <BookTitle>
-                    {highlightInfo.book}
-                </BookTitle>
-                <Author>
-                    {highlightInfo.author}
-                </Author>
-            </BookInfo>
-            <Quote>
-                {highlightInfo.quote}
-            </Quote>
-            <HighlightInfo>
-                <Favourite onClick={onLikeClick}>
-                    {highlightInfo.favourite ? 
-                        <>
-                            <Icon name="heart outline" />
-                            Like
-                        </>
-                    : 
-                        <>
-                            <Icon name="heart" />
-                            Unlike
-                        </>
-                    }
-                </Favourite>
-                <Date>
-                    <Icon name="clock outline" />
-                    {highlightInfo.time}
-                </Date>
-                <Location>
-                    <Icon name="location arrow" />
-                    {highlightInfo.location}
-                </Location>
-                <Copy onClick={onCopyClick}>
-                    <Icon name="copy" />
-                    Copy
-                </Copy>
+  return (
+    <Item>
+      <BookInfo>
+        <BookTitle>
+          {highlightInfo.book}
+        </BookTitle>
+        <Author>
+          {highlightInfo.author}
+        </Author>
+      </BookInfo>
+      <Quote>
+        {highlightInfo.quote}
+      </Quote>
+      <HighlightInfo>
+        <Favourite onClick={onLikeClick}>
+          {highlightInfo.favourite
+            ? <>
+              <Icon name='heart outline' />
+              Like
+              </>
+            : <>
+              <Icon name='heart' />
+              Unlike
+              </>}
+        </Favourite>
+        <Date>
+          <Icon name='clock outline' />
+          {highlightInfo.time}
+        </Date>
+        <Location>
+          <Icon name='location arrow' />
+          {highlightInfo.location}
+        </Location>
+        <Copy onClick={onCopyClick}>
+          <Icon name='copy' />
+          Copy
+        </Copy>
 
-            </HighlightInfo>
-        </Item>
-    )
+      </HighlightInfo>
+    </Item>
+  )
 }
 
 export default HighlightItem

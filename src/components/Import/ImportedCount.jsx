@@ -11,27 +11,27 @@ const Wrapper = styled.div`
     flex-direction: column;
 `
 
-const ImportedCount = ({highlightsStatistics}) => {
-    return (
-        <Wrapper>
-            <span>
-                Succesfully imported highlights!
-            </span>
-            <Statistic.Group>
-                <Statistic>
-                    <Statistic.Value>{highlightsStatistics.numHighlights}</Statistic.Value>
-                    <Statistic.Label>Highlights</Statistic.Label>
-                </Statistic>
-                <div style={{paddingTop: '18px'}}>
-                    From
-                </div>
-                <Statistic>
-                    <Statistic.Value>{highlightsStatistics.numBooks}</Statistic.Value>
-                    <Statistic.Label>Books</Statistic.Label>
-                </Statistic>
-            </Statistic.Group>
-        </Wrapper>
-    )
+const ImportedCount = ({ highlightsStatistics }) => {
+  return (
+    <Wrapper>
+      <span>
+        Succesfully imported highlights!
+      </span>
+      <Statistic.Group>
+        <Statistic>
+          <Statistic.Value>{highlightsStatistics.numHighlights}</Statistic.Value>
+          <Statistic.Label>Highlights</Statistic.Label>
+        </Statistic>
+        <div style={{ paddingTop: '18px' }}>
+          From
+        </div>
+        <Statistic>
+          <Statistic.Value>{highlightsStatistics.numBooks}</Statistic.Value>
+          <Statistic.Label>Books</Statistic.Label>
+        </Statistic>
+      </Statistic.Group>
+    </Wrapper>
+  )
 }
 
 export default ImportedCount

@@ -1,7 +1,6 @@
 import { v5 as uuidv5 } from 'uuid'
 
-const UUID_QUOTES_NAMESPACE = '870af37e-87ab-42e0-91df-709115d62d5f';
-
+const UUID_QUOTES_NAMESPACE = '870af37e-87ab-42e0-91df-709115d62d5f'
 
 const parseFile = (file, setQuotes) => {
   const fileReader = new FileReader()
@@ -68,11 +67,11 @@ const parseFile = (file, setQuotes) => {
           quote: quote,
           location: location,
           time: time,
-          favourite: false,
+          favourite: false
         }
         return res
       }, {})
-      console.log(quotes)
+    console.log(quotes)
     setQuotes(quotes)
   }
   fileReader.readAsText(file)

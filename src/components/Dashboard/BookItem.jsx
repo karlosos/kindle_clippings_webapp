@@ -55,38 +55,38 @@ const StyledIcon = styled(Icon)`
     }
 `
 
-const BookItem = ({book}) => {
-    return (
-        <Row>
-            <RowGroup>
-                <Icon name="book" size="big" />
-                <BookInfo>
-                    <Title>
-                        {book.title}
-                    </Title>
-                    <Author>
-                        {book.author}
-                    </Author>
-                </BookInfo>
-                <LastHighlight>
-                    <Statistic size='mini'>
-                        <Statistic.Label>Last highlighted</Statistic.Label>
-                        <Statistic.Value>{book.lastHighlights}</Statistic.Value>
-                    </Statistic>
-                </LastHighlight>
-                <NumHighlights>
-                    <Statistic size='mini'>
-                        <Statistic.Label>Highlights</Statistic.Label>
-                        <Statistic.Value>{book.numHighlights}</Statistic.Value>
-                    </Statistic>
-                </NumHighlights>
-            </RowGroup>
-            <RowGroup>
-                <Button style={{marginRight: '32px'}}>Export</Button>
-                <StyledIcon circular name="angle right" size="large" />
-            </RowGroup>
-        </Row>
-    )
+const BookItem = ({ book }) => {
+  return (
+    <Row>
+      <RowGroup>
+        <Icon name='book' size='big' />
+        <BookInfo>
+          <Title>
+            {book.title}
+          </Title>
+          <Author>
+            {book.author}
+          </Author>
+        </BookInfo>
+        <LastHighlight>
+          <Statistic size='mini'>
+            <Statistic.Label>Last highlighted</Statistic.Label>
+            <Statistic.Value>{book.lastHighlights}</Statistic.Value>
+          </Statistic>
+        </LastHighlight>
+        <NumHighlights>
+          <Statistic size='mini'>
+            <Statistic.Label>Highlights</Statistic.Label>
+            <Statistic.Value>{book.numHighlights}</Statistic.Value>
+          </Statistic>
+        </NumHighlights>
+      </RowGroup>
+      <RowGroup>
+        <Button style={{ marginRight: '32px' }}>Export</Button>
+        <StyledIcon circular name='angle right' size='large' />
+      </RowGroup>
+    </Row>
+  )
 }
 
 export default BookItem

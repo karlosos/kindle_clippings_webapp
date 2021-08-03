@@ -21,12 +21,12 @@ const SearchBar = styled(Input)`
 `
 
 const Header = () => {
-    return (
-        <HeaderWrapper>
-            <Logo style={{width: "50px"}}/>
-            <SearchBar icon='search' placeholder='Search...' />
-        </HeaderWrapper>
-    )
+  return (
+    <HeaderWrapper>
+      <Logo style={{ width: '50px' }} />
+      <SearchBar icon='search' placeholder='Search...' />
+    </HeaderWrapper>
+  )
 }
 
 export default Header

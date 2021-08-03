@@ -12,6 +12,10 @@ import {
 } from '@ant-design/icons'
 import Colors from '../../common/colors'
 
+import {
+  Link
+} from 'react-router-dom'
+
 import './Sidebar.css'
 
 const MenuHeader = styled.div`
@@ -38,15 +42,21 @@ const Sidebar = () => {
           Quick Links
         </MenuHeader>
         <Menu.Menu>
-          <QuickLinksItem name='dashboard' handleItemClick={handleItemClick} activeItem={activeItem}>
-            <HomeFilled /> Dashboard
-          </QuickLinksItem>
-          <QuickLinksItem name='import' handleItemClick={handleItemClick} activeItem={activeItem}>
-            <PlusSquareFilled /> Import
-          </QuickLinksItem>
-          <QuickLinksItem name='allhighlights' handleItemClick={handleItemClick} activeItem={activeItem}>
-            <HighlightFilled /> All Highlights
-          </QuickLinksItem>
+          <Link to='/'>
+            <QuickLinksItem name='dashboard' handleItemClick={handleItemClick} activeItem={activeItem}>
+              <HomeFilled /> Dashboard
+            </QuickLinksItem>
+          </Link>
+          <Link to='/import'>
+            <QuickLinksItem name='import' handleItemClick={handleItemClick} activeItem={activeItem}>
+              <PlusSquareFilled /> Import
+            </QuickLinksItem>
+          </Link>
+          <Link to='/highlights'>
+            <QuickLinksItem name='allhighlights' handleItemClick={handleItemClick} activeItem={activeItem}>
+              <HighlightFilled /> All Highlights
+            </QuickLinksItem>
+          </Link>
           <QuickLinksItem name='favorites' handleItemClick={handleItemClick} activeItem={activeItem}>
             <HeartFilled /> Favorites
           </QuickLinksItem>
