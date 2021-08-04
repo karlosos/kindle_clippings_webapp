@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button, Statistic, Icon } from 'semantic-ui-react'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+dayjs.extend(relativeTime)
 
 const Row = styled.div`
     padding: 8px;
@@ -71,7 +75,7 @@ const BookItem = ({ book }) => {
         <LastHighlight>
           <Statistic size='mini'>
             <Statistic.Label>Last highlighted</Statistic.Label>
-            <Statistic.Value>{book.lastHighlights}</Statistic.Value>
+            <Statistic.Value>{dayjs(book.lastHighlights).fromNow()}</Statistic.Value>
           </Statistic>
         </LastHighlight>
         <NumHighlights>
