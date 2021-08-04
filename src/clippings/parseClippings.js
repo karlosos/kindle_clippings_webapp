@@ -42,11 +42,13 @@ const parseFile = (file, setQuotes) => {
           const id = uuidv5(location + quote + time, UUID_QUOTES_NAMESPACE)
           quote = quote.replace(/\r?\n|\r/g, '')
           book = book.replace(/\r?\n|\r/g, '')
+          const bookGroups = book.match(/(.*)\((.*)\).*/)
+          book = bookGroups !== null ? bookGroups[1] : book
+          const author = bookGroups !== null ? bookGroups[2] : 'Unknown'
           const raw = book
             .replace(/\r?\n|\r/g, '')
             .replace(/\s+/g, '')
             .toLowerCase()
-          const author = 'Author'
 
           return {
             id,
@@ -60,10 +62,11 @@ const parseFile = (file, setQuotes) => {
         }
       })
       .filter((q) => q)
-      .reduce((res, { id, raw, book, quote, location, time }) => {
+      .reduce((res, { id, raw, book, author, quote, location, time }) => {
         res[id] = {
           raw: raw,
           book: book,
+          author: author,
           quote: quote,
           location: location,
           time: time,
