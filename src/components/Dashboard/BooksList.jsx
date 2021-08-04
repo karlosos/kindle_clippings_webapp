@@ -27,28 +27,28 @@ const BooksList = () => {
 
     const booksDict = quotes.reduce((res, { book, author, time }) => {
       const count = res[book]?.numHighlights + 1 || 1
-        res[book] = {
-          book: book,
-          author: author,
-          lastHighlights: time,
-          numHighlights: count
-        }
-        return res
-      }, {})
+      res[book] = {
+        book: book,
+        author: author,
+        lastHighlights: time,
+        numHighlights: count
+      }
+      return res
+    }, {})
 
-      console.log(booksDict)
-    
+    console.log(booksDict)
+
     const booksList = Object.entries(booksDict).map((book, index) => (
-        {
-          id: index,
-          title: book[1].book,
-          author: book[1].author,
-          lastHighlights: book[1].lastHighlights,
-          numHighlights: book[1].numHighlights,
-        }
-      ))
+      {
+        id: index,
+        title: book[1].book,
+        author: book[1].author,
+        lastHighlights: book[1].lastHighlights,
+        numHighlights: book[1].numHighlights
+      }
+    ))
 
-      console.log(booksList)
+    console.log(booksList)
     return (booksList)
   })
   // const books = [

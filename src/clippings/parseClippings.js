@@ -33,7 +33,7 @@ const parseFile = (file, setQuotes) => {
           (locationsRaw !== undefined)
         ) {
           const locationsArray = locationsRaw.split(' ')
-          if (locationsArray[2] === "Loc.") {
+          if (locationsArray[2] === 'Loc.') {
             location = locationsArray[3].replace(/\r?\n|\r/g, '')
             time = locationsArray
               .slice(8, 14) // TODO: czasami to nie łapie (ludzie bezdomni vs my twisted world)

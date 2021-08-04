@@ -3,11 +3,14 @@ import styled from 'styled-components'
 import { Button, Statistic, Icon } from 'semantic-ui-react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import Colors from '../../common/colors'
 
 dayjs.extend(relativeTime)
 
 const Row = styled.div`
     padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     margin-bottom: 4px;
     margin-top: 4px;
@@ -30,7 +33,6 @@ const BookInfo = styled.div`
     width: 350px;
     height: 70px;
     justify-content: center;
-    // justify-content: space-between;
 `
 
 const Title = styled.div`
@@ -52,11 +54,18 @@ const NumHighlights = styled.div`
 `
 
 const StyledIcon = styled(Icon)`
-    &:hover {
-        cursor: pointer;
-        color: rgb(0 0 0 / 70%);
-        box-shadow: 0 0 0 0.1em rgb(0 0 0 / 70%) inset !important;
-    }
+  &:hover {
+      cursor: pointer;
+      color: rgb(0 0 0 / 70%);
+      box-shadow: 0 0 0 0.1em rgb(0 0 0 / 70%) inset !important;
+  }
+`
+
+const StatisticLabel = styled(Statistic.Label)`
+  &&& {
+      font-size: 12px;
+      color: ${Colors.textLighter};
+  }
 `
 
 const BookItem = ({ book }) => {
@@ -74,14 +83,14 @@ const BookItem = ({ book }) => {
         </BookInfo>
         <LastHighlight>
           <Statistic size='mini'>
-            <Statistic.Label>Last highlighted</Statistic.Label>
             <Statistic.Value>{dayjs(book.lastHighlights).fromNow()}</Statistic.Value>
+            <StatisticLabel>Last highlighted</StatisticLabel>
           </Statistic>
         </LastHighlight>
         <NumHighlights>
           <Statistic size='mini'>
-            <Statistic.Label>Highlights</Statistic.Label>
             <Statistic.Value>{book.numHighlights}</Statistic.Value>
+            <StatisticLabel>Highlights</StatisticLabel>
           </Statistic>
         </NumHighlights>
       </RowGroup>
