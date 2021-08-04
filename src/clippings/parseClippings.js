@@ -33,11 +33,19 @@ const parseFile = (file, setQuotes) => {
           (locationsRaw !== undefined)
         ) {
           const locationsArray = locationsRaw.split(' ')
-          location = locationsArray[5].replace(/\r?\n|\r/g, '')
-          time = locationsArray
-            .slice(8, 18) // TODO: czasami to nie łapie (ludzie bezdomni vs my twisted world)
-            .join(' ')
-            .replace(/\r?\n|\r/g, '')
+          if (locationsArray[2] === "Loc.") {
+            location = locationsArray[3].replace(/\r?\n|\r/g, '')
+            time = locationsArray
+              .slice(8, 14) // TODO: czasami to nie łapie (ludzie bezdomni vs my twisted world)
+              .join(' ')
+              .replace(/\r?\n|\r/g, '')
+          } else {
+            location = locationsArray[7].replace(/\r?\n|\r/g, '')
+            time = locationsArray
+              .slice(12, 18) // TODO: czasami to nie łapie (ludzie bezdomni vs my twisted world)
+              .join(' ')
+              .replace(/\r?\n|\r/g, '')
+          }
 
           const id = uuidv5(location + quote + time, UUID_QUOTES_NAMESPACE)
           quote = quote.replace(/\r?\n|\r/g, '')

@@ -31,7 +31,7 @@ const HighlightInfo = styled.div`
 
 const Date = styled.div`
     margin-left: 24px;
-    width: 160px;
+    width: 275px;
 `
 
 const Location = styled.div`
