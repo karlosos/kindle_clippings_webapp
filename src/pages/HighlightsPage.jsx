@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { Header, Pagination } from 'semantic-ui-react'
 import HighlightItem from '../components/Highlights/HighlightItem'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { setActivePage } from '../store/highlightsPaginationSlice'
-import {
-  useParams
-} from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 const HighlightsWrapper = styled.div`
 
@@ -21,11 +18,10 @@ const PaginationWrapper = styled.div`
 
 const HighlightsPage = () => {
   let { bookTitle } = useParams();
-  console.log(bookTitle)
+  const [activePage, setActivePage] = useState(1)
+
   const highglightsPerPage = 20
   const filteredHighglightsEntries = useSelector((state) => Object.entries(state.clippings.quotes).filter(q => bookTitle ? q[1].book === bookTitle : true))
-  // TODO: reset active page on changing params. move state somewhere else?
-  const activePage = useSelector((state) => state.highlightsPagination.activePage)
   const numPages = useSelector((state) => Math.ceil(filteredHighglightsEntries.length / highglightsPerPage))
   const highlights = useSelector((state) => {
     return (
@@ -42,12 +38,19 @@ const HighlightsPage = () => {
       ))
     )
   })
-  const dispatch = useDispatch()
 
   const handlePaginationChange = (e, { activePage }) => {
-    dispatch(setActivePage(activePage))
+    setActivePage(activePage)
     window.scrollTo(0, 0)
   }
+
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      setActivePage(1)
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
 
   return (
     <>

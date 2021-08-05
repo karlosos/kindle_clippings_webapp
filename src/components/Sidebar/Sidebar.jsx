@@ -11,10 +11,9 @@ import {
   DeleteFilled
 } from '@ant-design/icons'
 import Colors from '../../common/colors'
-
-import {
-  Link
-} from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { setActiveItem } from '../../store/sidebarSlice'
+import { Link } from 'react-router-dom'
 
 import './Sidebar.css'
 
@@ -24,9 +23,10 @@ const MenuHeader = styled.div`
 `
 
 const Sidebar = () => {
-  const [activeItem, setActiveItem] = useState()
+  const dispatch = useDispatch()
+  const activeItem = useSelector((state) => state.sidebar.activeItem)
 
-  const handleItemClick = (e, { name }) => setActiveItem(name)
+  const handleItemClick = (e, { name }) => dispatch(setActiveItem(name))
 
   const books = [
     { id: '1', title: 'The 5 A.M. Revolution: Why High Achievers Wake Up Early and How You Can Do It, too' },
