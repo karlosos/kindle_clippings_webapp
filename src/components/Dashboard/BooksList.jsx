@@ -13,7 +13,7 @@ const BooksList = () => {
   // firstly the list of quotes is created then quotes are reduced to dictionary of books
   // and finally dictionary of books is transformed into list of books
   const books = useSelector((state) => {
-    const quotes = Object.entries(state.clippings.quotes).map(q => (
+    const quotes = Object.entries(state.clippings.quotes).reverse().map(q => (
       {
         id: q[0],
         book: q[1].book,
@@ -51,36 +51,6 @@ const BooksList = () => {
     console.log(booksList)
     return (booksList)
   })
-  // const books = [
-  //   {
-  //     id: '1',
-  //     title: 'The 5 A.M. Revolution: Why High Achievers Wake Up Early and How You Can Do It, too',
-  //     author: 'Gabriel Wynver',
-  //     lastHighlights: '2 month ago',
-  //     numHighlights: '16'
-  //   },
-  //   {
-  //     id: '2',
-  //     title: 'Homo Deus: A Bried History of Tomorrow',
-  //     author: 'Charles Conrad',
-  //     lastHighlights: '1 month ago',
-  //     numHighlights: '32'
-  //   },
-  //   {
-  //     id: '3',
-  //     title: 'Fluent Forever: How to Learn Any Language Fast and Never Forget It',
-  //     author: 'Gabriel Wynver',
-  //     lastHighlights: '1 month ago',
-  //     numHighlights: '42'
-  //   },
-  //   {
-  //     id: '4',
-  //     title: 'Essentialism: The Disciplined Pursuit of Less',
-  //     author: 'Frank Basten',
-  //     lastHighlights: '1 week ago',
-  //     numHighlights: '42'
-  //   }
-  // ]
 
   return (
     <BooksContainer>

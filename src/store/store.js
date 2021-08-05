@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-import clippingsReducer from '../clippings/clippingsSlice'
+import clippingsReducer from './clippingsSlice'
+import highlightsPaginationReducer from './highlightsPaginationSlice'
 import { loadState, saveState } from './localStorage'
 
 const preloadedState = loadState()
 
 const store = configureStore({
   reducer: {
-    clippings: clippingsReducer
+    clippings: clippingsReducer,
+    highlightsPagination: highlightsPaginationReducer,
   },
   preloadedState
 })

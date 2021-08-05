@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Icon } from 'semantic-ui-react'
 import Colors from '../../common/colors'
+import { Link } from "react-router-dom";
 
 const Item = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -71,9 +72,11 @@ const HighlightItem = ({ highlightInfo }) => {
   return (
     <Item>
       <BookInfo>
-        <BookTitle>
-          {highlightInfo.book}
-        </BookTitle>
+        <Link to={`/highlights/${highlightInfo.id}/${highlightInfo.book}`}>
+          <BookTitle>
+            {highlightInfo.book}
+          </BookTitle>
+        </Link>
         <Author>
           {highlightInfo.author}
         </Author>
@@ -83,7 +86,7 @@ const HighlightItem = ({ highlightInfo }) => {
       </Quote>
       <HighlightInfo>
         <Favourite onClick={onLikeClick}>
-          {highlightInfo.favourite
+          {highlightInfo.favourite === true
             ? <>
               <Icon name='heart outline' />
               Like

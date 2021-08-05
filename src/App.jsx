@@ -21,9 +21,8 @@ function App () {
           <Route path='/import'>
             <ImportPage />
           </Route>
-          <Route path='/highlights'>
-            <HighlightsPage />
-          </Route>
+          <Route path='/highlights/:bookId/:bookTitle' component={HighlightsPage} />
+          <Route path='/highlights' component={HighlightsPage} />
           <Route path='/'>
             <DashboardPage />
           </Route>
