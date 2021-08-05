@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Icon } from 'semantic-ui-react'
 import Colors from '../../common/colors'
 import { Link } from "react-router-dom"
 import { toggleFavourite } from '../../store/clippingsSlice'
 import { useDispatch } from 'react-redux'
+import copy from 'clipboard-copy'
 
 const Item = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -63,13 +64,21 @@ const Copy = styled.div`
 `
 
 const HighlightItem = ({ highlightInfo }) => {
+  const [copied, setCopied] = useState(false)
   const dispatch = useDispatch()
   const onCopyClick = () => {
-    console.log(highlightInfo)
+    copy(highlightInfo.quote)
+    setCopied(true)
   }
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCopied(false)
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [copied])
+
   const onLikeClick = () => {
-    console.log('Toggle like', highlightInfo.id)
     dispatch(toggleFavourite(highlightInfo.id))
   }
 
@@ -108,10 +117,17 @@ const HighlightItem = ({ highlightInfo }) => {
           <Icon name='location arrow' />
           {highlightInfo.location}
         </Location>
+        {copied ? 
         <Copy onClick={onCopyClick}>
           <Icon name='copy' />
+          Copied!
+        </Copy>
+        : 
+        <Copy onClick={onCopyClick}>
+          <Icon name='copy outline' />
           Copy
         </Copy>
+        }
 
       </HighlightInfo>
     </Item>
