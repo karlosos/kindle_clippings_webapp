@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Icon } from 'semantic-ui-react'
 import Colors from '../../common/colors'
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import { toggleFavourite } from '../../store/clippingsSlice'
+import { useDispatch } from 'react-redux'
 
 const Item = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -61,12 +63,14 @@ const Copy = styled.div`
 `
 
 const HighlightItem = ({ highlightInfo }) => {
+  const dispatch = useDispatch()
   const onCopyClick = () => {
     console.log(highlightInfo)
   }
 
   const onLikeClick = () => {
-    console.log('Toggle like', highlightInfo.book)
+    console.log('Toggle like', highlightInfo.id)
+    dispatch(toggleFavourite(highlightInfo.id))
   }
 
   return (
@@ -86,7 +90,7 @@ const HighlightItem = ({ highlightInfo }) => {
       </Quote>
       <HighlightInfo>
         <Favourite onClick={onLikeClick}>
-          {highlightInfo.favourite === true
+          {highlightInfo.favourite === false
             ? <>
               <Icon name='heart outline' />
               Like

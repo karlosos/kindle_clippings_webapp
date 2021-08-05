@@ -57,9 +57,11 @@ const Sidebar = () => {
               <HighlightFilled /> All Highlights
             </QuickLinksItem>
           </Link>
-          <QuickLinksItem name='favorites' handleItemClick={handleItemClick} activeItem={activeItem}>
-            <HeartFilled /> Favorites
-          </QuickLinksItem>
+          <Link to='/favourites'>
+            <QuickLinksItem name='favorites' handleItemClick={handleItemClick} activeItem={activeItem}>
+              <HeartFilled /> Favorites
+            </QuickLinksItem>
+          </Link>
           <QuickLinksItem name='deleted' handleItemClick={handleItemClick} activeItem={activeItem}>
             <DeleteFilled /> Deleted
           </QuickLinksItem>

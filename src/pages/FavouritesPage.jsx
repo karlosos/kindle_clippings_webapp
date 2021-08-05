@@ -16,12 +16,11 @@ const PaginationWrapper = styled.div`
   justify-content: center;
 `
 
-const HighlightsPage = () => {
-  let { bookTitle } = useParams();
+const FavouritesPage = () => {
   const [activePage, setActivePage] = useState(1)
 
   const highglightsPerPage = 20
-  const filteredHighglightsEntries = useSelector((state) => Object.entries(state.clippings.quotes).filter(q => bookTitle ? q[1].book === bookTitle : true))
+  const filteredHighglightsEntries = useSelector((state) => Object.entries(state.clippings.quotes).filter(q => q[1].favourite === true))
   const numPages = useSelector((state) => Math.ceil(filteredHighglightsEntries.length / highglightsPerPage))
   const highlights = useSelector((state) => {
     return (
@@ -76,4 +75,4 @@ const HighlightsPage = () => {
   )
 }
 
-export default HighlightsPage
+export default FavouritesPage 

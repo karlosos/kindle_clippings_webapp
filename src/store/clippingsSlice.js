@@ -16,11 +16,15 @@ export const clippingsSlice = createSlice({
     clear: (state) => {
       console.log('Clear quotes')
       state.quotes = {}
+    },
+    toggleFavourite: (state, action) => {
+      const id = action.payload
+      state.quotes[id].favourite = !state.quotes[id].favourite
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { concat, clear } = clippingsSlice.actions
+export const { concat, clear, toggleFavourite } = clippingsSlice.actions
 
 export default clippingsSlice.reducer

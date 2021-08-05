@@ -12,6 +12,7 @@ import './App.css'
 import ImportPage from './pages/ImportPage'
 import DashboardPage from './pages/DashboardPage'
 import HighlightsPage from './pages/HighlightsPage'
+import FavouritesPage from './pages/FavouritesPage'
 
 function App () {
   return (
@@ -23,6 +24,7 @@ function App () {
           </Route>
           <Route path='/highlights/:bookId/:bookTitle' component={HighlightsPage} />
           <Route path='/highlights' component={HighlightsPage} />
+          <Route path='/favourites' component={FavouritesPage} />
           <Route path='/'>
             <DashboardPage />
           </Route>

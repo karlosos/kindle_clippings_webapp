@@ -36,8 +36,6 @@ const BooksList = () => {
       return res
     }, {})
 
-    console.log(booksDict)
-
     const booksList = Object.entries(booksDict).map((book, index) => (
       {
         id: index,
@@ -48,7 +46,6 @@ const BooksList = () => {
       }
     ))
 
-    console.log(booksList)
     return (booksList)
   })
 
