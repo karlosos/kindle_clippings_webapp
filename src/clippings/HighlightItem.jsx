@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Icon } from 'semantic-ui-react'
-import Colors from '../../common/colors'
+import Colors from '../common/colors'
 import { Link } from 'react-router-dom'
-import { toggleFavourite } from '../clippingsSlice'
+import { toggleFavourite } from './clippingsSlice'
 import { useDispatch } from 'react-redux'
 import copy from 'clipboard-copy'
 
@@ -82,15 +82,16 @@ const HighlightItem = ({ highlightInfo }) => {
     dispatch(toggleFavourite(highlightInfo.id))
   }
 
-  const LikeButton = <><Icon name='heart outline' /> Like</>
-  const UnlikeButton = <><Icon name='heart' /> Unlike</>
-  const CopyButton = (
+  // Components
+  const LikeButton = () => <><Icon name='heart outline' />Like</>
+  const UnlikeButton = () => <><Icon name='heart' />Unlike</>
+  const CopyButton = () => (
     <Copy onClick={onCopyClick}>
       <Icon name='copy outline' />
       Copy
     </Copy>
   )
-  const CopiedButton = (
+  const CopiedButton = () => (
     <Copy onClick={onCopyClick}>
       <Icon name='copy' />
       Copied!
@@ -129,5 +130,6 @@ const HighlightItem = ({ highlightInfo }) => {
     </Item>
   )
 }
+
 
 export default HighlightItem

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import HighlightsList from './HighlightsList'
+import HighlightsList from '../HighlightsList'
 
 const FavouritesPage = () => {
   const filteredHighglightsEntries = useSelector((state) => Object.entries(state.clippings.quotes).filter(q => q[1].favourite === true))

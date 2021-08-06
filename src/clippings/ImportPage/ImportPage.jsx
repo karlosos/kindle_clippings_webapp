@@ -42,17 +42,6 @@ const ImportPage = () => {
     }
   }, [acceptedFiles])
 
-  const quotesItems = Object.entries(quotes).slice(0, 10).map((q) => {
-    const quoteId = q[0]
-    const { book, time, quote } = q[1]
-    return (
-      <li key={quoteId}>
-        <b>{book}</b> ({time}) <br /> {quote}
-      </li>
-    )
-  }
-  )
-
   const onClearButtonClick = () => {
     console.log('Try to clear')
     dispatch(clear())
@@ -69,9 +58,6 @@ const ImportPage = () => {
         isDragReject={isDragReject}
       />
       {quotes !== {} && <ImportedCount highlightsStatistics={quoteStatistics(quotes)} />}
-      <div style={{ maxWidth: '650px', marginTop: '32px' }}>
-        {quotesItems}
-      </div>
       <button onClick={onClearButtonClick}>Clear</button>
     </>
   )
