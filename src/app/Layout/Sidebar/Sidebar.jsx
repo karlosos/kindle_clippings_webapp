@@ -10,9 +10,9 @@ import {
   HeartFilled,
   DeleteFilled
 } from '@ant-design/icons'
-import Colors from '../../common/colors'
+import Colors from '../../../common/colors'
 import { useSelector, useDispatch } from 'react-redux'
-import { setActiveItem } from '../../store/sidebarSlice'
+import { setActiveItem } from './sidebarSlice'
 import { Link } from 'react-router-dom'
 
 import './Sidebar.css'

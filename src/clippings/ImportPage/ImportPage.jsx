@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { useDropzone } from 'react-dropzone'
-import { parseFile } from '../services/parseClippings'
-import DragDropContainer from '../components/Import/DragDropContainer'
+import { parseFile } from '../parseClippings'
+import DragDropContainer from './DragDropContainer'
 import { Header } from 'semantic-ui-react'
-import ImportedCount from '../components/Import/ImportedCount'
+import ImportedCount from './ImportedCount'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { concat, clear } from '../store/clippingsSlice'
+import { concat, clear } from '../clippingsSlice'
 
 const quoteStatistics = (quotes) => {
   const quotesEntries = Object.entries(quotes)

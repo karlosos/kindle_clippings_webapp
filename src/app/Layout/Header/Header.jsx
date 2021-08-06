@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from 'semantic-ui-react'
 import styled from 'styled-components'
-import { ReactComponent as Logo } from '../../logo.svg'
+import { ReactComponent as Logo } from './logo.svg'
 
 const HeaderWrapper = styled.div`
     display: flex;

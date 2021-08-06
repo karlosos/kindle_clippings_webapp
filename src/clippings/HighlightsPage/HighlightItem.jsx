@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Icon } from 'semantic-ui-react'
 import Colors from '../../common/colors'
 import { Link } from "react-router-dom"
-import { toggleFavourite } from '../../store/clippingsSlice'
+import { toggleFavourite } from '../clippingsSlice'
 import { useDispatch } from 'react-redux'
 import copy from 'clipboard-copy'
 

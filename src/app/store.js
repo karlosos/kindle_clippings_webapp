@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import clippingsReducer from './clippingsSlice'
-import highlightsPaginationReducer from './highlightsPaginationSlice'
-import sidebarReducer from './sidebarSlice'
+import clippingsReducer from '../clippings/clippingsSlice'
+import booksReducer from '../books/booksSlice'
+import highlightsPaginationReducer from '../clippings/HighlightsPage/highlightsPaginationSlice'
+import sidebarReducer from './Layout/Sidebar/sidebarSlice'
 import { loadState, saveState } from './localStorage'
 
 const preloadedState = loadState()
@@ -9,6 +10,7 @@ const preloadedState = loadState()
 const store = configureStore({
   reducer: {
     clippings: clippingsReducer,
+    books: booksReducer,
     highlightsPagination: highlightsPaginationReducer,
     sidebar: sidebarReducer,
   },

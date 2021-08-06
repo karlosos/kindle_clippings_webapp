@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const clippingsSlice = createSlice({
   name: 'clippings',
   initialState: {
-    quotes: []
+    quotes: {}
   },
   reducers: {
     concat: (state, action) => {

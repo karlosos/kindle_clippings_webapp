@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { Header, Pagination } from 'semantic-ui-react'
-import HighlightItem from '../components/Highlights/HighlightItem'
+import HighlightItem from './HighlightsPage/HighlightItem'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useLocation } from "react-router-dom";

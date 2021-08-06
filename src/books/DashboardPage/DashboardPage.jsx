@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from 'semantic-ui-react'
 import styled from 'styled-components'
-import BooksList from '../components/Dashboard/BooksList'
+import BooksList from './BooksList'
 
 const DashboardPage = () => {
   return (
