@@ -4,7 +4,7 @@ import { Button, Statistic, Icon } from 'semantic-ui-react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import Colors from '../../common/colors'
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 dayjs.extend(relativeTime)
 
@@ -72,9 +72,9 @@ const StatisticLabel = styled(Statistic.Label)`
 const BookItem = ({ book }) => {
   return (
     <Row>
-        <RowGroup>
-          <Icon name='book' size='big' />
-          <Link to={`/highlights/${book.id}/${book.title}`}>
+      <RowGroup>
+        <Icon name='book' size='big' />
+        <Link to={`/highlights/${book.id}/${book.title}`}>
           <BookInfo>
             <Title>
               {book.title}
@@ -83,20 +83,20 @@ const BookItem = ({ book }) => {
               {book.author}
             </Author>
           </BookInfo>
-          </Link>
-          <LastHighlight>
-            <Statistic size='mini'>
-              <Statistic.Value>{dayjs(book.lastHighlights).fromNow()}</Statistic.Value>
-              <StatisticLabel>Last highlighted</StatisticLabel>
-            </Statistic>
-          </LastHighlight>
-          <NumHighlights>
-            <Statistic size='mini'>
-              <Statistic.Value>{book.numHighlights}</Statistic.Value>
-              <StatisticLabel>Highlights</StatisticLabel>
-            </Statistic>
-          </NumHighlights>
-        </RowGroup>
+        </Link>
+        <LastHighlight>
+          <Statistic size='mini'>
+            <Statistic.Value>{dayjs(book.lastHighlights).fromNow()}</Statistic.Value>
+            <StatisticLabel>Last highlighted</StatisticLabel>
+          </Statistic>
+        </LastHighlight>
+        <NumHighlights>
+          <Statistic size='mini'>
+            <Statistic.Value>{book.numHighlights}</Statistic.Value>
+            <StatisticLabel>Highlights</StatisticLabel>
+          </Statistic>
+        </NumHighlights>
+      </RowGroup>
       <RowGroup>
         <Button style={{ marginRight: '32px' }}>Export</Button>
         <Link to={`/highlights/${book.id}/${book.title}`}>

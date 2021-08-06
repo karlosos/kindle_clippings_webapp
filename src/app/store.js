@@ -8,7 +8,7 @@ const preloadedState = loadState()
 const store = configureStore({
   reducer: {
     clippings: clippingsReducer,
-    sidebar: sidebarReducer,
+    sidebar: sidebarReducer
   },
   preloadedState
 })

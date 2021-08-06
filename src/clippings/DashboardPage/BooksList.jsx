@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import BookItem from './BookItem'
 import styled from 'styled-components'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Pagination } from 'semantic-ui-react'
 
 const BooksContainer = styled.div`

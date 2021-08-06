@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Menu, Input } from 'semantic-ui-react'
 import styled from 'styled-components'
 import QuickLinksItem from './QuickLinksItem'
@@ -78,11 +78,12 @@ const Sidebar = () => {
               placeholder='Search...'
             />
           </Menu.Item>
-          {books.map((book) => (
+          {books.map((book, index) => (
             <QuickLinksItem
               name={book.id}
               handleItemClick={handleItemClick}
               activeItem={activeItem}
+              key={index}
             >
               <BookFilled /> {book.title}
             </QuickLinksItem>

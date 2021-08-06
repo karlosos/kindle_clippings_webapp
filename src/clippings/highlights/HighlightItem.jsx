@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Icon } from 'semantic-ui-react'
 import Colors from '../../common/colors'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 import { toggleFavourite } from '../clippingsSlice'
 import { useDispatch } from 'react-redux'
 import copy from 'clipboard-copy'
@@ -82,6 +82,21 @@ const HighlightItem = ({ highlightInfo }) => {
     dispatch(toggleFavourite(highlightInfo.id))
   }
 
+  const LikeButton = <><Icon name='heart outline' /> Like</>
+  const UnlikeButton = <><Icon name='heart' /> Unlike</>
+  const CopyButton = (
+    <Copy onClick={onCopyClick}>
+      <Icon name='copy outline' />
+      Copy
+    </Copy>
+  )
+  const CopiedButton = (
+    <Copy onClick={onCopyClick}>
+      <Icon name='copy' />
+      Copied!
+    </Copy>
+  )
+
   return (
     <Item>
       <BookInfo>
@@ -99,15 +114,7 @@ const HighlightItem = ({ highlightInfo }) => {
       </Quote>
       <HighlightInfo>
         <Favourite onClick={onLikeClick}>
-          {highlightInfo.favourite === false
-            ? <>
-              <Icon name='heart outline' />
-              Like
-              </>
-            : <>
-              <Icon name='heart' />
-              Unlike
-              </>}
+          {highlightInfo.favourite === false ? <LikeButton /> : <UnlikeButton />}
         </Favourite>
         <Date>
           <Icon name='clock outline' />
@@ -117,18 +124,7 @@ const HighlightItem = ({ highlightInfo }) => {
           <Icon name='location arrow' />
           {highlightInfo.location}
         </Location>
-        {copied ? 
-        <Copy onClick={onCopyClick}>
-          <Icon name='copy' />
-          Copied!
-        </Copy>
-        : 
-        <Copy onClick={onCopyClick}>
-          <Icon name='copy outline' />
-          Copy
-        </Copy>
-        }
-
+        {copied ? <CopiedButton /> : <CopyButton />}
       </HighlightInfo>
     </Item>
   )

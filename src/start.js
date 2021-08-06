@@ -11,9 +11,9 @@ function createWindow () {
     height: 777,
     webPreferences: {
       nodeIntegration: true
-    },
+    }
     // frame: false,
-    // transparent: true, 
+    // transparent: true,
   })
 
   mainWindow.loadURL(

@@ -8,8 +8,8 @@ export const sidebarSlice = createSlice({
   },
   reducers: {
     setActiveItem: (state, action) => {
-        state.activeItem = action.payload
-    },
+      state.activeItem = action.payload
+    }
   }
 })
 

@@ -7,7 +7,7 @@ import store from './store'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route
 } from 'react-router-dom'
 
 import './App.css'
@@ -16,7 +16,7 @@ import DashboardPage from '../clippings/DashboardPage/DashboardPage'
 import HighlightsPage from '../clippings/highlights/HighlightsPage'
 import FavouritesPage from '../clippings/highlights/FavouritesPage'
 
-function App() {
+function App () {
   return (
     <Provider store={store}>
       <Router>

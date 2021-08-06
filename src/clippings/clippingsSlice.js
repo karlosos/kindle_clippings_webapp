@@ -16,7 +16,6 @@ export const clippingsSlice = createSlice({
       // set new quotes
       state.quotes = { ...state.quotes, ...action.payload }
       state.books = booksListFromQuotes(state.quotes)
-
     },
     clear: (state) => {
       state.quotes = {}
@@ -29,7 +28,7 @@ export const clippingsSlice = createSlice({
   }
 })
 
-function booksListFromQuotes(quotes) {
+function booksListFromQuotes (quotes) {
   const quotesList = Object.entries(quotes).reverse().map(q => (
     {
       id: q[0],
