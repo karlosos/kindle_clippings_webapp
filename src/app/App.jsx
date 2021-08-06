@@ -12,7 +12,7 @@ import {
 
 import './App.css'
 import ImportPage from '../clippings/ImportPage/ImportPage'
-import DashboardPage from '../books/DashboardPage/DashboardPage'
+import DashboardPage from '../clippings/DashboardPage/DashboardPage'
 import HighlightsPage from '../clippings/HighlightsPage/HighlightsPage'
 import FavouritesPage from '../clippings/FavouritesPage'
 
