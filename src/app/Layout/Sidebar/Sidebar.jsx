@@ -28,12 +28,7 @@ const Sidebar = () => {
 
   const handleItemClick = (e, { name }) => dispatch(setActiveItem(name))
 
-  const books = [
-    { id: '1', title: 'The 5 A.M. Revolution: Why High Achievers Wake Up Early and How You Can Do It, too' },
-    { id: '2', title: 'Homo Deus: A Bried History of Tomorrow' },
-    { id: '3', title: 'Fluent Forever: How to Learn Any Language Fast and Never Forget It' },
-    { id: '4', title: 'Essentialism: The Disciplined Pursuit of Less' }
-  ]
+  const books = useSelector((state) => state.clippings.books.slice(0, 5))
 
   return (
     <Menu vertical>
@@ -79,16 +74,21 @@ const Sidebar = () => {
             />
           </Menu.Item>
           {books.map((book, index) => (
-            <QuickLinksItem
-              name={book.id}
-              handleItemClick={handleItemClick}
-              activeItem={activeItem}
-              key={index}
-            >
-              <BookFilled /> {book.title}
-            </QuickLinksItem>
+            <Link to={`/highlights/${book.id}/${book.title}`}>
+              <QuickLinksItem
+                name={book.id}
+                handleItemClick={handleItemClick}
+                activeItem={activeItem}
+                key={index}
+              >
+                <BookFilled /> {book.title}
+              </QuickLinksItem>
+            </Link>
           )
           )}
+          <Menu.Item>
+            <Link to='/dashboard'>Show all books</Link>
+          </Menu.Item>
         </Menu.Menu>
       </Menu.Item>
     </Menu>
