@@ -1,9 +1,8 @@
 import React from 'react'
-import { Menu, Input } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import styled from 'styled-components'
 import QuickLinksItem from './QuickLinksItem'
 import {
-  BookFilled,
   HomeFilled,
   PlusSquareFilled,
   HighlightFilled,
@@ -16,6 +15,7 @@ import { setActiveItem } from './sidebarSlice'
 import { Link } from 'react-router-dom'
 
 import './Sidebar.css'
+import BooksSection from './BooksSection'
 
 const MenuHeader = styled.div`
     font-size: 16px;
@@ -28,7 +28,7 @@ const Sidebar = () => {
 
   const handleItemClick = (e, { name }) => dispatch(setActiveItem(name))
 
-  const books = useSelector((state) => state.clippings.books.slice(0, 5))
+  const books = useSelector((state) => state.clippings.books)
 
   return (
     <Menu vertical>
@@ -63,36 +63,11 @@ const Sidebar = () => {
         </Menu.Menu>
       </Menu.Item>
       <Menu.Item>
-        <MenuHeader>
-          Books
-        </MenuHeader>
-        <Menu.Menu>
-          <Menu.Item>
-            <Input
-              icon={{ name: 'search', circular: true, link: true }}
-              placeholder='Search...'
-            />
-          </Menu.Item>
-          {books.map((book, index) => (
-            <Link to={`/highlights/${book.id}/${book.title}`}>
-              <QuickLinksItem
-                name={book.id}
-                handleItemClick={handleItemClick}
-                activeItem={activeItem}
-                key={index}
-              >
-                <BookFilled /> {book.title}
-              </QuickLinksItem>
-            </Link>
-          )
-          )}
-          <Menu.Item>
-            <Link to='/dashboard'>Show all books</Link>
-          </Menu.Item>
-        </Menu.Menu>
+        <BooksSection books={books} handleItemClick={handleItemClick} activeItem={activeItem}/>
       </Menu.Item>
     </Menu>
   )
 }
 
 export default Sidebar
+export { MenuHeader }
