@@ -2,8 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import HighlightsList from '../HighlightsList'
 
-const FavouritesPage = () => {
-  const filteredHighglightsEntries = useSelector((state) => Object.entries(state.clippings.quotes).filter(q => q[1].favourite === true && q[1].deleted === false))
+const DeletedPage = () => {
+  const filteredHighglightsEntries = useSelector((state) => Object.entries(state.clippings.quotes).filter(q => q[1].deleted === true))
   const highlights = filteredHighglightsEntries.reverse().map(q => (
     {
       id: q[0],
@@ -22,4 +22,4 @@ const FavouritesPage = () => {
   )
 }
 
-export default FavouritesPage
+export default DeletedPage

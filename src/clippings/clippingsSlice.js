@@ -4,7 +4,7 @@ export const clippingsSlice = createSlice({
   name: 'clippings',
   initialState: {
     quotes: {},
-    books: {}
+    books: []
   },
   reducers: {
     concat: (state, action) => {
@@ -19,11 +19,15 @@ export const clippingsSlice = createSlice({
     },
     clear: (state) => {
       state.quotes = {}
-      state.books = {}
+      state.books = []
     },
     toggleFavourite: (state, action) => {
       const id = action.payload
       state.quotes[id].favourite = !state.quotes[id].favourite
+    },
+    toggleDeleted: (state, action) => {
+      const id = action.payload
+      state.quotes[id].deleted = !state.quotes[id].deleted
     }
   }
 })
@@ -37,7 +41,8 @@ function booksListFromQuotes (quotes) {
       quote: q[1].quote,
       time: q[1].time,
       location: q[1].location,
-      favourite: q[1].favourite
+      favourite: q[1].favourite,
+      deleted: q[1].deleted
     }
   ))
 
@@ -66,6 +71,6 @@ function booksListFromQuotes (quotes) {
 }
 
 // Action creators are generated for each case reducer function
-export const { concat, clear, toggleFavourite } = clippingsSlice.actions
+export const { concat, clear, toggleFavourite, toggleDeleted } = clippingsSlice.actions
 
 export default clippingsSlice.reducer

@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom'
 import QuickLinksItem from './QuickLinksItem'
 import Fuse from 'fuse.js'
 import { throttle } from 'lodash'
-
-import { BookFilled } from '@ant-design/icons'
+import { Icon } from 'semantic-ui-react'
 
 const BooksSection = ({books, handleItemClick, activeItem}) => {
     const initialData = books.slice(0, 5).map((book) => ({item: book}))
@@ -57,7 +56,7 @@ const BooksSection = ({books, handleItemClick, activeItem}) => {
                     activeItem={activeItem}
                     key={index}
                 >
-                    <BookFilled /> {book.title}
+                    <Icon name='book' style={{float: 'left'}}/> {book.title}
                 </QuickLinksItem>
                 </Link>
             )}

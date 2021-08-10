@@ -15,6 +15,7 @@ import ImportPage from '../clippings/ImportPage/ImportPage'
 import DashboardPage from '../clippings/DashboardPage/DashboardPage'
 import HighlightsPage from '../clippings/HighlightsPage/HighlightsPage'
 import FavouritesPage from '../clippings/FavouritesPage/FavouritesPage'
+import DeletedPage from '../clippings/DeteledPage/DeletedPage'
 
 function App () {
   return (
@@ -28,6 +29,7 @@ function App () {
             <Route path='/highlights/:bookId/:bookTitle' component={HighlightsPage} />
             <Route path='/highlights' component={HighlightsPage} />
             <Route path='/favourites' component={FavouritesPage} />
+            <Route path='/deleted' component={DeletedPage} />
             <Route path='/'>
               <DashboardPage />
             </Route>

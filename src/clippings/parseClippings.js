@@ -78,7 +78,8 @@ const parseFile = (file, setQuotes) => {
           quote: quote,
           location: location,
           time: time,
-          favourite: false
+          favourite: false,
+          deleted: false
         }
         return res
       }, {})

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from './Header/Header'
+import { toast, ToastContainer } from "react-toastify";
 
 import Sidebar from './Sidebar/Sidebar'
 
@@ -44,6 +45,7 @@ const Layout = (props) => {
         </article>
       </main>
       <footer />
+      <ToastContainer />
     </Container>
   )
 }
