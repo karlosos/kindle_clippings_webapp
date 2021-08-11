@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import dayjs from 'dayjs'
 import { useDropzone } from 'react-dropzone'
 import { parseFile } from '../parseClippings'
@@ -7,7 +7,7 @@ import { Header } from 'semantic-ui-react'
 import ImportedCount from './ImportedCount'
 import { Button } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux'
-import { concat, clear } from '../clippingsSlice'
+import { concat, clear, loadBackup } from '../clippingsSlice'
 import { loadState } from '../../app/localStorage'
 
 const quoteStatistics = (quotes) => {
@@ -36,6 +36,8 @@ const ImportPage = () => {
     dispatch(concat(quotes))
   }
 
+  const backupImportInput = useRef()
+
   useEffect(() => {
     if (acceptedFiles.length > 0) {
       const file = acceptedFiles[0]
@@ -61,6 +63,25 @@ const ImportPage = () => {
     element.click();
   }
 
+  const onBackupImportClick = () => {
+    backupImportInput.current.click()
+  }
+
+  const onBackupFileChange = () => {
+    console.log(backupImportInput.current.files)
+    const file = backupImportInput.current.files[0]
+
+    const reader = new FileReader()
+    reader.onload = (event) => {
+      const obj = JSON.parse(event.target.result)
+      const quotes = obj.clippings.quotes
+      dispatch(loadBackup(quotes))
+      backupImportInput.current.value = ''
+      console.log(backupImportInput.current.files)
+    }
+    reader.readAsText(file)
+  }
+
   return (
     <>
       <Header as='h1'>Import</Header>
@@ -72,11 +93,14 @@ const ImportPage = () => {
         isDragReject={isDragReject}
       />
       {quotes !== {} && <ImportedCount highlightsStatistics={quoteStatistics(quotes)} />}
-      <Header as='h1'>Export/backup</Header>
+      <Header as='h1'>Backup</Header>
       <p>
       If you want to backup/export all data to .json file. 
       </p>
       <Button positive onClick={onBackupButtonClick}>Backup</Button>
+      <Button onClick={onBackupImportClick}>Import backup</Button>
+      <input ref={backupImportInput} onChange={onBackupFileChange} style={{display: 'none'}} type="file" id="my_file"></input>
+
       <Header as='h1'>Delete all data</Header>
       <p>
       If you want to delete all local data. This will remove all highlights, favourites, etc. There is no going back if you do not have a backup.

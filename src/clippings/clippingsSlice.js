@@ -28,6 +28,10 @@ export const clippingsSlice = createSlice({
     toggleDeleted: (state, action) => {
       const id = action.payload
       state.quotes[id].deleted = !state.quotes[id].deleted
+    },
+    loadBackup: (state, action) => {
+      state.quotes = action.payload
+      state.books = booksListFromQuotes(state.quotes)
     }
   }
 })
@@ -71,6 +75,6 @@ function booksListFromQuotes (quotes) {
 }
 
 // Action creators are generated for each case reducer function
-export const { concat, clear, toggleFavourite, toggleDeleted } = clippingsSlice.actions
+export const { concat, clear, toggleFavourite, toggleDeleted, loadBackup } = clippingsSlice.actions
 
 export default clippingsSlice.reducer
