@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 import { toggleFavourite, toggleDeleted } from './clippingsSlice'
 import { useDispatch } from 'react-redux'
 import copy from 'clipboard-copy'
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Item = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -75,9 +75,9 @@ const Copy = styled.div`
 
 const Undo = ({ action, onUndo, closeToast }) => {
   const handleClick = () => {
-    onUndo();
-    closeToast();
-  };
+    onUndo()
+    closeToast()
+  }
 
   const UndoLink = styled.span`
     color: black;
@@ -90,8 +90,8 @@ const Undo = ({ action, onUndo, closeToast }) => {
         Highlight {action} <UndoLink onClick={handleClick}>UNDO</UndoLink>
       </h3>
     </div>
-  );
-};
+  )
+}
 
 const HighlightItem = ({ highlightInfo }) => {
   const [copied, setCopied] = useState(false)
@@ -116,10 +116,9 @@ const HighlightItem = ({ highlightInfo }) => {
     console.log('Delete click')
     dispatch(toggleDeleted(highlightInfo.id))
     if (highlightInfo.deleted) {
-      toast(<Undo action="Restored" onUndo={onUndoClick} />);
-    }
-    else {
-      toast(<Undo action="Deleted" onUndo={onUndoClick} />);
+      toast(<Undo action='Restored' onUndo={onUndoClick} />)
+    } else {
+      toast(<Undo action='Deleted' onUndo={onUndoClick} />)
     }
   }
 
@@ -180,6 +179,5 @@ const HighlightItem = ({ highlightInfo }) => {
     </Item>
   )
 }
-
 
 export default HighlightItem

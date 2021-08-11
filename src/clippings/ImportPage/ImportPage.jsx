@@ -3,9 +3,9 @@ import dayjs from 'dayjs'
 import { useDropzone } from 'react-dropzone'
 import { parseFile } from '../parseClippings'
 import DragDropContainer from './DragDropContainer'
-import { Header } from 'semantic-ui-react'
+import { Header, Button } from 'semantic-ui-react'
 import ImportedCount from './ImportedCount'
-import { Button } from 'semantic-ui-react'
+
 import { useSelector, useDispatch } from 'react-redux'
 import { concat, clear, loadBackup } from '../clippingsSlice'
 import { loadState } from '../../app/localStorage'
@@ -55,12 +55,12 @@ const ImportPage = () => {
     console.log(appState)
     console.log('Backup download')
 
-    const element = document.createElement("a");
-    const file = new Blob([JSON.stringify(appState)], {type: 'text/plain'});
-    element.href = URL.createObjectURL(file);
-    element.download = `clippings_backup_${dayjs().format('YYYY-MM-DDTHH:mm:ss')}.txt`;
-    document.body.appendChild(element); // Required for this to work in FireFox
-    element.click();
+    const element = document.createElement('a')
+    const file = new Blob([JSON.stringify(appState)], { type: 'text/plain' })
+    element.href = URL.createObjectURL(file)
+    element.download = `clippings_backup_${dayjs().format('YYYY-MM-DDTHH:mm:ss')}.txt`
+    document.body.appendChild(element) // Required for this to work in FireFox
+    element.click()
   }
 
   const onBackupImportClick = () => {
@@ -95,15 +95,15 @@ const ImportPage = () => {
       {quotes !== {} && <ImportedCount highlightsStatistics={quoteStatistics(quotes)} />}
       <Header as='h1'>Backup</Header>
       <p>
-      If you want to backup/export all data to .json file. 
+        If you want to backup/export all data to .json file.
       </p>
       <Button positive onClick={onBackupButtonClick}>Backup</Button>
       <Button onClick={onBackupImportClick}>Import backup</Button>
-      <input ref={backupImportInput} onChange={onBackupFileChange} style={{display: 'none'}} type="file" id="my_file"></input>
+      <input ref={backupImportInput} onChange={onBackupFileChange} style={{ display: 'none' }} type='file' id='my_file' />
 
       <Header as='h1'>Delete all data</Header>
       <p>
-      If you want to delete all local data. This will remove all highlights, favourites, etc. There is no going back if you do not have a backup.
+        If you want to delete all local data. This will remove all highlights, favourites, etc. There is no going back if you do not have a backup.
       </p>
       <Button negative onClick={onClearButtonClick}>Delete everything</Button>
     </>

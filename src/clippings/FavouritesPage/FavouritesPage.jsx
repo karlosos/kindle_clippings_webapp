@@ -13,7 +13,7 @@ const FavouritesPage = () => {
       time: q[1].time,
       location: q[1].location,
       favourite: q[1].favourite,
-      deleted: q[1].deleted,
+      deleted: q[1].deleted
     }
   ))
 

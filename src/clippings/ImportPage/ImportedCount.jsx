@@ -15,7 +15,7 @@ const ImportedCount = ({ highlightsStatistics }) => {
   return (
     <Wrapper>
       <span>
-        You have alredy imported 
+        You have alredy imported
       </span>
       <Statistic.Group>
         <Statistic>

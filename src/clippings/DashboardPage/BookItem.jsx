@@ -75,7 +75,7 @@ const StatisticLabel = styled(Statistic.Label)`
 const BookItem = ({ book }) => {
   const highlights = useSelector((state) => {
     // https://stackoverflow.com/questions/68740757/get-the-data-from-the-redux-store-on-demand-onclick
-    // This is calculated for every book in the list. 
+    // This is calculated for every book in the list.
     // I don't want that. I want to get the data from the store on demand.
     const filteredHighlightsEntries = Object.entries(state.clippings.quotes).filter(q => {
       const deletedFilter = q[1].deleted === false

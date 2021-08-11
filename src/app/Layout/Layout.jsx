@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from './Header/Header'
-import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from 'react-toastify'
 
 import Sidebar from './Sidebar/Sidebar'
 

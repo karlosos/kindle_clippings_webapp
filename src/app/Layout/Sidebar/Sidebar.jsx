@@ -65,7 +65,7 @@ const Sidebar = () => {
         </Menu.Menu>
       </Menu.Item>
       <Menu.Item>
-        <BooksSection books={books} handleItemClick={handleItemClick} activeItem={activeItem}/>
+        <BooksSection books={books} handleItemClick={handleItemClick} activeItem={activeItem} />
       </Menu.Item>
     </Menu>
   )
