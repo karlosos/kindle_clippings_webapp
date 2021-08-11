@@ -5,6 +5,9 @@ import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import Colors from '../../common/colors'
 import { Link } from 'react-router-dom'
+import bookExport from './bookExport'
+
+import { useSelector } from 'react-redux'
 
 dayjs.extend(relativeTime)
 
@@ -70,6 +73,23 @@ const StatisticLabel = styled(Statistic.Label)`
 `
 
 const BookItem = ({ book }) => {
+  const highlights = useSelector((state) => {
+    // https://stackoverflow.com/questions/68740757/get-the-data-from-the-redux-store-on-demand-onclick
+    // This is calculated for every book in the list. 
+    // I don't want that. I want to get the data from the store on demand.
+    const filteredHighlightsEntries = Object.entries(state.clippings.quotes).filter(q => {
+      const deletedFilter = q[1].deleted === false
+      const titleFilter = q[1].book === book.title
+      return deletedFilter && titleFilter
+    })
+    console.log(`Get quotes for bok ${book.title}`)
+    return filteredHighlightsEntries
+  })
+
+  const handleExportClick = () => {
+    bookExport(highlights)
+  }
+
   return (
     <Row>
       <RowGroup>
@@ -98,7 +118,7 @@ const BookItem = ({ book }) => {
         </NumHighlights>
       </RowGroup>
       <RowGroup>
-        <Button style={{ marginRight: '32px' }}>Export</Button>
+        <Button style={{ marginRight: '32px' }} onClick={handleExportClick}>Export</Button>
         <Link to={`/highlights/${book.id}/${book.title}`}>
           <StyledIcon circular name='angle right' size='large' />
         </Link>
