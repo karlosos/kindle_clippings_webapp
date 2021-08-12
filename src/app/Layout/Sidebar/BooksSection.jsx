@@ -1,27 +1,41 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useRef } from 'react'
 import { MenuHeader } from './Sidebar'
 import { Menu, Input, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import QuickLinksItem from './QuickLinksItem'
 import Fuse from 'fuse.js'
 import { throttle } from 'lodash'
+import { useEffect } from 'react'
+
+const initialData = (books) => books.slice(0, 5).map((book) => ({ item: book }))
 
 const BooksSection = ({ books, handleItemClick, activeItem }) => {
-  const initialData = books.slice(0, 5).map((book) => ({ item: book }))
-  const [searchData, setSearchData] = useState(initialData)
-  const fuse = new Fuse(books, {
-    includeScore: true,
-    keys: ['title', 'author']
-  })
+  const fuse = useRef(new Fuse(books, {
+      includeScore: true,
+      keys: ['title', 'author']
+    }))
 
-  const searchBooks = (query) => {
-    console.log('search books')
+  const [searchData, setSearchData] = useState(initialData(books))
+
+  useEffect(() => {
+    setSearchData(initialData(books))
+    fuse.current = new Fuse(books, {
+      includeScore: true,
+      keys: ['title', 'author']
+    })
+  }, [books])
+
+
+  const searchBooks = (query, books) => {
+    // Books were old because we use Memo!
+    // To have the most recent books props we need to pass them as an argument
+    // or probably store them in ref
     if (!query) {
-      setSearchData(initialData)
+      setSearchData(initialData(books))
       return
     }
 
-    const result = fuse.search(query)
+    const result = fuse.current.search(query)
     setSearchData(result)
   }
 
@@ -40,7 +54,7 @@ const BooksSection = ({ books, handleItemClick, activeItem }) => {
           <Input
             icon={{ name: 'search', circular: true, link: true }}
             placeholder='Search...'
-            onChange={(e) => throttledSearch(e.target.value)}
+            onChange={(e) => throttledSearch(e.target.value, books)}
           />
         </Menu.Item>
         {searchData.map((searchItem, index) => {
