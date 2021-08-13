@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Input } from 'semantic-ui-react'
 import styled from 'styled-components'
 import { ReactComponent as Logo } from './logo.svg'
@@ -21,12 +21,6 @@ const SearchBar = styled(Input)`
 `
 
 const Header = () => {
-  const [searchValue, setSearchValue] = useState('')
-
-  const handleSearchInput = (e) => {
-    setSearchValue(e.target.value)
-  }
-
   return (
     <HeaderWrapper>
       <Logo style={{ width: '50px' }} />
