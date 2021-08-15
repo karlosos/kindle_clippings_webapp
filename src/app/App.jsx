@@ -17,27 +17,34 @@ import HighlightsPage from '../clippings/HighlightsPage/HighlightsPage'
 import FavouritesPage from '../clippings/FavouritesPage/FavouritesPage'
 import DeletedPage from '../clippings/DeteledPage/DeletedPage'
 
+const LocationDisplay = () => {
+  return (
+    <Layout>
+      <Switch>
+        <Route path='/import'>
+          <ImportPage />
+        </Route>
+        <Route path='/highlights/:bookId/:bookTitle' component={HighlightsPage} />
+        <Route path='/highlights' component={HighlightsPage} />
+        <Route path='/favourites' component={FavouritesPage} />
+        <Route path='/deleted' component={DeletedPage} />
+        <Route path='/'>
+          <DashboardPage />
+        </Route>
+      </Switch>
+    </Layout>
+  )
+} 
+
 function App () {
   return (
     <Provider store={store}>
       <Router>
-        <Layout>
-          <Switch>
-            <Route path='/import'>
-              <ImportPage />
-            </Route>
-            <Route path='/highlights/:bookId/:bookTitle' component={HighlightsPage} />
-            <Route path='/highlights' component={HighlightsPage} />
-            <Route path='/favourites' component={FavouritesPage} />
-            <Route path='/deleted' component={DeletedPage} />
-            <Route path='/'>
-              <DashboardPage />
-            </Route>
-          </Switch>
-        </Layout>
+        <LocationDisplay />
       </Router>
     </Provider>
   )
 }
 
 export default App
+export { LocationDisplay }
