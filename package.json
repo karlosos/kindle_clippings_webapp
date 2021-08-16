@@ -5,9 +5,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@reduxjs/toolkit": "^1.6.1",
-    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "clipboard-copy": "^4.0.1",
     "cross-env": "^7.0.3",
     "dayjs": "^1.10.6",
@@ -53,6 +51,9 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.1.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/user-event": "^12.8.3",
     "electron-builder": "^22.11.7",
     "electron-is-dev": "^2.0.0"
   },

@@ -76,5 +76,5 @@ function booksListFromQuotes (quotes) {
 
 // Action creators are generated for each case reducer function
 export const { concat, clear, toggleFavourite, toggleDeleted, loadBackup } = clippingsSlice.actions
-
+export { booksListFromQuotes }
 export default clippingsSlice.reducer

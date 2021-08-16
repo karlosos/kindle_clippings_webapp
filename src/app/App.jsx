@@ -17,7 +17,7 @@ import HighlightsPage from '../clippings/HighlightsPage/HighlightsPage'
 import FavouritesPage from '../clippings/FavouritesPage/FavouritesPage'
 import DeletedPage from '../clippings/DeteledPage/DeletedPage'
 
-const LocationDisplay = () => {
+const AppContent = () => {
   return (
     <Layout>
       <Switch>
@@ -34,17 +34,17 @@ const LocationDisplay = () => {
       </Switch>
     </Layout>
   )
-} 
+}
 
 function App () {
   return (
     <Provider store={store}>
       <Router>
-        <LocationDisplay />
+        <AppContent />
       </Router>
     </Provider>
   )
 }
 
 export default App
-export { LocationDisplay }
+export { AppContent }

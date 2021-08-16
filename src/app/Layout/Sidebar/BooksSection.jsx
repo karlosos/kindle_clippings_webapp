@@ -1,19 +1,18 @@
-import React, { useState, useMemo, useRef } from 'react'
+import React, { useState, useMemo, useRef, useEffect } from 'react'
 import { MenuHeader } from './Sidebar'
 import { Menu, Input, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import QuickLinksItem from './QuickLinksItem'
 import Fuse from 'fuse.js'
 import { throttle } from 'lodash'
-import { useEffect } from 'react'
 
 const initialData = (books) => books.slice(0, 5).map((book) => ({ item: book }))
 
 const BooksSection = ({ books, handleItemClick, activeItem }) => {
   const fuse = useRef(new Fuse(books, {
-      includeScore: true,
-      keys: ['title', 'author']
-    }))
+    includeScore: true,
+    keys: ['title', 'author']
+  }))
 
   const [searchData, setSearchData] = useState(initialData(books))
 
@@ -24,7 +23,6 @@ const BooksSection = ({ books, handleItemClick, activeItem }) => {
       keys: ['title', 'author']
     })
   }, [books])
-
 
   const searchBooks = (query, books) => {
     // Books were old because we use Memo!
