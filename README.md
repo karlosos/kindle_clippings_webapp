@@ -25,7 +25,7 @@
 <tbody>
 <td align="center">
 <img width="2000" height="0"><br>
-Website: <b><a href="https://karlosos.github.io/kindle_clippings_webapp/demo">karlosos.github.io/kindle_clippings_webapp 🌐</a></b><br>
+Website: <b><a href="https://karlosos.github.io/kindle_clippings_webapp/#/demo">karlosos.github.io/kindle_clippings_webapp 🌐</a></b><br>
 <img width="2000" height="0">
 </td>
 </tbody>
