@@ -7,7 +7,8 @@ import {
   PlusSquareFilled,
   HighlightFilled,
   HeartFilled,
-  DeleteFilled
+  DeleteFilled,
+  SaveFilled
 } from '@ant-design/icons'
 import Colors from '../../../common/colors'
 import { useSelector, useDispatch } from 'react-redux'
@@ -60,6 +61,11 @@ const Sidebar = () => {
           <Link to='/deleted'>
             <QuickLinksItem name='deleted' handleItemClick={handleItemClick} activeItem={activeItem}>
               <DeleteFilled /> Deleted
+            </QuickLinksItem>
+          </Link>
+          <Link to='/demo'>
+            <QuickLinksItem name='demo' handleItemClick={handleItemClick} activeItem={activeItem}>
+              <SaveFilled /> Demo 
             </QuickLinksItem>
           </Link>
         </Menu.Menu>

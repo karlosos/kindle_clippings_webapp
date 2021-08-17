@@ -16,6 +16,7 @@ import DashboardPage from '../clippings/DashboardPage/DashboardPage'
 import HighlightsPage from '../clippings/HighlightsPage/HighlightsPage'
 import FavouritesPage from '../clippings/FavouritesPage/FavouritesPage'
 import DeletedPage from '../clippings/DeteledPage/DeletedPage'
+import Demo from '../Demo/Demo'
 
 const AppContent = () => {
   return (
@@ -28,6 +29,7 @@ const AppContent = () => {
         <Route path='/highlights' component={HighlightsPage} />
         <Route path='/favourites' component={FavouritesPage} />
         <Route path='/deleted' component={DeletedPage} />
+        <Route path='/demo' component={Demo} />
         <Route path='/'>
           <DashboardPage />
         </Route>

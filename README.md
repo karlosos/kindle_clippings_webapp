@@ -25,7 +25,7 @@
 <tbody>
 <td align="center">
 <img width="2000" height="0"><br>
-Website: <b><a href="https://karlosos.github.io/kindle_clippings_webapp/">karlosos.github.io/kindle_clippings_webapp 🌐</a></b><br>
+Website: <b><a href="https://karlosos.github.io/kindle_clippings_webapp/demo">karlosos.github.io/kindle_clippings_webapp 🌐</a></b><br>
 <img width="2000" height="0">
 </td>
 </tbody>
@@ -36,9 +36,16 @@ Website: <b><a href="https://karlosos.github.io/kindle_clippings_webapp/">karlos
 
 Import Kindle Clippings and show them in accessible way. The app divides clippings into books and gives an option to delete and like highlights.
 
+All functions:
+- import clippings
+- browse clippings
+- create backup and load from backup (saved to json file)
+- export all clippings from book to txt file
+- save application state in `localStorage` (app state is persistent)
+
 ## What I Have Learned
 
-This project was more goal oriented rather than education oriented. I wanted to have a simple desktop application (electron) for managing my kindle clippings.
+This project was more goal oriented rather than education oriented. I wanted to have a simple desktop (electron) application for managing my kindle clippings.
 
 ## Development
 
