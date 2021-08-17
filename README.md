@@ -3,12 +3,14 @@
 <div align="center">
 
 [![Code style: standardjs](https://img.shields.io/badge/code%20style-standardjs-F3DF49.svg)](https://standardjs.com/)
-[![Build and Deploy](https://github.com/karlosos/url_to_bibtex/actions/workflows/main.yml/badge.svg)](https://github.com/karlosos/url_to_bibtex/actions/workflows/main.yml)
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+[![Build and Deploy](https://github.com/karlosos/kindle_clippings_webapp/actions/workflows/main.yml/badge.svg)](https://github.com/karlosos/kindle_clippings_webapp/actions/workflows/main.yml)
+![Coverage 66%](https://img.shields.io/badge/coverage-66%25-yellow)
 </div>
 
 ***
 
-<h4 align="center">Kindle Clippings Manager</h4>
+<h4 align="center"><img src="./docs/logo_books.png" width="18px" />Kindle Clippings Manager</h4>
 
 
 <p align="center">
@@ -23,7 +25,7 @@
 <tbody>
 <td align="center">
 <img width="2000" height="0"><br>
-Website: <b><a href="https://karlosos.github.io/url_to_bibtex/">karlosos.github.io/url_to_bibtex 🌐</a></b><br>
+Website: <b><a href="https://karlosos.github.io/kindle_clippings_webapp/">karlosos.github.io/kindle_clippings_webapp 🌐</a></b><br>
 <img width="2000" height="0">
 </td>
 </tbody>
@@ -44,4 +46,8 @@ This project was more goal oriented rather than education oriented. I wanted to 
 1. Run desktop application with `npm run start` or react app with `npm run react-start`.
 1. Access application under `localhost:3000`.
 
+Code coverage can be checked using `npm run test:coverage`. Currently it is about 66%, mostly integration tests.
+
 ## Deployment
+
+Application is automatically deployed to GithubPages using `.github/workflows/main.yml` workflow.
