@@ -1,0 +1,24 @@
+name: Build and Deploy
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@v2.3.1
+      
+    - name: Install and Build 🔧
+      run: |
+        npm install
+        npm run build
+    
+    - name: Test ✅
+      run: |
+        npm run test
+        
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        BRANCH: gh-pages
+        FOLDER: build
