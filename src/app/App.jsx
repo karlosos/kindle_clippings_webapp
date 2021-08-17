@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from 'react-router-dom'
