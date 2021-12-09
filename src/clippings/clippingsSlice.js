@@ -37,6 +37,10 @@ export const clippingsSlice = createSlice({
 })
 
 function booksListFromQuotes (quotes) {
+  if (!quotes) {
+    return []
+  }
+  
   const quotesList = Object.entries(quotes).reverse().map(q => (
     {
       id: q[0],

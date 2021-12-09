@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom'
 import QuickLinksItem from './QuickLinksItem'
 import Fuse from 'fuse.js'
 import { throttle } from 'lodash'
+import { useSelector } from 'react-redux'
 
 const initialData = (books) => books.slice(0, 5).map((book) => ({ item: book }))
 
-const BooksSection = ({ books, handleItemClick, activeItem }) => {
+const BooksSection = ({ handleItemClick, activeItem }) => {
+  const books = useSelector((state) => state.clippings.books)
+
   const fuse = useRef(new Fuse(books, {
     includeScore: true,
     keys: ['title', 'author']

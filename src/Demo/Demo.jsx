@@ -19,7 +19,6 @@ const ImportPage = () => {
     }
 
     const onClearButtonClick = () => {
-        console.log('Try to clear')
         dispatch(clear())
     }
 

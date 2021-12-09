@@ -6,6 +6,8 @@ export const loadState = () => {
     if (serializedState === null) {
       return undefined
     }
+    // TODO: we need to check if its good before returning
+    // because it can actually cause errors when the state schema changed before last save
     return JSON.parse(serializedState)
   } catch (err) {
     return undefined

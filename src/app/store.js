@@ -14,6 +14,7 @@ const store = configureStore({
 })
 
 store.subscribe(() => {
+  // This saves the state to localStorage on every state change
   saveState({
     clippings: store.getState().clippings
   })

@@ -29,8 +29,6 @@ const Sidebar = () => {
 
   const handleItemClick = (e, { name }) => dispatch(setActiveItem(name))
 
-  const books = useSelector((state) => state.clippings.books)
-
   return (
     <Menu vertical>
       <Menu.Item>
@@ -71,7 +69,7 @@ const Sidebar = () => {
         </Menu.Menu>
       </Menu.Item>
       <Menu.Item>
-        <BooksSection books={books} handleItemClick={handleItemClick} activeItem={activeItem} />
+        <BooksSection handleItemClick={handleItemClick} activeItem={activeItem} />
       </Menu.Item>
     </Menu>
   )

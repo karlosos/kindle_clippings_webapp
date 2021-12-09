@@ -13,7 +13,7 @@ import { loadState } from '../../app/localStorage'
 const quoteStatistics = (quotes) => {
   const quotesEntries = Object.entries(quotes)
   const books = [...new Set(quotesEntries.map(quote => quote[1].book))]
-  console.log(books.length)
+
   return {
     numHighlights: quotesEntries.length,
     numBooks: books.length
@@ -46,14 +46,11 @@ const ImportPage = () => {
   }, [acceptedFiles])
 
   const onClearButtonClick = () => {
-    console.log('Try to clear')
     dispatch(clear())
   }
 
   const onBackupButtonClick = () => {
     const appState = loadState()
-    console.log(appState)
-    console.log('Backup download')
 
     const element = document.createElement('a')
     const file = new Blob([JSON.stringify(appState)], { type: 'text/plain' })
@@ -68,7 +65,6 @@ const ImportPage = () => {
   }
 
   const onBackupFileChange = () => {
-    console.log(backupImportInput.current.files)
     const file = backupImportInput.current.files[0]
 
     const reader = new FileReader()
@@ -77,7 +73,6 @@ const ImportPage = () => {
       const quotes = obj.clippings.quotes
       dispatch(loadBackup(quotes))
       backupImportInput.current.value = ''
-      console.log(backupImportInput.current.files)
     }
     reader.readAsText(file)
   }

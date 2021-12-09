@@ -35,7 +35,12 @@ const quotes = {
 
 test('books list from quotes', () => {
   const booksList = booksListFromQuotes(quotes)
-  console.log(booksList)
   const expectedBooksList = [{ author: 'Dan Luca', id: 0, lastHighlights: 'Wednesday, May 19, 2021, 10:24 PM', numHighlights: 1, title: 'The 5 A.M. Revolution: Why High Achievers Wake Up Early and How You Can Do It, Too ' }, { author: 'Stefan Żeromski', id: 1, lastHighlights: 'Saturday, May 09, 2015, 02:23 PM', numHighlights: 1, title: 'Ludzie bezdomni ' }, { author: 'Yuval Noah Harari', id: 2, lastHighlights: 'Wednesday, May 19, 2021, 05:07 PM', numHighlights: 1, title: 'Homo Deus: A Brief History of Tomorrow ' }]
+  expect(booksList).toEqual(expectedBooksList)
+})
+
+test('books list from empty quotes', () => {
+  const booksList = booksListFromQuotes(undefined)
+  const expectedBooksList = []
   expect(booksList).toEqual(expectedBooksList)
 })

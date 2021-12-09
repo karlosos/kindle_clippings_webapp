@@ -86,7 +86,6 @@ const parseFile = (file, setQuotes) => {
   const fileReader = new FileReader()
   fileReader.onload = () => {
     const content = fileReader.result
-    console.log(content)
     const quotes = parseText(content)
     setQuotes(quotes)
   }

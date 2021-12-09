@@ -113,7 +113,6 @@ const HighlightItem = ({ highlightInfo }) => {
   }
 
   const onDeleteClick = () => {
-    console.log('Delete click')
     dispatch(toggleDeleted(highlightInfo.id))
     if (highlightInfo.deleted) {
       toast(<Undo action='Restored' onUndo={onUndoClick} />)
