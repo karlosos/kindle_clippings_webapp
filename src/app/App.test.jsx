@@ -1,13 +1,13 @@
 import React from 'react'
 import renderWithProviders from '../tests_utils/storeTestProvider'
 import { screen, waitFor } from '@testing-library/react'
-import { clippings, books } from '../tests_utils/fixtures'
+import { clippings } from '../tests_utils/fixtures'
 import { AppContent } from './App'
 import userEvent from '@testing-library/user-event'
 
 test('App dashboard', () => {
   const { getByText, getAllByText, debug } = renderWithProviders(<AppContent />, {
-    reduxState: { clippings: clippings, books: books },
+    reduxState: { clippings: clippings },
     route: '/'
   })
   expect(screen.getAllByText(/Dashboard/i).length).toBe(2) // sidebar and header
@@ -17,7 +17,7 @@ test('App dashboard', () => {
 
 test('Clear all data', async () => {
   const { debug } = renderWithProviders(<AppContent />, {
-    reduxState: { clippings: clippings, books: books },
+    reduxState: { clippings: clippings },
     route: '/'
   })
   expect(screen.getAllByText(/Dashboard/i).length).toBe(2) // sidebar and header
@@ -43,7 +43,7 @@ test('Clear all data', async () => {
 
 test('Add to favourites and remove from favourites', async () => {
   const { debug } = renderWithProviders(<AppContent />, {
-    reduxState: { clippings: clippings, books: books },
+    reduxState: { clippings: clippings },
     route: '/'
   })
   expect(screen.getAllByText(/Dashboard/i).length).toBe(2) // sidebar and header
@@ -82,7 +82,7 @@ test('Add to favourites and remove from favourites', async () => {
 
 test('Add and remove highlights', async () => {
   const { debug } = renderWithProviders(<AppContent />, {
-    reduxState: { clippings: clippings, books: books },
+    reduxState: { clippings: clippings },
     route: '/'
   })
   expect(screen.getAllByText(/Dashboard/i).length).toBe(2) // sidebar and header

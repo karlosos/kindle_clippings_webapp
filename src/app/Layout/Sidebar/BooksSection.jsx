@@ -51,7 +51,7 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
         Books
       </MenuHeader>
       <Menu.Menu>
-        <Menu.Item>
+        <Menu.Item key={'searchInput'}>
           <Input
             icon={{ name: 'search', circular: true, link: true }}
             placeholder='Search...'
@@ -62,12 +62,11 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
           const book = searchItem.item
 
           return (
-            <Link to={`/highlights/${book.id}/${book.title}`}>
+            <Link to={`/highlights/${book.id}/${book.title}`} key={index}>
               <QuickLinksItem
                 name={book.id}
                 handleItemClick={handleItemClick}
                 activeItem={activeItem}
-                key={index}
               >
                 <Icon name='book' style={{ float: 'left' }} /> {book.title}
               </QuickLinksItem>
@@ -75,7 +74,7 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
           )
         }
         )}
-        <Menu.Item>
+        <Menu.Item key={'allBooksLink'}>
           <Link to='/dashboard'>Show all books</Link>
         </Menu.Item>
       </Menu.Menu>
