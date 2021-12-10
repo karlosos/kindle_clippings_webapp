@@ -58,6 +58,7 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
             onChange={(e) => throttledSearch(e.target.value, books)}
           />
         </Menu.Item>
+        <div style={{overflow: 'overlay', height: '100px'}}>
         {searchData.map((searchItem, index) => {
           const book = searchItem.item
 
@@ -74,6 +75,7 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
           )
         }
         )}
+        </div>
         <Menu.Item key={'allBooksLink'}>
           <Link to='/dashboard'>Show all books</Link>
         </Menu.Item>

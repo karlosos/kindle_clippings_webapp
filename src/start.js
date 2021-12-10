@@ -11,8 +11,9 @@ function createWindow () {
     height: 777,
     webPreferences: {
       nodeIntegration: true
-    }
-    // frame: false,
+    },
+    titleBarStyle: 'hiddenInset',
+    frame: false,
     // transparent: true,
   })
 

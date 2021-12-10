@@ -4,6 +4,24 @@ import styled from 'styled-components'
 import { Header, Pagination } from 'semantic-ui-react'
 import HighlightItem from './HighlightItem'
 
+const Wrapper = styled.div`
+ display: flex;
+ flex-direction: column;
+ height: 100%;
+`
+
+const Content = styled.div`
+  flex: 1 1 auto;
+`
+
+const Footer = styled.div`
+  flex: 0 1 40px;
+`
+
+const HeaderStyled = styled(Header)`
+flex: 0 1 auto;
+`
+
 const PaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -24,15 +42,16 @@ const HighlightsList = ({ highlights }) => {
   }
 
   return (
-    <>
-      <Header as='h1'>Highlights</Header>
-      <>
+    <Wrapper>
+      <HeaderStyled as='h1'>Highlights</HeaderStyled>
+      <Content>
         {
             highlightsFiltered.map((highlightInfo) => (
               <HighlightItem key={highlightInfo.id} highlightInfo={highlightInfo} />
             ))
         }
-      </>
+      </Content>
+      <Footer>
       <PaginationWrapper>
         <Pagination
           activePage={activePage}
@@ -40,7 +59,8 @@ const HighlightsList = ({ highlights }) => {
           totalPages={numPages}
         />
       </PaginationWrapper>
-    </>
+      </Footer>
+    </Wrapper>
   )
 }
 
