@@ -1,41 +1,40 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from './Header/Header'
-import { toast, ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 
 import Sidebar from './Sidebar/Sidebar'
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-
-    main {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: row;
-        z-index: 10;
-        margin-top: 40px;
-    }
+    height: 100vh;
+    overflow: hidden;
 
     header {
-      position: -webkit-sticky; /* Safari */
-      position: sticky;
-      top: 0;
       background-color: white;
       z-index: 99;
     }
 
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: row;
+      z-index: 10;
+
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+    }
+
     aside {
-        padding-left: 8px;
-        padding-right: 8px;
-        padding-top: 8px;
-        height: 100vh;
+      flex-shrink: 0;
     }
 
     article {
-        flex-grow: 1;
-        padding: 20px;
-        height: 100%;
+      flex-grow: 1;
+      overflow: overlay;
+      margin-left: 16px;
     }
 `
 

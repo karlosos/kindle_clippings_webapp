@@ -4,7 +4,7 @@
 }
 
 .ui.vertical.menu .active.item {
-    border-right: black 3px solid;
+    box-shadow: inset 3px 0px 0px 0px black;
 }
 
 .ui.vertical.menu .item .menu .active.item { 

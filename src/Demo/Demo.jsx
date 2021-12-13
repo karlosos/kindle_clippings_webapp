@@ -7,6 +7,12 @@ import { clear, loadBackup } from '../clippings/clippingsSlice'
 import { setActiveItem } from '../app/Layout/Sidebar/sidebarSlice'
 import { useHistory } from "react-router-dom";
 import { clippings } from './demoClippings'
+import styled from 'styled-components'
+
+const HeaderStyled = styled.div`
+  user-select: none;
+  padding-top: 4px;
+`
 
 const ImportPage = () => {
     const dispatch = useDispatch()
@@ -24,7 +30,7 @@ const ImportPage = () => {
 
     return (
         <>
-            <Header as='h1'>Demo data</Header>
+            <HeaderStyled as='h1'>Demo data</HeaderStyled>
             <p>
                 If you want to load demo data and you only want to check how this app works, then use the button below.
             </p>

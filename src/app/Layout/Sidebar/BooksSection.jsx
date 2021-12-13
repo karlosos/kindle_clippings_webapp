@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react'
 import { MenuHeader } from './Sidebar'
+import styled from 'styled-components'
 import { Menu, Input, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import QuickLinksItem from './QuickLinksItem'
@@ -8,6 +9,26 @@ import { throttle } from 'lodash'
 import { useSelector } from 'react-redux'
 
 const initialData = (books) => books.slice(0, 5).map((book) => ({ item: book }))
+
+const BooksSectionWrapper = styled(Menu.Item)`
+  &&& {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+const BooksSectionMenu = styled(Menu.Menu)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+
+const BooksList = styled.div`
+  overflow: overlay;
+  height: 100px;
+  flex-grow: 1;
+`
 
 const BooksSection = ({ handleItemClick, activeItem }) => {
   const books = useSelector((state) => state.clippings.books)
@@ -46,41 +67,38 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
   )
 
   return (
-    <>
-      <MenuHeader>
-        Books
-      </MenuHeader>
-      <Menu.Menu>
+    <BooksSectionWrapper>
+      <BooksSectionMenu>
         <Menu.Item key={'searchInput'}>
           <Input
             icon={{ name: 'search', circular: true, link: true }}
-            placeholder='Search...'
+            placeholder='Search book'
             onChange={(e) => throttledSearch(e.target.value, books)}
           />
         </Menu.Item>
-        <div style={{overflow: 'overlay', height: '100px'}}>
-        {searchData.map((searchItem, index) => {
-          const book = searchItem.item
+        <BooksList>
+          {searchData.map((searchItem, index) => {
+            const book = searchItem.item
 
-          return (
-            <Link to={`/highlights/${book.id}/${book.title}`} key={index}>
-              <QuickLinksItem
-                name={book.id}
-                handleItemClick={handleItemClick}
-                activeItem={activeItem}
-              >
-                <Icon name='book' style={{ float: 'left' }} /> {book.title}
-              </QuickLinksItem>
-            </Link>
-          )
-        }
-        )}
-        </div>
+            return (
+              <Link to={`/highlights/${book.id}/${book.title}`} key={index}>
+                <QuickLinksItem
+                  name={book.id}
+                  handleItemClick={handleItemClick}
+                  activeItem={activeItem}
+                >
+                  <Icon name='book' style={{ float: 'left' }} /> {book.title}
+                </QuickLinksItem>
+              </Link>
+            )
+          }
+          )}
+        </BooksList>
         <Menu.Item key={'allBooksLink'}>
           <Link to='/dashboard'>Show all books</Link>
         </Menu.Item>
-      </Menu.Menu>
-    </>
+      </BooksSectionMenu>
+    </BooksSectionWrapper>
   )
 }
 

@@ -13,7 +13,7 @@ function createWindow () {
       nodeIntegration: true
     },
     titleBarStyle: 'hiddenInset',
-    frame: false,
+    // frame: false,
     // transparent: true,
   })
 

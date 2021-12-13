@@ -23,6 +23,20 @@ const MenuHeader = styled.div`
     color: ${Colors.textLighter};
 `
 
+const MenuStyled = styled(Menu)`
+  &&& { 
+    border: 0px;
+    border-right: 1px solid rgba(34,36,38,.15);
+    box-shadow: 0 -10px 10px 0 rgb(34 36 38 / 15%);
+    border-radius: 0px;
+    height: 100%;
+    display: flex;
+  }
+`
+
+const QuickLinksSectionWrapper = styled(Menu.Item)`
+`
+
 const Sidebar = () => {
   const dispatch = useDispatch()
   const activeItem = useSelector((state) => state.sidebar.activeItem)
@@ -30,11 +44,11 @@ const Sidebar = () => {
   const handleItemClick = (e, { name }) => dispatch(setActiveItem(name))
 
   return (
-    <Menu vertical>
+    <MenuStyled vertical>
       <Menu.Item>
-        <MenuHeader>
+        {/* <MenuHeader>
           Quick Links
-        </MenuHeader>
+        </MenuHeader> */}
         <Menu.Menu>
           <Link to='/'>
             <QuickLinksItem name='dashboard' handleItemClick={handleItemClick} activeItem={activeItem}>
@@ -68,10 +82,8 @@ const Sidebar = () => {
           </Link>
         </Menu.Menu>
       </Menu.Item>
-      <Menu.Item>
-        <BooksSection handleItemClick={handleItemClick} activeItem={activeItem} />
-      </Menu.Item>
-    </Menu>
+      <BooksSection handleItemClick={handleItemClick} activeItem={activeItem} />
+    </MenuStyled>
   )
 }
 

@@ -5,27 +5,47 @@ import { Header, Pagination } from 'semantic-ui-react'
 import HighlightItem from './HighlightItem'
 
 const Wrapper = styled.div`
- display: flex;
- flex-direction: column;
- height: 100%;
+  flex-grow: 1;
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: overlay;
+`
+
+// TODO: those alpha box-shadow cummulates
+const MainHeader = styled.div`
+  user-select: none;
+  padding-top: 8px;
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+  box-shadow: -16px 1px 0 rgba(0, 0, 0, 0.2);
+  padding-bottom: 14px;
 `
 
 const Content = styled.div`
-  flex: 1 1 auto;
+  flex-grow: 1;
+  padding-right: 16px;
 `
 
 const Footer = styled.div`
-  flex: 0 1 40px;
-`
-
-const HeaderStyled = styled(Header)`
-flex: 0 1 auto;
-`
-
-const PaginationWrapper = styled.div`
+  padding-top: 8px;
+  padding-bottom: 8px;
   display: flex;
+  width: 100%;
   justify-content: center;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  padding-right: 16px;
+  box-shadow: -16px -1px 0 rgba(0, 0, 0, 0.2);
+  user-select: none;
 `
+
 
 const HighlightsList = ({ highlights }) => {
   const [activePage, setActivePage] = useState(1)
@@ -38,12 +58,15 @@ const HighlightsList = ({ highlights }) => {
 
   const handlePaginationChange = (e, { activePage }) => {
     setActivePage(activePage)
+    // TODO: inside element scroll
     window.scrollTo(0, 0)
   }
 
   return (
     <Wrapper>
-      <HeaderStyled as='h1'>Highlights</HeaderStyled>
+      <MainHeader>
+        <Header as='h1'>Highlights</Header>
+      </MainHeader>
       <Content>
         {
             highlightsFiltered.map((highlightInfo) => (
@@ -52,13 +75,11 @@ const HighlightsList = ({ highlights }) => {
         }
       </Content>
       <Footer>
-      <PaginationWrapper>
         <Pagination
           activePage={activePage}
           onPageChange={handlePaginationChange}
           totalPages={numPages}
         />
-      </PaginationWrapper>
       </Footer>
     </Wrapper>
   )

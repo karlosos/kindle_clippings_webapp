@@ -15,7 +15,6 @@ const HeaderWrapper = styled.div`
     background: #fafafa;
     border-bottom: rgba(0, 0, 0, 0.2) solid 2px;
     z-index: 999;
-    position: absolute;
 
     p {
       margin: 0 0 0em;
