@@ -10,7 +10,6 @@ test('App dashboard', () => {
     reduxState: { clippings: clippings },
     route: '/'
   })
-  expect(screen.getAllByText(/Dashboard/i).length).toBe(2) // sidebar and header
   expect(getAllByText(/Chłopi/i).length).toBe(2) // sidebar and books list
   expect(getAllByText('Mitologia').length).toBe(2) // sidebar and books list
 })
@@ -20,7 +19,6 @@ test('Clear all data', async () => {
     reduxState: { clippings: clippings },
     route: '/'
   })
-  expect(screen.getAllByText(/Dashboard/i).length).toBe(2) // sidebar and header
   const leftClick = { button: 0 }
   // go to import page
   userEvent.click(screen.getByText(/import/i), leftClick)
@@ -46,7 +44,6 @@ test('Add to favourites and remove from favourites', async () => {
     reduxState: { clippings: clippings },
     route: '/'
   })
-  expect(screen.getAllByText(/Dashboard/i).length).toBe(2) // sidebar and header
   const leftClick = { button: 0 }
   // go to highlights and check if there are 2 normal highlights and 2 favourite highlight
   userEvent.click(screen.getByText(/All highlights/i), leftClick)
@@ -85,7 +82,6 @@ test('Add and remove highlights', async () => {
     reduxState: { clippings: clippings },
     route: '/'
   })
-  expect(screen.getAllByText(/Dashboard/i).length).toBe(2) // sidebar and header
   const leftClick = { button: 0 }
   // go to highlights and check if there are 4 highlights
   userEvent.click(screen.getByText(/All highlights/i), leftClick)
