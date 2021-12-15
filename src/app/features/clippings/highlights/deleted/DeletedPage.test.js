@@ -1,8 +1,8 @@
 import React from 'react'
-import renderWithProviders from '../../tests_utils/storeTestProvider'
+import renderWithProviders from '../../../../tests_utils/storeTestProvider'
 import DeletedPage from './DeletedPage'
 import { screen } from '@testing-library/react'
-import { clippings } from '../../tests_utils/fixtures'
+import { clippings } from '../../../../tests_utils/fixtures'
 
 test('Deleted Page', () => {
   const { getByText, getAllByText, debug } = renderWithProviders(<DeletedPage />, {

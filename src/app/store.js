@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import clippingsReducer from '../clippings/clippingsSlice'
-import sidebarReducer from './Layout/Sidebar/sidebarSlice'
+import clippingsReducer from './features/clippings/clippingsSlice'
+import sidebarReducer from './layout/sidebar/sidebarSlice'
 import { loadState, saveState } from './localStorage'
 
 const preloadedState = loadState()

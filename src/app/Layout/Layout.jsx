@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Header from './Header/Header'
+import Header from './header/Header'
 import { ToastContainer } from 'react-toastify'
 
-import Sidebar from './Sidebar/Sidebar'
+import Sidebar from './sidebar/Sidebar'
 
 const Container = styled.div`
     display: flex;

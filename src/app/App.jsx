@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from './Layout/Layout'
+import Layout from './layout/Layout'
 
 import { Provider } from 'react-redux'
 import store from './store'
@@ -11,12 +11,12 @@ import {
 } from 'react-router-dom'
 
 import './App.css'
-import ImportPage from '../clippings/ImportPage/ImportPage'
-import DashboardPage from '../clippings/DashboardPage/DashboardPage'
-import HighlightsPage from '../clippings/HighlightsPage/HighlightsPage'
-import FavouritesPage from '../clippings/FavouritesPage/FavouritesPage'
-import DeletedPage from '../clippings/DeteledPage/DeletedPage'
-import Demo from '../Demo/Demo'
+import ImportPage from './features/clippings/import/ImportPage'
+import DashboardPage from './features/clippings/dashboard/DashboardPage'
+import HighlightsPage from './features/clippings/highlights/highlights/HighlightsPage'
+import FavouritesPage from './features/clippings/highlights/favourites/FavouritesPage'
+import DeletedPage from './features/clippings/highlights/deleted/DeletedPage'
+import Demo from './features/demo/Demo'
 
 const AppContent = () => {
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import renderWithProviders from '../tests_utils/storeTestProvider'
 import { screen, waitFor } from '@testing-library/react'
 import { clippings } from '../tests_utils/fixtures'
-import { AppContent } from './App'
+import { AppContent } from '../App'
 import userEvent from '@testing-library/user-event'
 
 test('App dashboard', () => {

@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react'
 import dayjs from 'dayjs'
 import styled from 'styled-components'
 import { useDropzone } from 'react-dropzone'
-import { parseFile } from '../parseClippings'
+import { parseFile } from './parseClippings'
 import DragDropContainer from './DragDropContainer'
 import { Header, Button } from 'semantic-ui-react'
 import ImportedCount from './ImportedCount'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { concat, clear, loadBackup } from '../clippingsSlice'
-import { loadState } from '../../app/localStorage'
+import { loadState } from '../../../localStorage'
 
 
 const HeaderStyled = styled.div`

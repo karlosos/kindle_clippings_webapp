@@ -10,7 +10,7 @@ import {
   DeleteFilled,
   SaveFilled
 } from '@ant-design/icons'
-import Colors from '../../../common/colors'
+import Colors from '../colors'
 import { useSelector, useDispatch } from 'react-redux'
 import { setActiveItem } from './sidebarSlice'
 import { Link } from 'react-router-dom'

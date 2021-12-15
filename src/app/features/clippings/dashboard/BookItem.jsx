@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Button, Statistic, Icon } from 'semantic-ui-react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import Colors from '../../common/colors'
+import Colors from '../../../layout/colors'
 import { Link } from 'react-router-dom'
 import bookExport from './bookExport'
 

@@ -4,8 +4,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 
-import clippingsReducer from '../clippings/clippingsSlice'
-import sidebarReducer from '../app/Layout/Sidebar/sidebarSlice'
+import clippingsReducer from '../features/clippings/clippingsSlice'
+import sidebarReducer from '../layout/sidebar/sidebarSlice'
 
 function renderWithProviders (ui, { reduxState = {}, route = '/' }) {
   window.history.pushState({}, 'Test page', route)

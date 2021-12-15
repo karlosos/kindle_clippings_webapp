@@ -1,10 +1,9 @@
-
 import React from 'react'
 
 import { Header, Button } from 'semantic-ui-react'
 import { useDispatch } from 'react-redux'
 import { clear, loadBackup } from '../clippings/clippingsSlice'
-import { setActiveItem } from '../app/Layout/Sidebar/sidebarSlice'
+import { setActiveItem } from '../../layout/sidebar/sidebarSlice'
 import { useHistory } from "react-router-dom";
 import { clippings } from './demoClippings'
 import styled from 'styled-components'
