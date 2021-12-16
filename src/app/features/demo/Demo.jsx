@@ -6,12 +6,7 @@ import { clear, loadBackup } from '../clippings/clippingsSlice'
 import { setActiveItem } from '../../layout/sidebar/sidebarSlice'
 import { useHistory } from "react-router-dom";
 import { clippings } from './demoClippings'
-import styled from 'styled-components'
-
-const HeaderStyled = styled.div`
-  user-select: none;
-  padding-top: 4px;
-`
+import { HeaderStyled } from './Demo.style'
 
 const ImportPage = () => {
     const dispatch = useDispatch()

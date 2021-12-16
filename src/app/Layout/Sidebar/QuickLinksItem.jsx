@@ -1,13 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { Menu } from 'semantic-ui-react'
-
-const QuickLinksItemStyled = styled.div`
-  &:hover {
-    color: rgba(0,0,0,.87);
-  }
-`
+import { QuickLinksItemStyled } from './Sidebar.style'
 
 const QuickLinksItem = ({ name, handleItemClick, activeItem, children }) => {
   return (

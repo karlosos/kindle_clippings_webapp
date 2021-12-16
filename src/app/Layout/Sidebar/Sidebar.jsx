@@ -10,32 +10,13 @@ import {
   DeleteFilled,
   SaveFilled
 } from '@ant-design/icons'
-import Colors from '../colors'
 import { useSelector, useDispatch } from 'react-redux'
 import { setActiveItem } from './sidebarSlice'
 import { Link } from 'react-router-dom'
 
 import './Sidebar.css'
 import BooksSection from './BooksSection'
-
-const MenuHeader = styled.div`
-    font-size: 16px;
-    color: ${Colors.textLighter};
-`
-
-const MenuStyled = styled(Menu)`
-  &&& { 
-    border: 0px;
-    border-right: 1px solid rgba(34,36,38,.15);
-    box-shadow: 0 -10px 10px 0 rgb(34 36 38 / 15%);
-    border-radius: 0px;
-    height: 100%;
-    display: flex;
-  }
-`
-
-const QuickLinksSectionWrapper = styled(Menu.Item)`
-`
+import { MenuStyled } from './Sidebar.style'
 
 const Sidebar = () => {
   const dispatch = useDispatch()
@@ -46,9 +27,6 @@ const Sidebar = () => {
   return (
     <MenuStyled vertical>
       <Menu.Item>
-        {/* <MenuHeader>
-          Quick Links
-        </MenuHeader> */}
         <Menu.Menu>
           <Link to='/'>
             <QuickLinksItem name='dashboard' handleItemClick={handleItemClick} activeItem={activeItem}>
@@ -88,4 +66,3 @@ const Sidebar = () => {
 }
 
 export default Sidebar
-export { MenuHeader }

@@ -1,51 +1,8 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 
 import { Header, Pagination } from 'semantic-ui-react'
 import HighlightItem from './HighlightItem'
-
-const Wrapper = styled.div`
-  flex-grow: 1;
-  flex-basis: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow: overlay;
-`
-
-// TODO: those alpha box-shadow cummulates
-const MainHeader = styled.div`
-  user-select: none;
-  padding-top: 8px;
-  display: flex;
-  position: sticky;
-  top: 0;
-  left: 0;
-  background-color: white;
-  box-shadow: -16px 1px 0 rgba(0, 0, 0, 0.2);
-  padding-bottom: 14px;
-`
-
-const Content = styled.div`
-  flex-grow: 1;
-  padding-right: 16px;
-`
-
-const Footer = styled.div`
-  padding-top: 8px;
-  padding-bottom: 8px;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  background-color: white;
-  padding-right: 16px;
-  box-shadow: -16px -1px 0 rgba(0, 0, 0, 0.2);
-  user-select: none;
-`
-
+import { Content, Footer, MainHeader, Wrapper } from './HighlightsList.style'
 
 const HighlightsList = ({ highlights }) => {
   const [activePage, setActivePage] = useState(1)
@@ -58,7 +15,7 @@ const HighlightsList = ({ highlights }) => {
 
   const handlePaginationChange = (e, { activePage }) => {
     setActivePage(activePage)
-    // TODO: inside element scroll
+    // TODO: fix scroll on page change. We should set scroll on child element (wrapper). 
     window.scrollTo(0, 0)
   }
 

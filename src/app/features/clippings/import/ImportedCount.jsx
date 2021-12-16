@@ -1,19 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { Statistic } from 'semantic-ui-react'
-
-const Wrapper = styled.div`
-    display: flex;
-    width: 100%;
-    align-items: center;
-    padding-top: 24px;
-    flex-direction: column;
-`
+import { ImportedCountWrapper } from './ImportPage.style'
 
 const ImportedCount = ({ highlightsStatistics }) => {
   return (
-    <Wrapper>
+    <ImportedCountWrapper>
       <span>
         You have alredy imported
       </span>
@@ -30,7 +22,7 @@ const ImportedCount = ({ highlightsStatistics }) => {
           <Statistic.Label>Books</Statistic.Label>
         </Statistic>
       </Statistic.Group>
-    </Wrapper>
+    </ImportedCountWrapper>
   )
 }
 

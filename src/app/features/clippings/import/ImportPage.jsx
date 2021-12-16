@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import dayjs from 'dayjs'
-import styled from 'styled-components'
 import { useDropzone } from 'react-dropzone'
 import { parseFile } from './parseClippings'
 import DragDropContainer from './DragDropContainer'
@@ -10,12 +9,8 @@ import ImportedCount from './ImportedCount'
 import { useSelector, useDispatch } from 'react-redux'
 import { concat, clear, loadBackup } from '../clippingsSlice'
 import { loadState } from '../../../localStorage'
+import { HeaderStyled } from './ImportPage.style'
 
-
-const HeaderStyled = styled.div`
-  user-select: none;
-  padding-top: 4px;
-`
 
 const quoteStatistics = (quotes) => {
   const quotesEntries = Object.entries(quotes)

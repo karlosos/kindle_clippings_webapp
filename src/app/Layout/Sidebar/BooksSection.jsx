@@ -1,34 +1,14 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react'
-import { MenuHeader } from './Sidebar'
-import styled from 'styled-components'
 import { Menu, Input, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import QuickLinksItem from './QuickLinksItem'
 import Fuse from 'fuse.js'
 import { throttle } from 'lodash'
 import { useSelector } from 'react-redux'
+import { BooksList, BooksSectionMenu, BooksSectionWrapper } from './Sidebar.style'
 
 const initialData = (books) => books.slice(0, 5).map((book) => ({ item: book }))
 
-const BooksSectionWrapper = styled(Menu.Item)`
-  &&& {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-`
-
-const BooksSectionMenu = styled(Menu.Menu)`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`
-
-const BooksList = styled.div`
-  overflow: overlay;
-  height: 100px;
-  flex-grow: 1;
-`
 
 const BooksSection = ({ handleItemClick, activeItem }) => {
   const books = useSelector((state) => state.clippings.books)

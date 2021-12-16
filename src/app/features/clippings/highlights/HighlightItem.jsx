@@ -1,88 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import { Icon } from 'semantic-ui-react'
-import Colors from '../../../layout/colors'
 import { Link } from 'react-router-dom'
 import { toggleFavourite, toggleDeleted } from '../clippingsSlice'
 import { useDispatch } from 'react-redux'
 import copy from 'clipboard-copy'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
-const Item = styled.div`
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    margin-bottom: -1px;
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-`
-
-const BookInfo = styled.div`
-    display: flex;
-`
-
-const BookTitle = styled.div`
-    font-weight: bold;
-`
-
-const Author = styled.div`
-    margin-left: 24px;
-    color: ${Colors.textLighter};
-`
-
-const HighlightInfo = styled.div`
-    display: flex;
-    margin-top: 8px;
-`
-
-const Date = styled.div`
-    margin-left: 24px;
-    width: 275px;
-`
-
-const Location = styled.div`
-    margin-left: 12px;
-`
-
-const Quote = styled.div`
-    max-width: 720px;
-    margin-top: 8px;
-`
-
-const Favourite = styled.div`
-    &:hover {
-        color: red;
-        cursor: pointer;
-    }
-    width: 60px;
-`
-
-const Delete = styled.div`
-    margin-left: 12px;
-    &:hover {
-        color: red;
-        cursor: pointer;
-    }
-`
-
-const Copy = styled.div`
-    margin-left: 24px;
-    &:hover {
-        color: ${Colors.textLighter};
-        cursor: pointer;
-    }
-`
+import { Author, BookInfo, BookTitle, Copy, Date, Delete, Favourite, HighlightInfo, Item, Location, Quote, UndoLink } from './HighlightItem.style'
 
 const Undo = ({ action, onUndo, closeToast }) => {
   const handleClick = () => {
     onUndo()
     closeToast()
   }
-
-  const UndoLink = styled.span`
-    color: black;
-    text-decoration: underline;
-  `
 
   return (
     <div>
@@ -115,17 +45,16 @@ const HighlightItem = ({ highlightInfo }) => {
   const onDeleteClick = () => {
     dispatch(toggleDeleted(highlightInfo.id))
     if (highlightInfo.deleted) {
-      toast(<Undo action='Restored' onUndo={onUndoClick} />)
+      toast(<Undo action='Restored' onUndo={onUndoDeleteClick} />)
     } else {
-      toast(<Undo action='Deleted' onUndo={onUndoClick} />)
+      toast(<Undo action='Deleted' onUndo={onUndoDeleteClick} />)
     }
   }
 
-  const onUndoClick = () => {
+  const onUndoDeleteClick = () => {
     dispatch(toggleDeleted(highlightInfo.id))
   }
 
-  // Components
   const LikeButton = () => <><Icon name='heart outline' />Like</>
   const UnlikeButton = () => <><Icon name='heart' />Unlike</>
   const DeleteButton = () => <><Icon name='delete' />Delete</>
