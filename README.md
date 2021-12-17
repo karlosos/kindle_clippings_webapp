@@ -6,12 +6,12 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![Build and Deploy](https://github.com/karlosos/kindle_clippings_webapp/actions/workflows/main.yml/badge.svg)](https://github.com/karlosos/kindle_clippings_webapp/actions/workflows/main.yml)
 ![Coverage 66%](https://img.shields.io/badge/coverage-66%25-yellow)
+
 </div>
 
-***
+---
 
 <h4 align="center"><img src="./docs/logo_books.png" width="18px" />Kindle Clippings Manager</h4>
-
 
 <p align="center">
   <a href="#about">About</a> •
@@ -37,6 +37,7 @@ Website: <b><a href="https://karlosos.github.io/kindle_clippings_webapp/#/demo">
 Import Kindle Clippings and show them in accessible way. The app divides clippings into books and gives an option to delete and like highlights.
 
 All functions:
+
 - import clippings
 - browse clippings
 - create backup and load from backup (saved to json file)

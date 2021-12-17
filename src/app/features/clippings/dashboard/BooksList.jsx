@@ -1,21 +1,25 @@
-import React, { useState } from 'react'
-import BookItem from './BookItem'
-import { useSelector } from 'react-redux'
-import { Pagination } from 'semantic-ui-react'
-import { BooksContainer, PaginationWrapper, Wrapper } from './BooksList.style'
-
+import React, { useState } from "react";
+import BookItem from "./BookItem";
+import { useSelector } from "react-redux";
+import { Pagination } from "semantic-ui-react";
+import { BooksContainer, PaginationWrapper, Wrapper } from "./BooksList.style";
 
 const BooksList = () => {
-  const books = useSelector((state) => state.clippings.books)
-  const [activePage, setActivePage] = useState(1)
+  const books = useSelector((state) => state.clippings.books);
+  const [activePage, setActivePage] = useState(1);
 
-  const itemsPerPage = 20
-  const numPages = useSelector((state) => Math.ceil(books.length / itemsPerPage))
-  const booksFiltered = books.slice((activePage - 1) * itemsPerPage, activePage * itemsPerPage)
+  const itemsPerPage = 20;
+  const numPages = useSelector((state) =>
+    Math.ceil(books.length / itemsPerPage)
+  );
+  const booksFiltered = books.slice(
+    (activePage - 1) * itemsPerPage,
+    activePage * itemsPerPage
+  );
   const handlePaginationChange = (e, { activePage }) => {
-    setActivePage(activePage)
-    window.scrollTo(0, 0)
-  }
+    setActivePage(activePage);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <Wrapper>
@@ -32,7 +36,7 @@ const BooksList = () => {
         />
       </PaginationWrapper>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default BooksList
+export default BooksList;

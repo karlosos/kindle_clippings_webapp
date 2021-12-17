@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import { Menu } from 'semantic-ui-react'
-import { QuickLinksItemStyled } from './Sidebar.style'
+import { Menu } from "semantic-ui-react";
+import { QuickLinksItemStyled } from "./Sidebar.style";
 
 const QuickLinksItem = ({ name, handleItemClick, activeItem, children }) => {
   return (
@@ -9,13 +9,11 @@ const QuickLinksItem = ({ name, handleItemClick, activeItem, children }) => {
       name={name.toString()}
       active={activeItem === name.toString()}
       onClick={handleItemClick}
-      as={'div'}
+      as={"div"}
     >
-      <QuickLinksItemStyled>
-        {children}
-      </QuickLinksItemStyled>
+      <QuickLinksItemStyled>{children}</QuickLinksItemStyled>
     </Menu.Item>
-  )
-}
+  );
+};
 
-export default QuickLinksItem
+export default QuickLinksItem;

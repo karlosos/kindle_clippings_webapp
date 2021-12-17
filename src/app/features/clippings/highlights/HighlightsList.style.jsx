@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   flex-grow: 1;
@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   height: 100%;
   overflow: overlay;
-`
+`;
 
 // TODO: those alpha box-shadow cummulates
 export const MainHeader = styled.div`
@@ -20,12 +20,12 @@ export const MainHeader = styled.div`
   background-color: white;
   box-shadow: -16px 1px 0 rgba(0, 0, 0, 0.2);
   padding-bottom: 14px;
-`
+`;
 
 export const Content = styled.div`
   flex-grow: 1;
   padding-right: 16px;
-`
+`;
 
 export const Footer = styled.div`
   padding-top: 8px;
@@ -40,4 +40,4 @@ export const Footer = styled.div`
   padding-right: 16px;
   box-shadow: -16px -1px 0 rgba(0, 0, 0, 0.2);
   user-select: none;
-`
+`;
