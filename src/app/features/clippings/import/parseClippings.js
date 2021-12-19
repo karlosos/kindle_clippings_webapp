@@ -12,21 +12,19 @@ const parseText = (content) => {
         .map((quoteRaw) => {
             const quoteDirty = quoteRaw.split('\n');
             // Remove empty quotes from array
-            quoteRaw = quoteDirty.filter((q) => {
-                return q.length > 1;
-            });
+            const filteredQuoteRaw = quoteDirty.filter((q) => q.length > 1);
 
-            let book = quoteRaw[0];
-            let quote = quoteRaw[2];
+            let book = filteredQuoteRaw[0];
+            let quote = filteredQuoteRaw[2];
             let location = '';
             let time = '';
 
-            const locationsRaw = quoteRaw[1];
+            const locationsRaw = filteredQuoteRaw[1];
 
             if (
-                (book !== undefined) &
-                (quote !== undefined) &
-                (locationsRaw !== undefined)
+                book !== undefined &&
+                quote !== undefined &&
+                locationsRaw !== undefined
             ) {
                 const locationsArray = locationsRaw.split(' ');
                 if (locationsArray[2] === 'Loc.') {
@@ -70,18 +68,20 @@ const parseText = (content) => {
         })
         .filter((q) => q)
         .reduce((res, { id, raw, book, author, quote, location, time }) => {
+            // eslint-disable-next-line no-param-reassign
             res[id] = {
-                raw: raw,
-                book: book,
-                author: author,
-                quote: quote,
-                location: location,
-                time: time,
+                raw,
+                book,
+                author,
+                quote,
+                location,
+                time,
                 favourite: false,
                 deleted: false,
             };
             return res;
         }, {});
+    // eslint-disable-next-line consistent-return
     return quotes;
 };
 

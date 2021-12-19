@@ -9,9 +9,10 @@ const bookExport = (quotes) => {
 
 function QuotesString(quotes) {
     let s = '';
+    // eslint-disable-next-line
     for (const i in quotes) {
-        s += quotes[i][1].quote + '\n \n';
-        s += '***' + '\n \n';
+        s += `${quotes[i][1].quote}\n \n`;
+        s += '***\n \n';
     }
 
     return s;

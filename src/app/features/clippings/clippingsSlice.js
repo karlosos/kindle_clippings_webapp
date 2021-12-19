@@ -55,10 +55,12 @@ function booksListFromQuotes(quotes) {
         }));
 
     const booksDict = quotesList.reduce((res, { book, author, time }) => {
+        // eslint-disable-next-line no-unsafe-optional-chaining
         const count = res[book]?.numHighlights + 1 || 1;
+        // eslint-disable-next-line no-param-reassign
         res[book] = {
-            book: book,
-            author: author,
+            book,
+            author,
             lastHighlights: time,
             numHighlights: count,
         };

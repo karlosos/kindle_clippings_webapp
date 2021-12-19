@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 import { parseText } from './parseClippings';
 
 const clippingsTxtMock = `Homo Deus: A Brief History of Tomorrow (Yuval Noah Harari)
