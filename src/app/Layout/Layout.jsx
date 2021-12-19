@@ -5,7 +5,7 @@ import { Container } from './Layout.style';
 import Header from './header/Header';
 import Sidebar from './sidebar/Sidebar';
 
-const Layout = (props) => {
+const Layout = ({ children }) => {
     // TODO: simplify this tree
 
     return (
@@ -17,7 +17,7 @@ const Layout = (props) => {
                 <aside>
                     <Sidebar />
                 </aside>
-                <article>{props.children}</article>
+                <article>{children}</article>
             </main>
             <footer />
             <ToastContainer />

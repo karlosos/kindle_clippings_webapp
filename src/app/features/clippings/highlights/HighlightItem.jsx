@@ -1,5 +1,6 @@
+/* eslint-disable react/no-unstable-nested-components */
 import copy from 'clipboard-copy';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -70,59 +71,46 @@ const HighlightItem = ({ highlightInfo }) => {
         dispatch(toggleDeleted(highlightInfo.id));
     };
 
-    const LikeButton = useMemo(
-        () => (
-            <>
-                <Icon name="heart outline" />
-                Like
-            </>
-        ),
-        [],
+    const LikeButton = () => (
+        <>
+            <Icon name="heart outline" />
+            Like
+        </>
     );
-    const UnlikeButton = useMemo(
-        () => (
-            <>
-                <Icon name="heart" />
-                Unlike
-            </>
-        ),
-        [],
+
+    const UnlikeButton = () => (
+        <>
+            <Icon name="heart" />
+            Unlike
+        </>
     );
-    const DeleteButton = useMemo(
-        () => (
-            <>
-                <Icon name="delete" />
-                Delete
-            </>
-        ),
-        [],
+
+    const DeleteButton = () => (
+        <>
+            <Icon name="delete" />
+            Delete
+        </>
     );
-    const RestoreButton = useMemo(
-        () => (
-            <>
-                <Icon name="redo" />
-                Restore
-            </>
-        ),
-        [],
+
+    const RestoreButton = () => (
+        <>
+            <Icon name="redo" />
+            Restore
+        </>
     );
-    const CopyButton = useMemo(
-        () => (
-            <Copy onClick={onCopyClick}>
-                <Icon name="copy outline" />
-                Copy
-            </Copy>
-        ),
-        [onCopyClick],
+
+    const CopyButton = () => (
+        <Copy onClick={onCopyClick}>
+            <Icon name="copy outline" />
+            Copy
+        </Copy>
     );
-    const CopiedButton = useMemo(
-        () => (
-            <Copy onClick={onCopyClick}>
-                <Icon name="copy" />
-                Copied!
-            </Copy>
-        ),
-        [onCopyClick],
+
+    const CopiedButton = () => (
+        <Copy onClick={onCopyClick}>
+            <Icon name="copy" />
+            Copied!
+        </Copy>
     );
 
     return (

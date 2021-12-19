@@ -10,13 +10,12 @@ const BooksList = () => {
     const [activePage, setActivePage] = useState(1);
 
     const itemsPerPage = 20;
-    const numPages = useSelector((state) =>
-        Math.ceil(books.length / itemsPerPage),
-    );
+    const numPages = Math.ceil(books.length / itemsPerPage);
     const booksFiltered = books.slice(
         (activePage - 1) * itemsPerPage,
         activePage * itemsPerPage,
     );
+    // eslint-disable-next-line no-shadow
     const handlePaginationChange = (e, { activePage }) => {
         setActivePage(activePage);
         window.scrollTo(0, 0);

@@ -16,6 +16,7 @@ const HighlightsList = ({ highlights }) => {
         activePage * itemsPerPage,
     );
 
+    // eslint-disable-next-line no-shadow
     const handlePaginationChange = (e, { activePage }) => {
         setActivePage(activePage);
         // TODO: fix scroll on page change. We should set scroll on child element (wrapper).

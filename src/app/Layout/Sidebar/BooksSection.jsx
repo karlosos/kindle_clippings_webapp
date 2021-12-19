@@ -35,8 +35,9 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
         });
     }, [books]);
 
+    // eslint-disable-next-line no-shadow
     const searchBooks = (query, books) => {
-        // Books were old because we use Memo!
+        // Books were old because we used Memo!
         // To have the most recent books props we need to pass them as an argument
         // or probably store them in ref
         if (!query) {
@@ -53,7 +54,7 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
     return (
         <BooksSectionWrapper>
             <BooksSectionMenu>
-                <Menu.Item key={'searchInput'}>
+                <Menu.Item key="searchInput">
                     <Input
                         icon={{ name: 'search', circular: true, link: true }}
                         placeholder="Search book"
@@ -61,13 +62,13 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
                     />
                 </Menu.Item>
                 <BooksList>
-                    {searchData.map((searchItem, index) => {
+                    {searchData.map((searchItem) => {
                         const book = searchItem.item;
 
                         return (
                             <Link
                                 to={`/highlights/${book.id}/${book.title}`}
-                                key={index}
+                                key={book.id}
                             >
                                 <QuickLinksItem
                                     name={book.id}
@@ -84,7 +85,7 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
                         );
                     })}
                 </BooksList>
-                <Menu.Item key={'allBooksLink'}>
+                <Menu.Item key="allBooksLink">
                     <Link to="/dashboard">Show all books</Link>
                 </Menu.Item>
             </BooksSectionMenu>

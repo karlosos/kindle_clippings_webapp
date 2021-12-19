@@ -43,6 +43,7 @@
             { "devDependencies": true }
         ],
         "react/prop-types": 0,
-        "arrow-body-style": 0
+        "arrow-body-style": 0,
+        "no-unused-vars": "warn"
     }
 }

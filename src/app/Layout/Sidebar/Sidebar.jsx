@@ -10,7 +10,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
-import styled from 'styled-components';
 
 import BooksSection from './BooksSection';
 import QuickLinksItem from './QuickLinksItem';

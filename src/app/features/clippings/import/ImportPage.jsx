@@ -33,6 +33,7 @@ const ImportPage = () => {
 
     const quotes = useSelector((state) => state.clippings.quotes);
     const dispatch = useDispatch();
+    // eslint-disable-next-line no-shadow
     const setQuotes = (quotes) => {
         dispatch(concat(quotes));
     };
@@ -75,6 +76,7 @@ const ImportPage = () => {
         const reader = new FileReader();
         reader.onload = (event) => {
             const obj = JSON.parse(event.target.result);
+            // eslint-disable-next-line
             const quotes = obj.clippings.quotes;
             dispatch(loadBackup(quotes));
             backupImportInput.current.value = '';

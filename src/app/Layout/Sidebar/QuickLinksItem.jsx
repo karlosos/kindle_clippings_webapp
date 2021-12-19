@@ -9,7 +9,7 @@ const QuickLinksItem = ({ name, handleItemClick, activeItem, children }) => {
             name={name.toString()}
             active={activeItem === name.toString()}
             onClick={handleItemClick}
-            as={'div'}
+            as="div"
         >
             <QuickLinksItemStyled>{children}</QuickLinksItemStyled>
         </Menu.Item>

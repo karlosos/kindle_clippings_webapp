@@ -39,7 +39,8 @@
         "postinstall": "install-app-deps",
         "test:coverage": "cross-env CI=true npm test -- --env=jsdom --coverage",
         "prepare": "husky install",
-        "format": "npx prettier --write ."
+        "format": "npx prettier --write .",
+        "lint": "npx eslint . --ext .js,.jsx"
     },
     "browserslist": {
         "production": [
@@ -85,7 +86,6 @@
     },
     "lint-staged": {
         "**/*": [
-            "eslint --fix",
             "prettier --write --ignore-unknown"
         ]
     }
