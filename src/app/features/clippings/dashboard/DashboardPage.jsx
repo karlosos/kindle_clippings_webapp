@@ -1,8 +1,9 @@
-import React from "react";
-import BooksList from "./BooksList";
+import React from 'react';
+
+import BooksList from './BooksList';
 
 const DashboardPage = () => {
-  return <BooksList />;
+    return <BooksList />;
 };
 
 export default DashboardPage;

@@ -38,17 +38,19 @@ Import Kindle Clippings and show them in accessible way. The app divides clippin
 
 All functions:
 
-- import clippings
-- browse clippings
-- create backup and load from backup (saved to json file)
-- export all clippings from book to txt file
-- save application state in `localStorage` (app state is persistent)
+-   import clippings
+-   browse clippings
+-   create backup and load from backup (saved to json file)
+-   export all clippings from book to txt file
+-   save application state in `localStorage` (app state is persistent)
 
 ## What I Have Learned
 
 This project was more goal oriented rather than education oriented. I wanted to have a simple desktop (electron) application for managing my kindle clippings.
 
 ## Development
+
+You will need Node v16.13.1. I suggest using `nvm` for managing your node versions.
 
 1. Install dependencies with `npm install`.
 1. Run desktop application with `npm run start` or react app with `npm run react-start`.

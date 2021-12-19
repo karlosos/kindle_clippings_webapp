@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const sidebarSlice = createSlice({
-  name: "sidebar",
-  initialState: {
-    activeItem: "dashboard",
-  },
-  reducers: {
-    setActiveItem: (state, action) => {
-      state.activeItem = action.payload;
+    name: 'sidebar',
+    initialState: {
+        activeItem: 'dashboard',
     },
-  },
+    reducers: {
+        setActiveItem: (state, action) => {
+            state.activeItem = action.payload;
+        },
+    },
 });
 
 // Action creators are generated for each case reducer function

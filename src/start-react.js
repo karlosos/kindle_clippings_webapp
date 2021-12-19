@@ -1,5 +1,5 @@
-const net = require("net");
-const childProcess = require("child_process");
+const net = require('net');
+const childProcess = require('child_process');
 
 const port = process.env.PORT ? process.env.PORT - 100 : 3000;
 
@@ -9,18 +9,18 @@ const client = new net.Socket();
 
 let startedElectron = false;
 const tryConnection = () => {
-  client.connect({ port }, () => {
-    client.end();
-    if (!startedElectron) {
-      startedElectron = true;
-      const { exec } = childProcess;
-      exec("npm run electron");
-    }
-  });
+    client.connect({ port }, () => {
+        client.end();
+        if (!startedElectron) {
+            startedElectron = true;
+            const { exec } = childProcess;
+            exec('npm run electron');
+        }
+    });
 };
 
 tryConnection();
 
-client.on("error", () => {
-  setTimeout(tryConnection, 1000);
+client.on('error', () => {
+    setTimeout(tryConnection, 1000);
 });
