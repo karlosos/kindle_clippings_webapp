@@ -2,10 +2,10 @@
 
 <div align="center">
 
-[![Code style: standardjs](https://img.shields.io/badge/code%20style-standardjs-F3DF49.svg)](https://standardjs.com/)
+[![Code style: prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://standardjs.com/)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![Build and Deploy](https://github.com/karlosos/kindle_clippings_webapp/actions/workflows/main.yml/badge.svg)](https://github.com/karlosos/kindle_clippings_webapp/actions/workflows/main.yml)
-![Coverage 66%](https://img.shields.io/badge/coverage-66%25-yellow)
+[![codecov](https://codecov.io/gh/karlosos/kindle_clippings_webapp/branch/main/graph/badge.svg?token=ZjCaLcN8Pt)](https://codecov.io/gh/karlosos/kindle_clippings_webapp)
 
 </div>
 
