@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const net = require('net');
 const childProcess = require('child_process');
 
