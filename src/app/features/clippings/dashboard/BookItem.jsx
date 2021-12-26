@@ -14,6 +14,7 @@ import {
     Row,
     RowGroup,
     StatisticLabel,
+    StatisticValue,
     StyledIcon,
     Title,
 } from './BookItem.style';
@@ -53,15 +54,15 @@ const BookItem = ({ book }) => {
                 </Link>
                 <LastHighlight>
                     <Statistic size="mini">
-                        <Statistic.Value>
+                        <StatisticValue>
                             {dayjs(book.lastHighlights).fromNow()}
-                        </Statistic.Value>
+                        </StatisticValue>
                         <StatisticLabel>Last highlighted</StatisticLabel>
                     </Statistic>
                 </LastHighlight>
                 <NumHighlights>
                     <Statistic size="mini">
-                        <Statistic.Value>{book.numHighlights}</Statistic.Value>
+                        <StatisticValue>{book.numHighlights}</StatisticValue>
                         <StatisticLabel>Highlights</StatisticLabel>
                     </Statistic>
                 </NumHighlights>

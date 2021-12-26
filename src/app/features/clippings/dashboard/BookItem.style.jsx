@@ -1,5 +1,5 @@
 import { Icon, Statistic } from 'semantic-ui-react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Colors from '../../../layout/colors';
 
@@ -26,9 +26,13 @@ export const BookInfo = styled.div`
     margin-left: 8px;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 70px;
+    min-height: 70px;
     justify-content: center;
+
+    width: 15rem;
+    @media (min-width: 1250px) {
+        width: 25rem;
+    }
 `;
 
 export const Title = styled.div`
@@ -37,14 +41,27 @@ export const Title = styled.div`
 
 export const Author = styled.div``;
 
+export const statisticsSize = css`
+    font-size: 12px;
+    width: 8rem;
+    @media (min-width: 1250px) {
+        font-size: 14px;
+        width: 13rem;
+    }
+`;
+
 export const LastHighlight = styled.div`
     margin-left: 24px;
-    width: 13rem;
+    display: flex;
+    justify-content: center;
+    ${statisticsSize};
 `;
 
 export const NumHighlights = styled.div`
     margin-left: 24px;
-    width: 13rem;
+    display: flex;
+    justify-content: center;
+    ${statisticsSize};
 `;
 
 export const StyledIcon = styled(Icon)`
@@ -55,9 +72,21 @@ export const StyledIcon = styled(Icon)`
     }
 `;
 
+export const StatisticValue = styled(Statistic.Value)`
+    &&&& {
+        font-size: 1.2em !important;
+        @media (min-width: 1250px) {
+            font-size: 1.5em !important;
+        }
+    }
+`;
+
 export const StatisticLabel = styled(Statistic.Label)`
     &&& {
-        font-size: 12px;
         color: ${Colors.textLighter};
+        font-size: 0.8em;
+        @media (min-width: 1250px) {
+            font-size: 0.85em;
+        }
     }
 `;
