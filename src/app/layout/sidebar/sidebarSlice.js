@@ -6,13 +6,13 @@ export const sidebarSlice = createSlice({
         activeItem: 'dashboard',
     },
     reducers: {
-        setActiveItem: (state, action) => {
+        setActiveSidebarItem: (state, action) => {
             state.activeItem = action.payload;
         },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { setActiveItem } = sidebarSlice.actions;
+export const { setActiveSidebarItem } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

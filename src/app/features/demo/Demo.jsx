@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Button, Header } from 'semantic-ui-react';
 
-import { setActiveItem } from '../../layout/sidebar/sidebarSlice';
+import { setActiveSidebarItem } from '../../layout/sidebar/sidebarSlice';
 import { clear, loadBackup } from '../clippings/clippingsSlice';
 import { HeaderStyled } from './Demo.style';
 import { clippings } from './demoClippings';
@@ -14,7 +14,7 @@ const ImportPage = () => {
 
     const onDemoLoad = () => {
         dispatch(loadBackup(clippings));
-        dispatch(setActiveItem('dashboard'));
+        dispatch(setActiveSidebarItem('dashboard'));
         history.push('/dashboard');
     };
 

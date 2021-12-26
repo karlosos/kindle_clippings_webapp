@@ -15,13 +15,14 @@ import BooksSection from './BooksSection';
 import QuickLinksItem from './QuickLinksItem';
 import './Sidebar.css';
 import { MenuStyled } from './Sidebar.style';
-import { setActiveItem } from './sidebarSlice';
+import { setActiveSidebarItem } from './sidebarSlice';
 
 const Sidebar = () => {
     const dispatch = useDispatch();
     const activeItem = useSelector((state) => state.sidebar.activeItem);
 
-    const handleItemClick = (e, { name }) => dispatch(setActiveItem(name));
+    const handleItemClick = (e, { name }) =>
+        dispatch(setActiveSidebarItem(name));
 
     return (
         <MenuStyled vertical>
