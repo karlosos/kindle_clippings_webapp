@@ -7,7 +7,7 @@ import { Button, Header } from 'semantic-ui-react';
 import { loadState } from '../../../localStorage';
 import { clear, concat, loadBackup } from '../clippingsSlice';
 import DragDropContainer from './DragDropContainer';
-import { HeaderStyled } from './ImportPage.style';
+import { HeaderStyled, Wrapper } from './ImportPage.style';
 import ImportedCount from './ImportedCount';
 import { parseFile } from './parseClippings';
 
@@ -85,7 +85,7 @@ const ImportPage = () => {
     };
 
     return (
-        <>
+        <Wrapper>
             <HeaderStyled as="h1">Import</HeaderStyled>
             <DragDropContainer
                 getRootProps={getRootProps}
@@ -120,7 +120,7 @@ const ImportPage = () => {
             <Button negative onClick={onClearButtonClick}>
                 Delete everything
             </Button>
-        </>
+        </Wrapper>
     );
 };
 

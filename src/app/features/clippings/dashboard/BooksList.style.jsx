@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     height: 100%;
     overflow: overlay;
+    padding-right: 16px;
 `;
 
 export const BooksContainer = styled.div`

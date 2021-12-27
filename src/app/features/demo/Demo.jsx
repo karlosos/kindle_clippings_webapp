@@ -5,7 +5,7 @@ import { Button, Header } from 'semantic-ui-react';
 
 import { setActiveSidebarItem } from '../../layout/sidebar/sidebarSlice';
 import { clear, loadBackup } from '../clippings/clippingsSlice';
-import { HeaderStyled } from './Demo.style';
+import { HeaderStyled, Wrapper } from './Demo.style';
 import { clippings } from './demoClippings';
 
 const ImportPage = () => {
@@ -23,7 +23,7 @@ const ImportPage = () => {
     };
 
     return (
-        <>
+        <Wrapper>
             <HeaderStyled as="h1">Demo data</HeaderStyled>
             <p>
                 If you want to load demo data and you only want to check how
@@ -42,7 +42,7 @@ const ImportPage = () => {
             <Button negative onClick={onClearButtonClick}>
                 Delete everything
             </Button>
-        </>
+        </Wrapper>
     );
 };
 
