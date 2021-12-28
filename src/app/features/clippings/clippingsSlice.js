@@ -61,7 +61,7 @@ function booksListFromQuotes(quotes) {
         res[book] = {
             book,
             author,
-            lastHighlights: time,
+            lastHighlights: res[book]?.lastHighlights || time,
             numHighlights: count,
         };
         return res;
