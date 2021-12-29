@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Header, Pagination } from 'semantic-ui-react';
 
 import HighlightItem from './HighlightItem';
@@ -6,6 +6,7 @@ import { Content, Footer, MainHeader, Wrapper } from './HighlightsList.style';
 
 const HighlightsList = ({ highlights }) => {
     const [activePage, setActivePage] = useState(1);
+    const wrapperRef = useRef();
 
     const itemsPerPage = 20;
     const numPages = Math.ceil(highlights.length / itemsPerPage);
@@ -19,12 +20,11 @@ const HighlightsList = ({ highlights }) => {
     // eslint-disable-next-line no-shadow
     const handlePaginationChange = (e, { activePage }) => {
         setActivePage(activePage);
-        // TODO: fix scroll on page change. We should set scroll on child element (wrapper).
-        window.scrollTo(0, 0);
+        wrapperRef.current.scrollTo(0, 0);
     };
 
     return (
-        <Wrapper>
+        <Wrapper ref={wrapperRef}>
             <MainHeader>
                 <Header as="h1">Highlights</Header>
             </MainHeader>

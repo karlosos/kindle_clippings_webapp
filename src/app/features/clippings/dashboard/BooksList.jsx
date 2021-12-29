@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Pagination } from 'semantic-ui-react';
 
@@ -6,6 +6,8 @@ import BookItem from './BookItem';
 import { BooksContainer, PaginationWrapper, Wrapper } from './BooksList.style';
 
 const BooksList = () => {
+    const wrapperRef = useRef();
+
     const books = useSelector((state) => state.clippings.books);
     const [activePage, setActivePage] = useState(1);
 
@@ -15,14 +17,15 @@ const BooksList = () => {
         (activePage - 1) * itemsPerPage,
         activePage * itemsPerPage,
     );
+
     // eslint-disable-next-line no-shadow
     const handlePaginationChange = (e, { activePage }) => {
         setActivePage(activePage);
-        window.scrollTo(0, 0);
+        wrapperRef.current.scrollTo(0, 0);
     };
 
     return (
-        <Wrapper>
+        <Wrapper ref={wrapperRef}>
             <BooksContainer>
                 {booksFiltered.map((book) => (
                     <BookItem key={book.id} book={book} />
