@@ -26,7 +26,8 @@ const HighlightsPage = () => {
                 favourite: q[1].favourite,
                 deleted: q[1].deleted,
             }));
-        return filteredHighlights;
+
+        return bookTitle ? filteredHighlights.reverse() : filteredHighlights;
     });
 
     return <HighlightsList highlights={highlights} />;
