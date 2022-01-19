@@ -30,7 +30,12 @@ const HighlightsPage = () => {
         return bookTitle ? filteredHighlights.reverse() : filteredHighlights;
     });
 
-    return <HighlightsList highlights={highlights} />;
+    return (
+        <HighlightsList
+            title={bookTitle ?? 'All highlights'}
+            highlights={highlights}
+        />
+    );
 };
 
 export default HighlightsPage;

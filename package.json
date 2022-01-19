@@ -29,7 +29,7 @@
     "scripts": {
         "start": "nf start -p 3000",
         "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
+        "test": "react-scripts test --env=jsdom --watchAll=false",
         "eject": "react-scripts eject",
         "electron": "electron .",
         "electron-start": "node src/start-react",

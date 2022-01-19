@@ -4,7 +4,7 @@ import { Header, Pagination } from 'semantic-ui-react';
 import HighlightItem from './HighlightItem';
 import { Content, Footer, MainHeader, Wrapper } from './HighlightsList.style';
 
-const HighlightsList = ({ highlights }) => {
+const HighlightsList = ({ title, highlights }) => {
     const [activePage, setActivePage] = useState(1);
     const wrapperRef = useRef();
 
@@ -26,7 +26,7 @@ const HighlightsList = ({ highlights }) => {
     return (
         <Wrapper ref={wrapperRef}>
             <MainHeader>
-                <Header as="h1">Highlights</Header>
+                <Header as="h1">{title}</Header>
             </MainHeader>
             <Content>
                 {highlightsFiltered.map((highlightInfo) => (

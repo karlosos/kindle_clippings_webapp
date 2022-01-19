@@ -20,7 +20,7 @@ const DeletedPage = () => {
         deleted: q[1].deleted,
     }));
 
-    return <HighlightsList highlights={highlights} />;
+    return <HighlightsList title="Deleted" highlights={highlights} />;
 };
 
 export default DeletedPage;
