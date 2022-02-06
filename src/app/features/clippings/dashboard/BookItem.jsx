@@ -42,7 +42,7 @@ const BookItem = ({ book }) => {
             <RowGroup>
                 <Icon name="book" size="big" />
                 <Link
-                    to={`/highlights/${book.id}/${book.title}`}
+                    to={`/highlights/${book.title}`}
                     onClick={() =>
                         dispatch(setActiveSidebarItem(book.id.toString()))
                     }

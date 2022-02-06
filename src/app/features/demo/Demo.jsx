@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, Header } from 'semantic-ui-react';
 
 import { setActiveSidebarItem } from '../../layout/sidebar/sidebarSlice';
@@ -10,12 +10,12 @@ import { clippings } from './demoClippings';
 
 const ImportPage = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const onDemoLoad = () => {
         dispatch(loadBackup(clippings));
         dispatch(setActiveSidebarItem('dashboard'));
-        history.push('/dashboard');
+        navigate('/dashboard');
     };
 
     const onClearButtonClick = () => {

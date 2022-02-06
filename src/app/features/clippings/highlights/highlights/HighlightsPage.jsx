@@ -11,7 +11,9 @@ const HighlightsPage = () => {
             state.clippings.quotes,
         ).filter((q) => {
             const deletedFilter = q[1].deleted === false;
-            const titleFilter = bookTitle ? q[1].book === bookTitle : true;
+            const titleFilter = bookTitle
+                ? q[1].book.trim() === bookTitle.trim()
+                : true;
             return deletedFilter && titleFilter;
         });
         const filteredHighlights = filteredHighlightsEntries

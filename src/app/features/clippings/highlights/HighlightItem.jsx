@@ -116,9 +116,7 @@ const HighlightItem = ({ highlightInfo }) => {
     return (
         <Item>
             <BookInfo>
-                <Link
-                    to={`/highlights/${highlightInfo.id}/${highlightInfo.book}`}
-                >
+                <Link to={`/highlights/${highlightInfo.book}`}>
                     <BookTitle>{highlightInfo.book}</BookTitle>
                 </Link>
                 <Author>{highlightInfo.author}</Author>

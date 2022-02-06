@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Route, HashRouter as Router, Switch } from 'react-router-dom';
+import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 
 import './App.css';
 import DashboardPage from './features/clippings/dashboard/DashboardPage';
@@ -15,22 +15,17 @@ import store from './store';
 const AppContent = () => {
     return (
         <Layout>
-            <Switch>
-                <Route path="/import">
-                    <ImportPage />
+            <Routes>
+                <Route path="/import" element={<ImportPage />} />
+                <Route path="/highlights">
+                    <Route path="" element={<HighlightsPage />} />
+                    <Route path=":bookTitle" element={<HighlightsPage />} />
                 </Route>
-                <Route
-                    path="/highlights/:bookId/:bookTitle"
-                    component={HighlightsPage}
-                />
-                <Route path="/highlights" component={HighlightsPage} />
-                <Route path="/favourites" component={FavouritesPage} />
-                <Route path="/deleted" component={DeletedPage} />
-                <Route path="/demo" component={Demo} />
-                <Route path="/">
-                    <DashboardPage />
-                </Route>
-            </Switch>
+                <Route path="/favourites" element={<FavouritesPage />} />
+                <Route path="/deleted" element={<DeletedPage />} />
+                <Route path="/demo" element={<Demo />} />
+                <Route path="/" element={<DashboardPage />} />
+            </Routes>
         </Layout>
     );
 };

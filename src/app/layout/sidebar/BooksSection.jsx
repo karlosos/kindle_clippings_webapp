@@ -67,7 +67,7 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
 
                         return (
                             <Link
-                                to={`/highlights/${book.id}/${book.title}`}
+                                to={`/highlights/${book.title}`}
                                 key={book.id}
                             >
                                 <QuickLinksItem
