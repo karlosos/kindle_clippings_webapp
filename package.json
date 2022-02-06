@@ -20,8 +20,8 @@
         "react-scripts": "4.0.3",
         "react-toastify": "^7.0.4",
         "semantic-ui-css": "^2.4.1",
-        "semantic-ui-react": "^2.0.4",
-        "styled-components": "^5.3.0",
+        "semantic-ui-react": "^2.1.1",
+        "styled-components": "^5.3.3",
         "uuid": "^8.3.2",
         "web-vitals": "^2.1.4"
     },
