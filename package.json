@@ -1,6 +1,6 @@
 {
     "name": "kindle_clippings_webapp",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": true,
     "dependencies": {
         "@ant-design/icons": "^4.7.0",
@@ -8,7 +8,6 @@
         "clipboard-copy": "^4.0.1",
         "cross-env": "^7.0.3",
         "dayjs": "^1.10.7",
-        "electron": "^13.1.7",
         "eslint-plugin-jest": "^26.0.0",
         "fuse.js": "^6.5.3",
         "lodash": "^4.17.21",
@@ -33,7 +32,7 @@
         "electron": "electron .",
         "electron-start": "node src/start-react",
         "react-start": "react-scripts start",
-        "pack": "build --dir",
+        "pack:windows": "electron-builder -w",
         "dist": "npm run build && build",
         "postinstall": "install-app-deps",
         "test:coverage": "cross-env CI=true npm test -- --env=jsdom --coverage",
@@ -59,7 +58,8 @@
         "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^13.5.0",
         "@trivago/prettier-plugin-sort-imports": "^3.2.0",
-        "electron-builder": "^22.11.7",
+        "electron": "^17.0.0",
+        "electron-builder": "^22.14.13",
         "electron-is-dev": "^2.0.0",
         "eslint": "^7.32.0",
         "eslint-config-airbnb": "^19.0.4",
@@ -76,9 +76,9 @@
     "homepage": "./",
     "main": "src/start.js",
     "build": {
-        "appId": "com.electron.electron-with-create-react-app",
+        "appId": "com.kindleclippingsapp",
         "win": {
-            "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
+            "icon": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
         },
         "directories": {
             "buildResources": "public"
