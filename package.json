@@ -25,18 +25,13 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "nf start -p 3000",
+        "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom --watchAll=false",
         "eject": "react-scripts eject",
-        "electron": "electron .",
-        "electron-start": "node src/start-react",
-        "react-start": "react-scripts start",
-        "pack:windows": "electron-builder -w",
-        "dist": "npm run build && build",
-        "postinstall": "install-app-deps",
         "test:coverage": "cross-env CI=true npm test -- --env=jsdom --coverage",
         "prepare": "husky install",
+        "format-check": "npx prettier --check .",
         "format": "npx prettier --write .",
         "lint": "npx eslint . --ext .js,.jsx"
     },
@@ -58,9 +53,6 @@
         "@testing-library/react": "^14.0.0",
         "@testing-library/user-event": "^14.4.3",
         "@trivago/prettier-plugin-sort-imports": "^3.2.0",
-        "electron": "^17.0.0",
-        "electron-builder": "^22.14.13",
-        "electron-is-dev": "^2.0.0",
         "eslint": "^7.32.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^8.3.0",
@@ -68,22 +60,12 @@
         "eslint-plugin-jsx-a11y": "^6.5.1",
         "eslint-plugin-react": "^7.28.0",
         "eslint-plugin-react-hooks": "^4.3.0",
-        "foreman": "^3.0.1",
         "husky": "^7.0.4",
         "lint-staged": "^12.3.3",
         "prettier": "2.5.1"
     },
     "homepage": "./",
     "main": "src/start.js",
-    "build": {
-        "appId": "com.kindleclippingsapp",
-        "win": {
-            "icon": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
-        },
-        "directories": {
-            "buildResources": "public"
-        }
-    },
     "lint-staged": {
         "**/*": [
             "prettier --write --ignore-unknown"

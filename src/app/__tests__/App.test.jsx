@@ -1,4 +1,8 @@
-import { screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import {
+    screen,
+    waitFor,
+    waitForElementToBeRemoved,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
@@ -87,26 +91,26 @@ test('Add and remove highlights', async () => {
     });
     const leftClick = { button: 0 };
     // go to highlights and check if there are 4 highlights
-    await userEvent.click(screen.getByText("All Highlights"), leftClick);
-    let deleteButtons = screen.getAllByText("Delete");
+    await userEvent.click(screen.getByText('All Highlights'), leftClick);
+    let deleteButtons = screen.getAllByText('Delete');
     expect(deleteButtons).toHaveLength(4);
     // go to deleted highlights and check if there is 1 deleted
-    await userEvent.click(screen.getByText("Deleted"), leftClick);
-    let restoreButtons = screen.getAllByText("Restore");
+    await userEvent.click(screen.getByText('Deleted'), leftClick);
+    let restoreButtons = screen.getAllByText('Restore');
     expect(restoreButtons).toHaveLength(1);
     // restore one highlight
     await userEvent.click(restoreButtons[0], leftClick);
-    expect(screen.queryByText("Restore")).not.toBeInTheDocument();
+    expect(screen.queryByText('Restore')).not.toBeInTheDocument();
     // go to highlights and check if there are 6 highlights
-    await userEvent.click(screen.getByText("All Highlights"), leftClick);
-    deleteButtons = screen.getAllByText("Delete");
+    await userEvent.click(screen.getByText('All Highlights'), leftClick);
+    deleteButtons = screen.getAllByText('Delete');
     expect(deleteButtons).toHaveLength(5);
     // delete highlights
     await userEvent.click(deleteButtons[2], leftClick);
-    deleteButtons = screen.getAllByText("Delete");
+    deleteButtons = screen.getAllByText('Delete');
     expect(deleteButtons).toHaveLength(4);
     // go to deleted highlights and check if there are 3 deleted
-    await userEvent.click(screen.getByText("Deleted"), leftClick);
-    restoreButtons = screen.getAllByText("Restore");
+    await userEvent.click(screen.getByText('Deleted'), leftClick);
+    restoreButtons = screen.getAllByText('Restore');
     expect(restoreButtons).toHaveLength(1);
 });
