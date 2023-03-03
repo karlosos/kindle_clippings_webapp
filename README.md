@@ -46,7 +46,7 @@ All functions:
 
 ## What I Have Learned
 
-This project was more goal oriented rather than education oriented. I wanted to have a simple desktop (electron) application for managing my kindle clippings.
+This project was more goal oriented rather than education oriented. I wanted to have a simple application for managing my kindle clippings.
 
 ## Development
 
