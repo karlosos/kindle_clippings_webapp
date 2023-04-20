@@ -4,7 +4,7 @@
     "private": true,
     "dependencies": {
         "@ant-design/icons": "^5.0.1",
-        "@reduxjs/toolkit": "^1.7.2",
+        "@reduxjs/toolkit": "^1.9.5",
         "clipboard-copy": "^4.0.1",
         "cross-env": "^7.0.3",
         "dayjs": "^1.10.7",
