@@ -3,7 +3,7 @@
     "version": "0.1.1",
     "private": true,
     "dependencies": {
-        "@ant-design/icons": "^5.0.1",
+        "@ant-design/icons": "^5.1.4",
         "@reduxjs/toolkit": "^1.9.5",
         "clipboard-copy": "^4.0.1",
         "cross-env": "^7.0.3",
