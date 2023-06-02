@@ -7,7 +7,7 @@
         "@reduxjs/toolkit": "^1.9.5",
         "clipboard-copy": "^4.0.1",
         "cross-env": "^7.0.3",
-        "dayjs": "^1.10.7",
+        "dayjs": "^1.11.8",
         "fuse.js": "^6.5.3",
         "lodash": "^4.17.21",
         "react": "^18.2.0",
