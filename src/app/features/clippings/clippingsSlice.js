@@ -83,3 +83,6 @@ export const { concat, clear, toggleFavourite, toggleDeleted, loadBackup } =
     clippingsSlice.actions;
 export { booksListFromQuotes };
 export default clippingsSlice.reducer;
+
+// Selectors
+export const selectBooksCount = (state) => state.clippings.books.length;

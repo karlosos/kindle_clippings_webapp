@@ -9,16 +9,14 @@ export const Wrapper = styled.div`
     overflow: overlay;
 `;
 
-// TODO: those alpha box-shadow cummulates
 export const MainHeader = styled.div`
-    user-select: none;
     padding-top: 8px;
-    display: flex;
+    display: inline-flex;
     position: sticky;
     top: 0;
     left: 0;
     background-color: white;
-    box-shadow: -16px 1px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: -16px 1px 0 #e5e5e5;
     padding-bottom: 14px;
 `;
 
@@ -38,6 +36,6 @@ export const Footer = styled.div`
     left: 0;
     background-color: white;
     padding-right: 16px;
-    box-shadow: -16px -1px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: -16px -1px 0 #e5e5e5;
     user-select: none;
 `;

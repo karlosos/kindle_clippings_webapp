@@ -4,7 +4,7 @@ import { Header, Pagination } from 'semantic-ui-react';
 import HighlightItem from './HighlightItem';
 import { Content, Footer, MainHeader, Wrapper } from './HighlightsList.style';
 
-const HighlightsList = ({ title, highlights }) => {
+const HighlightsList = ({ title, highlights, isBookView }) => {
     const [activePage, setActivePage] = useState(1);
     const wrapperRef = useRef();
 
@@ -33,6 +33,7 @@ const HighlightsList = ({ title, highlights }) => {
                     <HighlightItem
                         key={highlightInfo.id}
                         highlightInfo={highlightInfo}
+                        isBookInfoVisible={isBookView}
                     />
                 ))}
             </Content>

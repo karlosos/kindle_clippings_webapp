@@ -1,14 +1,31 @@
 .ui.vertical.menu .menu .item {
     font-size: 18px;
-    color: rgba(0, 0, 0, 0.7);
+    /* color: #5c7060; */
+    color: #4d5d50;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    padding: 0px;
+    padding: 8px 8px;
+    margin: 0 8px;
 }
 
-.ui.vertical.menu .active.item {
-    box-shadow: inset 3px 0px 0px 0px black;
+.ui.vertical.menu .menu .search {
+    margin: 0 0px;
+}
+
+.ui.vertical.menu .menu .item:hover {
+    color: #344237;
 }
 
 .ui.vertical.menu .item .menu .active.item {
-    background: rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+    background: #fafefc;
+    color: #3e5e57;
+    border: 1px solid #f2f6f3;
+}
+
+.ui.vertical.menu .item .menu .active.item:hover {
+    color: #3e5e57;
 }
 
 .ui.icon.input > i.circular.icon {

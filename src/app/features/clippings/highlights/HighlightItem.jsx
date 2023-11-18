@@ -1,5 +1,16 @@
 /* eslint-disable react/no-unstable-nested-components */
 import copy from 'clipboard-copy';
+import {
+    BookmarkMinusIcon,
+    BookmarkPlusIcon,
+    CalendarClockIcon,
+    CopyCheckIcon,
+    CopyIcon,
+    LocateIcon,
+    NavigationIcon,
+    RotateCwIcon,
+    Trash2Icon,
+} from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -9,6 +20,7 @@ import { Icon } from 'semantic-ui-react';
 
 import { toggleDeleted, toggleFavourite } from '../clippingsSlice';
 import {
+    ActionIcon,
     Author,
     BookInfo,
     BookTitle,
@@ -39,7 +51,9 @@ const Undo = ({ action, onUndo, closeToast }) => {
     );
 };
 
-const HighlightItem = ({ highlightInfo }) => {
+const HighlightItem = (
+    { highlightInfo, isBookInfoVisible } = { isBookInfoVisible: false },
+) => {
     const [copied, setCopied] = useState(false);
     const dispatch = useDispatch();
     const onCopyClick = () => {
@@ -73,54 +87,68 @@ const HighlightItem = ({ highlightInfo }) => {
 
     const LikeButton = () => (
         <>
-            <Icon name="heart outline" />
+            <ActionIcon>
+                <BookmarkPlusIcon size={16} />
+            </ActionIcon>
             Like
         </>
     );
 
     const UnlikeButton = () => (
         <>
-            <Icon name="heart" />
+            <ActionIcon>
+                <BookmarkMinusIcon size={16} />
+            </ActionIcon>
             Unlike
         </>
     );
 
     const DeleteButton = () => (
         <>
-            <Icon name="delete" />
+            <ActionIcon>
+                <Trash2Icon size={16} />
+            </ActionIcon>
             Delete
         </>
     );
 
     const RestoreButton = () => (
         <>
-            <Icon name="redo" />
+            <ActionIcon>
+                <RotateCwIcon size={16} name="redo" />
+            </ActionIcon>
             Restore
         </>
     );
 
     const CopyButton = () => (
         <Copy onClick={onCopyClick}>
-            <Icon name="copy outline" />
+            <ActionIcon>
+                <CopyIcon size={16} />
+            </ActionIcon>
             Copy
         </Copy>
     );
 
     const CopiedButton = () => (
         <Copy onClick={onCopyClick}>
-            <Icon name="copy" />
+            <ActionIcon>
+                <CopyCheckIcon size={16} />
+            </ActionIcon>
             Copied!
         </Copy>
     );
 
     return (
         <Item>
-            <BookInfo>
-                <Link to={`/highlights/${highlightInfo.book}`}>
-                    <BookTitle>{highlightInfo.book}</BookTitle>
-                </Link>
-                <Author>{highlightInfo.author}</Author>
-            </BookInfo>
+            {isBookInfoVisible && (
+                <BookInfo>
+                    <Link to={`/highlights/${highlightInfo.book}`}>
+                        <BookTitle>{highlightInfo.book}</BookTitle>
+                    </Link>
+                    <Author>{highlightInfo.author}</Author>
+                </BookInfo>
+            )}
             <Quote>{highlightInfo.quote}</Quote>
             <HighlightInfo>
                 <Favourite onClick={onLikeClick}>
@@ -138,13 +166,20 @@ const HighlightItem = ({ highlightInfo }) => {
                     )}
                 </Delete>
                 <Date>
-                    <Icon name="clock outline" />
+                    <ActionIcon>
+                        <CalendarClockIcon size={16} />
+                    </ActionIcon>
                     {highlightInfo.time}
                 </Date>
-                <Location>
-                    <Icon name="location arrow" />
-                    {highlightInfo.location}
-                </Location>
+                {/* // TODO: remove this check and fix location on new kindle */}
+                {highlightInfo.location !== 'location' && (
+                    <Location>
+                        <ActionIcon>
+                            <NavigationIcon size={16} />
+                        </ActionIcon>
+                        {highlightInfo.location}
+                    </Location>
+                )}
                 {copied ? <CopiedButton /> : <CopyButton />}
             </HighlightInfo>
         </Item>

@@ -28,18 +28,34 @@ export const BookInfo = styled.div`
     flex-direction: column;
     min-height: 70px;
     justify-content: center;
+    color: #253834;
 
     width: 15rem;
     @media (min-width: 1250px) {
         width: 25rem;
     }
+
+    &:hover {
+        cursor: pointer;
+        color: #405c56;
+    }
+`;
+
+export const BookIcon = styled.img`
+    user-drag: none;
+    user-select: none;
+    width: 57px;
+    height: 64px;
 `;
 
 export const Title = styled.div`
     font-weight: bold;
+    user-select: text;
 `;
 
-export const Author = styled.div``;
+export const Author = styled.div`
+    user-select: text;
+`;
 
 export const statisticsSize = css`
     font-size: 12px;
@@ -64,16 +80,21 @@ export const NumHighlights = styled.div`
     ${statisticsSize};
 `;
 
-export const StyledIcon = styled(Icon)`
+export const Chevron = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #253834;
+
     &:hover {
         cursor: pointer;
         color: rgb(0 0 0 / 70%);
-        box-shadow: 0 0 0 0.1em rgb(0 0 0 / 70%) inset !important;
     }
-`;
+`
 
 export const StatisticValue = styled(Statistic.Value)`
     &&&& {
+        color: #253834; // TODO: make it text
         font-size: 1.2em !important;
         @media (min-width: 1250px) {
             font-size: 1.5em !important;
@@ -83,7 +104,8 @@ export const StatisticValue = styled(Statistic.Value)`
 
 export const StatisticLabel = styled(Statistic.Label)`
     &&& {
-        color: ${Colors.textLighter};
+        /* color: ${Colors.textLighter}; */
+        color: #3e5e57; // TODO: make it textLighter
         font-size: 0.8em;
         @media (min-width: 1250px) {
             font-size: 0.85em;

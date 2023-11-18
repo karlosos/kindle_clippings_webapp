@@ -1,5 +1,5 @@
 const Colors = {
-    text: 'rgb(66, 66, 66)',
+    text: '#253834',
     textLighter: 'rgba(0,0,0,.6)',
 };
 

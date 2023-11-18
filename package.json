@@ -10,6 +10,7 @@
         "dayjs": "^1.10.7",
         "fuse.js": "^6.5.3",
         "lodash": "^4.17.21",
+        "lucide-react": "^0.292.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-dropzone": "^14.2.3",

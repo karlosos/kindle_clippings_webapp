@@ -1,25 +1,28 @@
 import {
-    DeleteFilled,
-    HeartFilled,
-    HighlightFilled,
-    HomeFilled,
-    PlusSquareFilled,
-    SaveFilled,
-} from '@ant-design/icons';
+    BookmarkIcon,
+    FolderInputIcon,
+    HighlighterIcon,
+    LibraryBigIcon,
+    SaveIcon,
+    TrashIcon,
+} from 'lucide-react';
+// TODO: remove @ant-design/cons
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
+import { selectBooksCount } from '../../features/clippings/clippingsSlice';
 
 import BooksSection from './BooksSection';
 import QuickLinksItem from './QuickLinksItem';
 import './Sidebar.css';
-import { MenuStyled } from './Sidebar.style';
+import { Counter, MenuStyled } from './Sidebar.style';
 import { setActiveSidebarItem } from './sidebarSlice';
 
 const Sidebar = () => {
     const dispatch = useDispatch();
     const activeItem = useSelector((state) => state.sidebar.activeItem);
+    const booksCount = useSelector(selectBooksCount);
 
     const handleItemClick = (e, { name }) =>
         dispatch(setActiveSidebarItem(name));
@@ -34,7 +37,10 @@ const Sidebar = () => {
                             handleItemClick={handleItemClick}
                             activeItem={activeItem}
                         >
-                            <HomeFilled /> Dashboard
+                            <LibraryBigIcon size={18} /> Books
+                            <Counter>
+                                {booksCount}
+                            </Counter>
                         </QuickLinksItem>
                     </Link>
                     <Link to="/import">
@@ -43,7 +49,7 @@ const Sidebar = () => {
                             handleItemClick={handleItemClick}
                             activeItem={activeItem}
                         >
-                            <PlusSquareFilled /> Import
+                            <FolderInputIcon size={18} /> Import
                         </QuickLinksItem>
                     </Link>
                     <Link to="/highlights">
@@ -52,7 +58,7 @@ const Sidebar = () => {
                             handleItemClick={handleItemClick}
                             activeItem={activeItem}
                         >
-                            <HighlightFilled /> All Highlights
+                            <HighlighterIcon size={18} /> All Highlights
                         </QuickLinksItem>
                     </Link>
                     <Link to="/favourites">
@@ -61,7 +67,7 @@ const Sidebar = () => {
                             handleItemClick={handleItemClick}
                             activeItem={activeItem}
                         >
-                            <HeartFilled /> Favorites
+                            <BookmarkIcon size={18} /> Favorites
                         </QuickLinksItem>
                     </Link>
                     <Link to="/deleted">
@@ -70,7 +76,7 @@ const Sidebar = () => {
                             handleItemClick={handleItemClick}
                             activeItem={activeItem}
                         >
-                            <DeleteFilled /> Deleted
+                            <TrashIcon size={18} /> Deleted
                         </QuickLinksItem>
                     </Link>
                     <Link to="/demo">
@@ -79,7 +85,7 @@ const Sidebar = () => {
                             handleItemClick={handleItemClick}
                             activeItem={activeItem}
                         >
-                            <SaveFilled /> Demo
+                            <SaveIcon size={18} /> Demo
                         </QuickLinksItem>
                     </Link>
                 </Menu.Menu>

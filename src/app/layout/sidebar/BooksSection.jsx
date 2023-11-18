@@ -1,9 +1,10 @@
 import Fuse from 'fuse.js';
 import { throttle } from 'lodash';
+import { BookIcon } from 'lucide-react';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Icon, Input, Menu } from 'semantic-ui-react';
+import { Input, Menu } from 'semantic-ui-react';
 
 import QuickLinksItem from './QuickLinksItem';
 import {
@@ -54,7 +55,7 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
     return (
         <BooksSectionWrapper>
             <BooksSectionMenu>
-                <Menu.Item key="searchInput">
+                <Menu.Item key="searchInput" className='search'>
                     <Input
                         icon={{ name: 'search', circular: true, link: true }}
                         placeholder="Search book"
@@ -75,10 +76,9 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
                                     handleItemClick={handleItemClick}
                                     activeItem={activeItem}
                                 >
-                                    <Icon
-                                        name="book"
-                                        style={{ float: 'left' }}
-                                    />{' '}
+                                    <div>
+                                        <BookIcon size={18} />
+                                    </div>
                                     {book.title}
                                 </QuickLinksItem>
                             </Link>

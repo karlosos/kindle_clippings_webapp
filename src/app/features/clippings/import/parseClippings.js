@@ -40,6 +40,9 @@ const parseText = (content) => {
                         .join(' ')
                         .replace(/\r?\n|\r/g, '');
                 }
+                // TODO: for new kindle all locations are read as 'location'
+                //       remove check from `HighlightItem.jsx`
+
 
                 const id = uuidv5(
                     location + quote + time,
