@@ -18,4 +18,7 @@ body,
 html {
     height: 100%;
     margin: 0;
+    background: #f1f6f7;
+    overflow: hidden;
+    padding: 4px;
 }

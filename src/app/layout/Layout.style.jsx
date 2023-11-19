@@ -3,12 +3,17 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
+    height: calc(100vh - 16px);
+    border: 1px solid #d0d9db;
+    border-radius: 8px;
+    box-shadow: 0 0px 20px 0 rgb(34 36 38 / 5%);
+    max-width: 1600px;
+    margin: 0 auto;
 
     header {
         background-color: white;
         z-index: 99;
+        border-radius: 8px 8px 0px 0px;
     }
 
     main {
@@ -20,6 +25,8 @@ export const Container = styled.div`
         width: 100%;
         display: flex;
         overflow: hidden;
+        background-color: white;
+        border-radius: 0px 0px 8px 8px;
     }
 
     aside {
