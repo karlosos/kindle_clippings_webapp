@@ -36,7 +36,7 @@ const HighlightsPage = () => {
         <HighlightsList
             title={bookTitle ?? 'All highlights'}
             highlights={highlights}
-            isBookView={!bookTitle}
+            bookInfoVisible={!bookTitle}
         />
     );
 };

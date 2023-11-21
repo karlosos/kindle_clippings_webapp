@@ -1,7 +1,4 @@
-import {
-    screen,
-    waitFor,
-} from '@testing-library/react';
+import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
@@ -40,7 +37,10 @@ test('Clear all data', async () => {
         expect(screen.queryByText('Mitologia')).not.toBeInTheDocument();
     });
     // go back to dashboard page
-    await userEvent.click(screen.getByText(/dashboard/i), leftClick);
+    await userEvent.click(
+        within(screen.getByRole('menu')).getByText(/books/i),
+        leftClick,
+    );
     expect(screen.queryByText(/Chłopi/i)).not.toBeInTheDocument();
     expect(screen.queryByText('Mitologia')).not.toBeInTheDocument();
 });

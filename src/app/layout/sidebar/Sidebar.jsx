@@ -28,7 +28,7 @@ const Sidebar = () => {
         dispatch(setActiveSidebarItem(name));
 
     return (
-        <MenuStyled vertical>
+        <MenuStyled vertical role='menu'>
             <Menu.Item>
                 <Menu.Menu>
                     <Link to="/">
