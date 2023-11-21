@@ -51,4 +51,4 @@ export const Counter = styled.div`
     border-radius: 8px;
     font-size: 14px;
     padding: 2px 8px;
-`
+`;

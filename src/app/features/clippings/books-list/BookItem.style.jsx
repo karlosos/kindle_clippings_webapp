@@ -98,7 +98,6 @@ export const NavigationButton = styled.button`
     cursor: pointer;
 `;
 
-
 export const Chevron = styled.div`
     display: flex;
     justify-content: center;
@@ -128,4 +127,3 @@ export const StatisticLabel = styled(Statistic.Label)`
         font-size: 11px;
     }
 `;
-

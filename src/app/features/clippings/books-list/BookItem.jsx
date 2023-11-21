@@ -76,7 +76,7 @@ const BookItem = ({ book }) => {
                 >
                     Export
                 </Button>
-                <NavigationButton onClick={handleNavigateBook} type='button'>
+                <NavigationButton onClick={handleNavigateBook} type="button">
                     <Chevron>
                         <ChevronsRightIcon />
                     </Chevron>

@@ -20,7 +20,13 @@ const FavouritesPage = () => {
         deleted: q[1].deleted,
     }));
 
-    return <HighlightsList title="Favourites" highlights={highlights} bookInfoVisible />;
+    return (
+        <HighlightsList
+            title="Favourites"
+            highlights={highlights}
+            bookInfoVisible
+        />
+    );
 };
 
 export default FavouritesPage;

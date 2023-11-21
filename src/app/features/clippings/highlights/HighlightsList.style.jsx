@@ -23,7 +23,7 @@ export const MainHeader = styled.div`
 
 export const Title = styled(Header)`
     color: rgb(37, 56, 52);
-`
+`;
 
 export const Content = styled.div`
     flex-grow: 1;

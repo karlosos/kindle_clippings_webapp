@@ -43,7 +43,6 @@ const parseText = (content) => {
                 // TODO: for new kindle all locations are read as 'location'
                 //       remove check from `HighlightItem.jsx`
 
-
                 const id = uuidv5(
                     location + quote + time,
                     UUID_QUOTES_NAMESPACE,

@@ -1,6 +1,11 @@
 import React from 'react';
-import { Statistic} from 'semantic-ui-react';
-import { StatisticValue, StatisticLabel, ImportedCountWrapper } from './ImportedCount.style';
+import { Statistic } from 'semantic-ui-react';
+
+import {
+    ImportedCountWrapper,
+    StatisticLabel,
+    StatisticValue,
+} from './ImportedCount.style';
 
 const ImportedCount = ({ highlightsStatistics }) => {
     return (

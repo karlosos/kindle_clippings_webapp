@@ -55,7 +55,7 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
     return (
         <BooksSectionWrapper>
             <BooksSectionMenu>
-                <Menu.Item key="searchInput" className='search'>
+                <Menu.Item key="searchInput" className="search">
                     <Input
                         icon={{ name: 'search', circular: true, link: true }}
                         placeholder="Search book"

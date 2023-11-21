@@ -2,7 +2,13 @@ import React, { useRef, useState } from 'react';
 import { Pagination } from 'semantic-ui-react';
 
 import HighlightItem from './HighlightItem';
-import { Content, Footer, MainHeader, Title, Wrapper } from './HighlightsList.style';
+import {
+    Content,
+    Footer,
+    MainHeader,
+    Title,
+    Wrapper,
+} from './HighlightsList.style';
 
 const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
     const [activePage, setActivePage] = useState(1);

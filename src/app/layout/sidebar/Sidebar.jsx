@@ -11,8 +11,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
-import { selectBooksCount } from '../../features/clippings/clippingsSlice';
 
+import { selectBooksCount } from '../../features/clippings/clippingsSlice';
 import BooksSection from './BooksSection';
 import QuickLinksItem from './QuickLinksItem';
 import './Sidebar.css';
@@ -28,7 +28,7 @@ const Sidebar = () => {
         dispatch(setActiveSidebarItem(name));
 
     return (
-        <MenuStyled vertical role='menu'>
+        <MenuStyled vertical role="menu">
             <Menu.Item>
                 <Menu.Menu>
                     <Link to="/">
@@ -38,9 +38,7 @@ const Sidebar = () => {
                             activeItem={activeItem}
                         >
                             <LibraryBigIcon size={18} /> Books
-                            <Counter>
-                                {booksCount}
-                            </Counter>
+                            <Counter>{booksCount}</Counter>
                         </QuickLinksItem>
                     </Link>
                     <Link to="/import">
