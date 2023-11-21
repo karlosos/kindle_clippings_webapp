@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { ChevronsRightIcon } from 'lucide-react';
 import React from 'react';
 import { useDispatch, useStore } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, Statistic } from 'semantic-ui-react';
-import { ChevronsRightIcon } from 'lucide-react';
 
 import { setActiveSidebarItem } from '../../../layout/sidebar/sidebarSlice';
 import {
@@ -13,6 +13,7 @@ import {
     BookInfo,
     Chevron,
     LastHighlight,
+    NavigationButton,
     NumHighlights,
     Row,
     RowGroup,
@@ -41,14 +42,14 @@ const BookItem = ({ book }) => {
     };
 
     const handleNavigateBook = () => {
-        dispatch(setActiveSidebarItem(book.id.toString()))
+        dispatch(setActiveSidebarItem(book.id.toString()));
         navigate(`/highlights/${book.title}`);
-    }
+    };
 
     return (
         <Row>
             <RowGroup>
-                <BookIcon src="./icons/book-large.svg" alt='book icon' />
+                <BookIcon src="./icons/book-large.svg" alt="book icon" />
                 <BookInfo onClick={handleNavigateBook}>
                     <Title>{book.title}</Title>
                     <Author>{book.author}</Author>
@@ -75,11 +76,11 @@ const BookItem = ({ book }) => {
                 >
                     Export
                 </Button>
-                <Link to={`/highlights/${book.id}/${book.title}`}>
+                <NavigationButton onClick={handleNavigateBook} type='button'>
                     <Chevron>
                         <ChevronsRightIcon />
                     </Chevron>
-                </Link>
+                </NavigationButton>
             </RowGroup>
         </Row>
     );

@@ -1,4 +1,4 @@
-import { Icon, Statistic } from 'semantic-ui-react';
+import { Statistic } from 'semantic-ui-react';
 import styled, { css } from 'styled-components';
 
 import Colors from '../../../layout/colors';
@@ -22,7 +22,7 @@ export const RowGroup = styled.div`
     align-items: center;
 `;
 
-export const BookInfo = styled.div`
+export const BookInfo = styled.button`
     margin-left: 8px;
     display: flex;
     flex-direction: column;
@@ -39,6 +39,14 @@ export const BookInfo = styled.div`
         cursor: pointer;
         color: #405c56;
     }
+
+    // Reset button
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
 `;
 
 export const BookIcon = styled.img`
@@ -51,6 +59,7 @@ export const BookIcon = styled.img`
 export const Title = styled.div`
     font-weight: bold;
     user-select: text;
+    text-align: left;
 `;
 
 export const Author = styled.div`
@@ -80,6 +89,16 @@ export const NumHighlights = styled.div`
     ${statisticsSize};
 `;
 
+export const NavigationButton = styled.button`
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+`;
+
+
 export const Chevron = styled.div`
     display: flex;
     justify-content: center;
@@ -90,25 +109,23 @@ export const Chevron = styled.div`
         cursor: pointer;
         color: rgb(0 0 0 / 70%);
     }
-`
+`;
 
 export const StatisticValue = styled(Statistic.Value)`
     &&&& {
+        font-family: 'Inter', sans-serif !important;
         color: #253834; // TODO: make it text
-        font-size: 1.2em !important;
-        @media (min-width: 1250px) {
-            font-size: 1.5em !important;
-        }
+        font-size: 16px !important;
     }
 `;
 
 export const StatisticLabel = styled(Statistic.Label)`
     &&& {
         /* color: ${Colors.textLighter}; */
+        font-family: 'Inter', sans-serif !important;
+        font-weight: 600;
         color: #3e5e57; // TODO: make it textLighter
-        font-size: 0.8em;
-        @media (min-width: 1250px) {
-            font-size: 0.85em;
-        }
+        font-size: 11px;
     }
 `;
+

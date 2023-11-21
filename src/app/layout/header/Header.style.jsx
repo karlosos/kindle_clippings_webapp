@@ -12,6 +12,7 @@ export const HeaderWrapper = styled.div`
     padding-bottom: 4px;
     background: #fafafa;
     border-bottom: rgba(0, 0, 0, 0.2) solid 2px;
+    border-radius: 8px 8px 0px 0px;
     z-index: 999;
 
     p {
@@ -25,6 +26,7 @@ export const Title = styled('h1')`
     &&& {
         font-size: 14px;
         margin: 0 0.5em 0;
+        color: rgb(37, 56, 52);
     }
 `;
 

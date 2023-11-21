@@ -1,25 +1,24 @@
 import React from 'react';
-import { Statistic } from 'semantic-ui-react';
-
-import { ImportedCountWrapper } from './ImportPage.style';
+import { Statistic} from 'semantic-ui-react';
+import { StatisticValue, StatisticLabel, ImportedCountWrapper } from './ImportedCount.style';
 
 const ImportedCount = ({ highlightsStatistics }) => {
     return (
         <ImportedCountWrapper>
-            <span>You have alredy imported</span>
+            <span>You have already imported</span>
             <Statistic.Group>
                 <Statistic>
-                    <Statistic.Value>
+                    <StatisticValue>
                         {highlightsStatistics.numHighlights}
-                    </Statistic.Value>
-                    <Statistic.Label>Highlights</Statistic.Label>
+                    </StatisticValue>
+                    <StatisticLabel>Highlights</StatisticLabel>
                 </Statistic>
                 <div style={{ paddingTop: '18px' }}>From</div>
                 <Statistic>
-                    <Statistic.Value>
+                    <StatisticValue>
                         {highlightsStatistics.numBooks}
-                    </Statistic.Value>
-                    <Statistic.Label>Books</Statistic.Label>
+                    </StatisticValue>
+                    <StatisticLabel>Books</StatisticLabel>
                 </Statistic>
             </Statistic.Group>
         </ImportedCountWrapper>

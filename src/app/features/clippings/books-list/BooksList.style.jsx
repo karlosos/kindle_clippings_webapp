@@ -29,6 +29,6 @@ export const PaginationWrapper = styled.div`
     left: 0;
     background-color: white;
     padding-right: 16px;
-    box-shadow: -16px -1px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0px -1px 0 #cccccc;
     user-select: none;
 `;

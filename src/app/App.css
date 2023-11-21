@@ -22,3 +22,25 @@ html {
     overflow: hidden;
     padding: 4px;
 }
+
+body,
+html {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.ui {
+    font-family: 'Inter', sans-serif !important;
+}
+
+h1 {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.ui.input > input {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.ui.input.focus > input,
+.ui.input > input:focus {
+    border-color: #3e5e57;
+}

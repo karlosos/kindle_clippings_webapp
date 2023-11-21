@@ -7,6 +7,7 @@
     padding: 0px;
     padding: 8px 8px;
     margin: 0 8px;
+    font-weight: 400;
 }
 
 .ui.vertical.menu .menu .search {
@@ -18,7 +19,7 @@
 }
 
 .ui.vertical.menu .item .menu .active.item {
-    font-weight: 500;
+    font-weight: 400;
     background: #fafefc;
     color: #3e5e57;
     border: 1px solid #f2f6f3;

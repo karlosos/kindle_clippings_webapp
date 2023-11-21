@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { Header, Pagination } from 'semantic-ui-react';
+import { Pagination } from 'semantic-ui-react';
 
 import HighlightItem from './HighlightItem';
-import { Content, Footer, MainHeader, Wrapper } from './HighlightsList.style';
+import { Content, Footer, MainHeader, Title, Wrapper } from './HighlightsList.style';
 
 const HighlightsList = ({ title, highlights, isBookView }) => {
     const [activePage, setActivePage] = useState(1);
@@ -26,7 +26,7 @@ const HighlightsList = ({ title, highlights, isBookView }) => {
     return (
         <Wrapper ref={wrapperRef}>
             <MainHeader>
-                <Header as="h1">{title}</Header>
+                <Title as="h1">{title}</Title>
             </MainHeader>
             <Content>
                 {highlightsFiltered.map((highlightInfo) => (

@@ -1,20 +1,19 @@
+import { Header } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     padding-right: 16px;
+    padding-top: 16px;
+
+    p {
+        color: rgb(37, 56, 52);
+    }
 `;
 
-export const HeaderStyled = styled.div`
+export const HeaderStyled = styled(Header)`
     user-select: none;
-    padding-top: 4px;
-`;
-
-export const ImportedCountWrapper = styled.div`
-    display: flex;
-    width: 100%;
-    align-items: center;
-    padding-top: 24px;
-    flex-direction: column;
+    padding-top: 8px;
+    color: rgb(37, 56, 52);
 `;
 
 const getColorDropZoneBorderColor = (props) => {
@@ -37,7 +36,7 @@ export const DropZone = styled.div`
     align-items: center;
     padding: 20px;
     border-width: 2px;
-    border-radius: 2px;
+    border-radius: 8px;
     border-color: ${(props) => getColorDropZoneBorderColor(props)};
     border-style: dashed;
     background-color: #fafafa;

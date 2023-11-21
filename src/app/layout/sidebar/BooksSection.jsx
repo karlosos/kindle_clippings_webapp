@@ -85,9 +85,6 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
                         );
                     })}
                 </BooksList>
-                <Menu.Item key="allBooksLink">
-                    <Link to="/dashboard">Show all books</Link>
-                </Menu.Item>
             </BooksSectionMenu>
         </BooksSectionWrapper>
     );

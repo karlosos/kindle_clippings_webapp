@@ -1,3 +1,4 @@
+import { Header } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -10,7 +11,7 @@ export const Wrapper = styled.div`
 `;
 
 export const MainHeader = styled.div`
-    padding-top: 8px;
+    padding-top: 24px;
     display: inline-flex;
     position: sticky;
     top: 0;
@@ -19,6 +20,10 @@ export const MainHeader = styled.div`
     box-shadow: -16px 1px 0 #e5e5e5;
     padding-bottom: 14px;
 `;
+
+export const Title = styled(Header)`
+    color: rgb(37, 56, 52);
+`
 
 export const Content = styled.div`
     flex-grow: 1;

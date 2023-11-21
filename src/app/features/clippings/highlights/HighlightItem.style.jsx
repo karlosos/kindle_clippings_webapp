@@ -16,6 +16,8 @@ export const BookInfo = styled.div`
 
 export const BookTitle = styled.div`
     font-weight: bold;
+    color: rgb(37, 56, 52);
+    color: #3e5e57;
 `;
 
 export const Author = styled.div`
@@ -26,7 +28,7 @@ export const Author = styled.div`
 export const Quote = styled.div`
     max-width: 720px;
     margin-top: 8px;
-    color: ${Colors.text};
+    color: #18211f;
 `;
 
 //

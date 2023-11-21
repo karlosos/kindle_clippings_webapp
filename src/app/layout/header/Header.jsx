@@ -7,8 +7,7 @@ const Header = () => {
         <HeaderWrapper>
             <p style={{ fontSize: '18px' }}>📚</p>
             <Title>Kindle Clippings Manager</Title>
-            {/* <Logo style={{ width: '50px' }} /> */}
-            {/* <SearchBar icon='search' placeholder='Search...' value={searchValue} onChange={handleSearchInput}/> */}
+            {/* <SearchBar icon='search' placeholder='Search...' value="" onChange={() => undefined}/> */}
         </HeaderWrapper>
     );
 };

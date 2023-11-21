@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 
 import './App.css';
-import DashboardPage from './features/clippings/dashboard/DashboardPage';
+import BooksListPage from './features/clippings/books-list/BooksListPage';
 import DeletedPage from './features/clippings/highlights/deleted/DeletedPage';
 import FavouritesPage from './features/clippings/highlights/favourites/FavouritesPage';
 import HighlightsPage from './features/clippings/highlights/highlights/HighlightsPage';
@@ -24,7 +24,7 @@ const AppContent = () => {
                 <Route path="/favourites" element={<FavouritesPage />} />
                 <Route path="/deleted" element={<DeletedPage />} />
                 <Route path="/demo" element={<Demo />} />
-                <Route path="/" element={<DashboardPage />} />
+                <Route path="/" element={<BooksListPage />} />
             </Routes>
         </Layout>
     );

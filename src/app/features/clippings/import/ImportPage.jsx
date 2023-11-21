@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Header } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 import { loadState } from '../../../localStorage';
 import { clear, concat, loadBackup } from '../clippingsSlice';
@@ -97,7 +97,7 @@ const ImportPage = () => {
             {quotes !== {} && (
                 <ImportedCount highlightsStatistics={quoteStatistics(quotes)} />
             )}
-            <Header as="h1">Backup</Header>
+            <HeaderStyled as="h1">Backup</HeaderStyled>
             <p>If you want to backup/export all data to .json file.</p>
             <Button positive onClick={onBackupButtonClick}>
                 Backup
@@ -111,7 +111,7 @@ const ImportPage = () => {
                 id="my_file"
             />
 
-            <Header as="h1">Delete all data</Header>
+            <HeaderStyled as="h1">Delete all data</HeaderStyled>
             <p>
                 If you want to delete all local data. This will remove all
                 highlights, favourites, etc. There is no going back if you do

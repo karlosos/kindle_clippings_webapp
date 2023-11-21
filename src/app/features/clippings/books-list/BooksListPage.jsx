@@ -2,8 +2,8 @@ import React from 'react';
 
 import BooksList from './BooksList';
 
-const DashboardPage = () => {
+const BooksListPage = () => {
     return <BooksList />;
 };
 
-export default DashboardPage;
+export default BooksListPage;
