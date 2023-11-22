@@ -30,6 +30,12 @@ export const Title = styled('h1')`
     }
 `;
 
+export const Logo = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
 export const SearchBar = styled(Input)`
     justify-self: flex-end;
 `;
