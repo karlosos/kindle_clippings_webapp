@@ -64,6 +64,7 @@ export const Title = styled.div`
 
 export const Author = styled.div`
     user-select: text;
+    text-align: left;
 `;
 
 export const statisticsSize = css`
