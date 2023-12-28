@@ -32,10 +32,14 @@ const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
 
     // eslint-disable-next-line no-shadow
     const handlePaginationChange = (e, { activePage }) => {
-        setSearchParams({
-            booksListPage,
-            page: activePage,
-        });
+        // Set search params
+        const params = {};
+        params.page = activePage;
+        if (booksListPage) {
+            params.booksListPage = booksListPage;
+        }
+        setSearchParams(params);
+
         wrapperRef.current.scrollTo(0, 0);
     };
 
