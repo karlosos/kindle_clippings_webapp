@@ -33,7 +33,7 @@ const BooksList = () => {
         <Wrapper ref={wrapperRef}>
             <BooksContainer>
                 {booksFiltered.map((book) => (
-                    <BookItem key={book.id} book={book} />
+                    <BookItem key={book.id} book={book} page={page} />
                 ))}
             </BooksContainer>
             <PaginationWrapper>

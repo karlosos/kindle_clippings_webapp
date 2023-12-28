@@ -25,7 +25,7 @@ import bookExport from './bookExport';
 
 dayjs.extend(relativeTime);
 
-const BookItem = ({ book }) => {
+const BookItem = ({ book, page }) => {
     const store = useStore();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -43,7 +43,7 @@ const BookItem = ({ book }) => {
 
     const handleNavigateBook = () => {
         dispatch(setActiveSidebarItem(book.id.toString()));
-        navigate(`/highlights/${book.title}`);
+        navigate(`/highlights/${book.title}?booksListPage=${page}`);
     };
 
     return (

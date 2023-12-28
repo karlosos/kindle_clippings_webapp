@@ -11,8 +11,9 @@ export const Wrapper = styled.div`
 `;
 
 export const MainHeader = styled.div`
-    padding-top: 24px;
+    padding-top: 22px;
     display: inline-flex;
+    flex-direction: column;
     position: sticky;
     top: 0;
     left: 0;
@@ -22,6 +23,7 @@ export const MainHeader = styled.div`
 `;
 
 export const Title = styled(Header)`
+    margin-top: 5px;
     color: rgb(37, 56, 52);
 `;
 
@@ -44,3 +46,32 @@ export const Footer = styled.div`
     box-shadow: -16px -1px 0 #e5e5e5;
     user-select: none;
 `;
+
+export const BackButton = styled.div`
+    background: #ffffff;
+    color: #4d5d50;
+    border: 1px solid #f2f6f3;
+
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+
+    padding: 4px 16px;
+
+    &:hover {
+        background: #fafefc;
+        cursor: pointer;
+    }
+`;
+
+export const BackButtonIcon = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const AdditionalButtons = styled.div`
+    display: flex;
+`

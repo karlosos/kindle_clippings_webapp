@@ -1,9 +1,12 @@
+import { ChevronLeft } from 'lucide-react';
 import React, { useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Pagination } from 'semantic-ui-react';
 
 import HighlightItem from './HighlightItem';
 import {
+    AdditionalButtons,
+    BackButton,
     Content,
     Footer,
     MainHeader,
@@ -12,8 +15,10 @@ import {
 } from './HighlightsList.style';
 
 const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
+    const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const page = searchParams.get('page') ?? 1;
+    const booksListPage = searchParams.get('booksListPage');
     const wrapperRef = useRef();
 
     const itemsPerPage = 20;
@@ -28,6 +33,7 @@ const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
     // eslint-disable-next-line no-shadow
     const handlePaginationChange = (e, { activePage }) => {
         setSearchParams({
+            booksListPage,
             page: activePage,
         });
         wrapperRef.current.scrollTo(0, 0);
@@ -36,6 +42,16 @@ const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
     return (
         <Wrapper ref={wrapperRef}>
             <MainHeader>
+                {booksListPage && (
+                    <AdditionalButtons>
+                        <BackButton
+                            onClick={() => navigate(`/?page=${booksListPage}`)}
+                        >
+                            <ChevronLeft />
+                            Go back
+                        </BackButton>
+                    </AdditionalButtons>
+                )}
                 <Title as="h1">{title}</Title>
             </MainHeader>
             <Content>
