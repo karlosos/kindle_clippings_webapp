@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Pagination } from 'semantic-ui-react';
 
 import HighlightItem from './HighlightItem';
@@ -11,7 +12,8 @@ import {
 } from './HighlightsList.style';
 
 const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
-    const [activePage, setActivePage] = useState(1);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const page = searchParams.get('page') ?? 1;
     const wrapperRef = useRef();
 
     const itemsPerPage = 20;
@@ -19,13 +21,15 @@ const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
     // Why highglights.reverse(). is not working here?
     // Pagination works flawlessly but not reverse
     const highlightsFiltered = highlights.slice(
-        (activePage - 1) * itemsPerPage,
-        activePage * itemsPerPage,
+        (page - 1) * itemsPerPage,
+        page * itemsPerPage,
     );
 
     // eslint-disable-next-line no-shadow
     const handlePaginationChange = (e, { activePage }) => {
-        setActivePage(activePage);
+        setSearchParams({
+            page: activePage,
+        });
         wrapperRef.current.scrollTo(0, 0);
     };
 
@@ -45,7 +49,7 @@ const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
             </Content>
             <Footer>
                 <Pagination
-                    activePage={activePage}
+                    activePage={page}
                     onPageChange={handlePaginationChange}
                     totalPages={numPages}
                 />
