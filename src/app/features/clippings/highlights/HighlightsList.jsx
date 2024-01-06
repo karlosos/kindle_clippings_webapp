@@ -1,5 +1,5 @@
 import { CalendarClock, ChevronLeft, Highlighter, Timer } from 'lucide-react';
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Pagination } from 'semantic-ui-react';
 
@@ -11,12 +11,11 @@ import {
     Footer,
     MainHeader,
     Pill,
-    PillGlossy,
     PillSeparator,
-    PillSeparatorGlossy,
     Title,
     Wrapper,
 } from './HighlightsList.style';
+import { highlightsStats } from './highlightsStats';
 
 const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
     const navigate = useNavigate();
@@ -24,6 +23,7 @@ const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
     const page = searchParams.get('page') ?? 1;
     const booksListPage = searchParams.get('booksListPage');
     const wrapperRef = useRef();
+    const stats = useMemo(() => highlightsStats(highlights), [title]);
 
     const itemsPerPage = 20;
     const numPages = Math.ceil(highlights.length / itemsPerPage);
@@ -59,20 +59,24 @@ const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
                             Go back
                         </BackButton>
                     )}
-                    <Pill>
-                        <CalendarClock size={16} />
-                        2022-03-17
-                        <PillSeparator />
-                        2023-06-21
-                    </Pill>
-                    <Pill>
-                        <Highlighter size={16} />
-                        13 highlights
-                    </Pill>
-                    <Pill>
-                        <Timer size={16} />
-                        30 minutes
-                    </Pill>
+                    {stats && (
+                        <>
+                            <Pill>
+                                <CalendarClock size={16} />
+                                {stats.firstDate}
+                                <PillSeparator />
+                                {stats.lastDate}
+                            </Pill>
+                            <Pill>
+                                <Highlighter size={16} />
+                                {stats.highlightsCount} highlights
+                            </Pill>
+                            <Pill>
+                                <Timer size={16} />
+                                {stats.readingTime}
+                            </Pill>
+                        </>
+                    )}
                 </AdditionalButtons>
                 <Title as="h1">{title}</Title>
             </MainHeader>

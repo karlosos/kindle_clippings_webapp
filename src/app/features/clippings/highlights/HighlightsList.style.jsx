@@ -19,12 +19,13 @@ export const MainHeader = styled.div`
     left: 0;
     background-color: white;
     box-shadow: -16px 1px 0 #e5e5e5;
-    padding-bottom: 14px;
+    padding-bottom: 10px;
 `;
 
 export const Title = styled(Header)`
     margin-top: 5px;
     color: rgb(37, 56, 52);
+    font-size: 22px;
 `;
 
 export const Content = styled.div`
@@ -84,8 +85,9 @@ export const PillSeparatorGlossy = styled(PillSeparator)`
     border-left: 1px solid #56887d;
 `;
 
-export const BackButton = styled(PillGlossy)`
+export const BackButton = styled(Pill)`
     &:hover {
+        background: #fafefc;
         cursor: pointer;
     }
 `;

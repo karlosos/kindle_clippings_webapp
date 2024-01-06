@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Button, Header } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 import { setActiveSidebarItem } from '../../layout/sidebar/sidebarSlice';
 import { clear, loadBackup } from '../clippings/clippingsSlice';
@@ -33,7 +33,7 @@ const ImportPage = () => {
                 Load demo data
             </Button>
 
-            <Header as="h1">Delete all data</Header>
+            <HeaderStyled as="h1">Delete all data</HeaderStyled>
             <p>
                 If you want to delete all local data. This will remove all
                 highlights, favourites, etc. There is no going back if you do

@@ -14,6 +14,7 @@ export const HeaderStyled = styled(Header)`
     user-select: none;
     padding-top: 8px;
     color: rgb(37, 56, 52);
+    font-size: 22px;
 `;
 
 const getColorDropZoneBorderColor = (props) => {

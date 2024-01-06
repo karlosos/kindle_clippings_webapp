@@ -43,6 +43,16 @@ const parseText = (content) => {
                 // TODO: for new kindle all locations are read as 'location'
                 //       remove check from `HighlightItem.jsx`
 
+                // Date extraction not working for:
+                // Vaughn-Vernon-Domain-Driven-Design-Distilled-Addison-Wesley-Professional-_2016_ (Vernon, Vaughn)
+                // - Your Highlight at location 1459-1462 | Added on Monday, 12 December 2022 17:58:46
+
+                // Working for:
+                // Gene-Kim_-Kevin-Behr_-George-Spafford-The-Phoenix-Project_-A-Novel-About-IT_-DevOps_-and-Helping-You (Gene Kim)
+                // - Highlight Loc. 3178-80  | Added on Saturday, October 29, 2022, 01:22 PM
+                // Polactwo (Rafał A. Ziemkiewicz)
+                // - Your Highlight on page 16 | location 243-247 | Added on Sunday, 29 October 2023 15:56:45
+
                 const id = uuidv5(
                     location + quote + time,
                     UUID_QUOTES_NAMESPACE,
