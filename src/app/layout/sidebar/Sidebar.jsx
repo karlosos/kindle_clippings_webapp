@@ -14,7 +14,7 @@ import { Menu } from 'semantic-ui-react';
 
 import { selectBooksCount } from '../../features/clippings/clippingsSlice';
 import BooksSection from './BooksSection';
-import QuickLinksItem from './QuickLinksItem';
+import { QuickLinksItem } from './QuickLinksItem';
 import './Sidebar.css';
 import { Counter, MenuStyled } from './Sidebar.style';
 import { setActiveSidebarItem } from './sidebarSlice';

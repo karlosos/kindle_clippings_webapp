@@ -24,6 +24,10 @@ export const QuickLinksItemStyled = styled.div`
     gap: 8px;
 `;
 
+export const BookLinkItemStyled = styled(QuickLinksItemStyled)`
+    font-size: 14px;
+`;
+
 export const BooksSectionWrapper = styled(Menu.Item)`
     &&& {
         flex-grow: 1;

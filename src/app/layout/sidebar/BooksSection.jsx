@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Input, Menu } from 'semantic-ui-react';
 
-import QuickLinksItem from './QuickLinksItem';
+import QuickLinksItem, { BookLinkItem } from './QuickLinksItem';
 import {
     BooksList,
     BooksSectionMenu,
@@ -71,16 +71,16 @@ const BooksSection = ({ handleItemClick, activeItem }) => {
                                 to={`/highlights/${book.title}`}
                                 key={book.id}
                             >
-                                <QuickLinksItem
+                                <BookLinkItem
                                     name={book.id}
                                     handleItemClick={handleItemClick}
                                     activeItem={activeItem}
                                 >
                                     <div>
-                                        <BookIcon size={18} />
+                                        <BookIcon size={14} />
                                     </div>
                                     {book.title}
-                                </QuickLinksItem>
+                                </BookLinkItem>
                             </Link>
                         );
                     })}
