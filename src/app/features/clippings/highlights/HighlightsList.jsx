@@ -1,4 +1,4 @@
-import { ChevronLeft } from 'lucide-react';
+import { CalendarClock, ChevronLeft, Highlighter, Timer } from 'lucide-react';
 import React, { useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Pagination } from 'semantic-ui-react';
@@ -10,6 +10,10 @@ import {
     Content,
     Footer,
     MainHeader,
+    Pill,
+    PillGlossy,
+    PillSeparator,
+    PillSeparatorGlossy,
     Title,
     Wrapper,
 } from './HighlightsList.style';
@@ -46,16 +50,30 @@ const HighlightsList = ({ title, highlights, bookInfoVisible }) => {
     return (
         <Wrapper ref={wrapperRef}>
             <MainHeader>
-                {booksListPage && (
-                    <AdditionalButtons>
+                <AdditionalButtons>
+                    {booksListPage && (
                         <BackButton
                             onClick={() => navigate(`/?page=${booksListPage}`)}
                         >
-                            <ChevronLeft />
+                            <ChevronLeft size={16} />
                             Go back
                         </BackButton>
-                    </AdditionalButtons>
-                )}
+                    )}
+                    <Pill>
+                        <CalendarClock size={16} />
+                        2022-03-17
+                        <PillSeparator />
+                        2023-06-21
+                    </Pill>
+                    <Pill>
+                        <Highlighter size={16} />
+                        13 highlights
+                    </Pill>
+                    <Pill>
+                        <Timer size={16} />
+                        30 minutes
+                    </Pill>
+                </AdditionalButtons>
                 <Title as="h1">{title}</Title>
             </MainHeader>
             <Content>

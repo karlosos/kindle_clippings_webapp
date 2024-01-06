@@ -47,21 +47,45 @@ export const Footer = styled.div`
     user-select: none;
 `;
 
-export const BackButton = styled.div`
+export const Pill = styled.div`
     background: #ffffff;
     color: #4d5d50;
     border: 1px solid #f2f6f3;
 
-    border-radius: 4px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     gap: 4px;
     justify-content: center;
+    font-size: 12px;
 
-    padding: 4px 16px;
+    padding: 2px 8px;
+    height: 26px;
+`;
 
+export const PillGlossy = styled(Pill)`
+    background: linear-gradient(180deg, #6dd5be 0%, #558f83 100%);
+    box-shadow: 0px 3px 4.2px -2px #6aaea0, inset 0px 2px 1.6px -1px #8cfae2;
+    border-radius: 8px;
+    color: white;
+    border: 1px solid #56887d;
+    font-weight: 500;
+`;
+
+export const PillSeparator = styled.div`
+    height: 24px;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    width: 1px;
+    border-left: 1px solid #f2f6f3;
+`;
+
+export const PillSeparatorGlossy = styled(PillSeparator)`
+    border-left: 1px solid #56887d;
+`;
+
+export const BackButton = styled(PillGlossy)`
     &:hover {
-        background: #fafefc;
         cursor: pointer;
     }
 `;
@@ -74,4 +98,5 @@ export const BackButtonIcon = styled.div`
 
 export const AdditionalButtons = styled.div`
     display: flex;
-`
+    gap: 8px;
+`;
