@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import React from 'react';
 
-import { clippings } from '../../../../tests_utils/fixtures';
+import { clippingsSimple } from '../../../../tests_utils/fixtures/clippings-simple';
 import renderWithProviders from '../../../../tests_utils/storeTestProvider';
 import HighlightsPage from './HighlightsPage';
 
@@ -28,7 +28,7 @@ describe('Highlights Page', () => {
 
     function renderComponent() {
         return renderWithProviders(<HighlightsPage />, {
-            reduxState: { clippings },
+            reduxState: { clippings: clippingsSimple },
             route: '/highlights',
         });
     }

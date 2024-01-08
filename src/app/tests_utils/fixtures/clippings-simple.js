@@ -1,4 +1,4 @@
-export const clippings = {
+export const clippingsSimple = {
     quotes: {
         '85ae8b87-75fa-53f5-afac-5aa4b543de8e': {
             raw: 'mitologia',

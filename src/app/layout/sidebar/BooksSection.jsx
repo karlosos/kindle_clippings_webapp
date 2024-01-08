@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Input, Menu } from 'semantic-ui-react';
 
-import QuickLinksItem, { BookLinkItem } from './QuickLinksItem';
+import { BookLinkItem } from './QuickLinksItem';
 import {
     BooksList,
     BooksSectionMenu,

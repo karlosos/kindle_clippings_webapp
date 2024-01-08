@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import React from 'react';
 
-import { clippings } from '../../../../tests_utils/fixtures';
+import { clippingsSimple } from '../../../../tests_utils/fixtures/clippings-simple';
 import renderWithProviders from '../../../../tests_utils/storeTestProvider';
 import DeletedPage from './DeletedPage';
 
@@ -27,7 +27,7 @@ describe('Deleted Page', () => {
 
     function renderComponent() {
         return renderWithProviders(<DeletedPage />, {
-            reduxState: { clippings },
+            reduxState: { clippings: clippingsSimple },
             route: '/highlights',
         });
     }

@@ -3,12 +3,12 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 
 import { AppContent } from '../App';
-import { clippings } from '../tests_utils/fixtures';
+import { clippingsSimple } from '../tests_utils/fixtures/clippings-simple';
 import renderWithProviders from '../tests_utils/storeTestProvider';
 
 test('App dashboard', () => {
     const { getAllByText } = renderWithProviders(<AppContent />, {
-        reduxState: { clippings },
+        reduxState: { clippings: clippingsSimple },
         route: '/',
     });
     expect(getAllByText(/Chłopi/i)).toHaveLength(2); // sidebar and books list
@@ -17,7 +17,7 @@ test('App dashboard', () => {
 
 test('Clear all data', async () => {
     renderWithProviders(<AppContent />, {
-        reduxState: { clippings },
+        reduxState: { clippings: clippingsSimple },
         route: '/',
     });
     const leftClick = { button: 0 };
@@ -47,7 +47,7 @@ test('Clear all data', async () => {
 
 test('Add to favourites and remove from favourites', async () => {
     renderWithProviders(<AppContent />, {
-        reduxState: { clippings },
+        reduxState: { clippings: clippingsSimple },
         route: '/',
     });
     const leftClick = { button: 0 };
@@ -85,7 +85,7 @@ test('Add to favourites and remove from favourites', async () => {
 
 test('Add and remove highlights', async () => {
     renderWithProviders(<AppContent />, {
-        reduxState: { clippings },
+        reduxState: { clippings: clippingsSimple },
         route: '/',
     });
     const leftClick = { button: 0 };

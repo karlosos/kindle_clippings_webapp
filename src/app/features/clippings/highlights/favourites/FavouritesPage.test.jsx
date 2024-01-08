@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import React from 'react';
 
-import { clippings } from '../../../../tests_utils/fixtures';
+import { clippingsSimple } from '../../../../tests_utils/fixtures/clippings-simple';
 import renderWithProviders from '../../../../tests_utils/storeTestProvider';
 import FavouritesPage from './FavouritesPage';
 
@@ -27,7 +27,7 @@ describe('Favourites Page', () => {
 
     function renderComponent() {
         return renderWithProviders(<FavouritesPage />, {
-            reduxState: { clippings },
+            reduxState: { clippings: clippingsSimple },
             route: '/highlights',
         });
     }
