@@ -31,7 +31,7 @@ const BooksList = () => {
 
     return (
         <Wrapper ref={wrapperRef}>
-            <BooksContainer data-testid='books-list'>
+            <BooksContainer data-testid="books-list">
                 {booksFiltered.map((book) => (
                     <BookItem key={book.id} book={book} page={page} />
                 ))}

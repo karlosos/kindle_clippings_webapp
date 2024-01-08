@@ -1,11 +1,12 @@
 import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { AppContent } from '../../../../App';
-import renderWithProviders from '../../../../tests_utils/storeTestProvider';
-import { clippingsSimple } from '../../../../tests_utils/fixtures/clippings-simple';
 
-test('GIVEN navigated to page 2 and book oepened WHEN back button clicked THEN navigate to page 2', async () => {
+import { AppContent } from '../../../../App';
+import { clippingsSimple } from '../../../../tests_utils/fixtures/clippings-simple';
+import renderWithProviders from '../../../../tests_utils/storeTestProvider';
+
+test('stats are displayed in highlights list', async () => {
     // GIVEN
     renderWithProviders(<AppContent />, {
         reduxState: { clippings: clippingsSimple },
@@ -13,7 +14,9 @@ test('GIVEN navigated to page 2 and book oepened WHEN back button clicked THEN n
     });
 
     // WHEN
-    const book = within(screen.getByTestId('books-list')).getByText('Mitologia');
+    const book = within(screen.getByTestId('books-list')).getByText(
+        'Mitologia',
+    );
     await userEvent.click(book);
 
     // THEN
