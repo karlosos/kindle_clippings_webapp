@@ -18,13 +18,13 @@ export const HeaderStyled = styled(Header)`
 `;
 
 const getColorDropZoneBorderColor = (props) => {
-    if (props.isDragAccept) {
+    if (props.$isDragAccept) {
         return '#00e676';
     }
-    if (props.isDragReject) {
+    if (props.$isDragReject) {
         return '#ff1744';
     }
-    if (props.isDragActive) {
+    if (props.$isDragActive) {
         return '#2196f3';
     }
     return '#eeeeee';

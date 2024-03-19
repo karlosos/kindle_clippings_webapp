@@ -10,9 +10,19 @@ const DragDropContainer = ({
     isDragAccept,
     isDragReject,
 }) => {
+    const {
+        isDragAccept: $isDragAccept,
+        isDragReject: $isDragReject,
+        isDragActive: $isDragActive,
+        ...props
+    } = getRootProps({ isDragActive, isDragAccept, isDragReject });
+
     return (
         <DropZone
-            {...getRootProps({ isDragActive, isDragAccept, isDragReject })}
+            $isDragActive={$isDragActive}
+            $isDragAccept={$isDragAccept}
+            $isDragReject={$isDragReject}
+            {...props}
         >
             <input {...getInputProps()} />
             <p>Upload MyClippings.txt file</p>

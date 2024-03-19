@@ -94,7 +94,7 @@ const ImportPage = () => {
                 isDragAccept={isDragAccept}
                 isDragReject={isDragReject}
             />
-            {quotes !== {} && (
+            {quotes !== undefined && (
                 <ImportedCount highlightsStatistics={quoteStatistics(quotes)} />
             )}
             <HeaderStyled as="h1">Backup</HeaderStyled>
