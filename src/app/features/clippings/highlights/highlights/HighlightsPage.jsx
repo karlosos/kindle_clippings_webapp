@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -6,9 +6,11 @@ import HighlightsList from '../HighlightsList';
 
 const HighlightsPage = () => {
     const { bookTitle } = useParams();
-    const highlights = useSelector((state) => {
+    // TODO: memoize selector
+    const highlightsEntries = useSelector((state) => state.clippings.quotes);
+    const highlights = useMemo(() => {
         const filteredHighlightsEntries = Object.entries(
-            state.clippings.quotes,
+            highlightsEntries,
         ).filter((q) => {
             const deletedFilter = q[1].deleted === false;
             const titleFilter = bookTitle
@@ -30,7 +32,7 @@ const HighlightsPage = () => {
             }));
 
         return bookTitle ? filteredHighlights.reverse() : filteredHighlights;
-    });
+    }, [highlightsEntries]);
 
     return (
         <HighlightsList

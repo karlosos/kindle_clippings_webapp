@@ -4,12 +4,14 @@ import { useSelector } from 'react-redux';
 import HighlightsList from '../HighlightsList';
 
 const FavouritesPage = () => {
-    const filteredHighglightsEntries = useSelector((state) =>
-        Object.entries(state.clippings.quotes).filter(
-            (q) => q[1].favourite === true && q[1].deleted === false,
-        ),
+    const highlightsEntries = useSelector((state) => state.clippings.quotes);
+
+    // TODO: memoize selector
+    const filteredHighlightsEntries = Object.entries(highlightsEntries).filter(
+        (q) => q[1].favourite === true && q[1].deleted === false,
     );
-    const highlights = filteredHighglightsEntries.reverse().map((q) => ({
+
+    const highlights = filteredHighlightsEntries.reverse().map((q) => ({
         id: q[0],
         book: q[1].book,
         author: q[1].author,
