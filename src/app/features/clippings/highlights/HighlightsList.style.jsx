@@ -66,7 +66,9 @@ export const Pill = styled.div`
 
 export const PillGlossy = styled(Pill)`
     background: linear-gradient(180deg, #6dd5be 0%, #558f83 100%);
-    box-shadow: 0px 3px 4.2px -2px #6aaea0, inset 0px 2px 1.6px -1px #8cfae2;
+    box-shadow:
+        0px 3px 4.2px -2px #6aaea0,
+        inset 0px 2px 1.6px -1px #8cfae2;
     border-radius: 8px;
     color: white;
     border: 1px solid #56887d;
